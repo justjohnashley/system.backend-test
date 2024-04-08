@@ -32,7 +32,7 @@
                 </button>
 
                 <div class="sidebar-logo bg-success rounded-3">
-                    <a href="index.php"><i class="fas fa-book-reader pe-2"></i>
+                    <a href="#"><i class="fas fa-book-reader pe-2"></i>
                         LU - Digital Library</a>
                 </div>
 

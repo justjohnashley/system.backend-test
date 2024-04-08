@@ -102,7 +102,7 @@
                                 <a href="inventory.php" class="sidebar-link">Inventory</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="logbook.php" class="sidebar-link">Logbook Records</a>
+                                <a href="logbook-records.php" class="sidebar-link">Logbook Records</a>
                             </li>
                         </ul>
                     </li>

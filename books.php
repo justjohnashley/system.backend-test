@@ -72,11 +72,11 @@ include "db.php";
                         </div>
 
                         <?php include 'modal/book-add.php' ?>
-                        
+
                         <?php include 'modal/book-delete.php' ?>
-                        
+
                         <?php include 'modal/book-edit.php' ?>
-                        
+
                         <?php include 'modal/book-view.php' ?>
 
                         <!-- TABLE CONTENTS -->

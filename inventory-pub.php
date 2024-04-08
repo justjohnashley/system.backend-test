@@ -13,6 +13,7 @@
 
     <!-- Fonts and icons -->
     <script src="assets/js/webfont/webfont.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,36 +21,38 @@
 <body>
     <div class="wrapper">
 
-    <?php include 'includes/sidebar.php'; ?>
+        <?php include 'includes/sidebar.php'; ?>
 
         <!-- MAIN -->
         <div class="main">
-        <?php include 'includes/navbar.php'; ?>
+            <?php include 'includes/navbar.php'; ?>
 
             <main class="content px-3 py-2">
                 <div class="container-fluid">
-                    <div class="mb-3">
+                    <div class="mt-2">
                         <h3>Inventory</h3>
                     </div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-3">
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="inventory.php">Inventory</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Published Materials</li>
+                        </ol>
+                    </nav>
                     <div class="row">
                         <div class="col-12 col-md-0 d-flex">
                             <div class="card border-warning flex-fill border-3 illustration">
                                 <div class="card-body text-light p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
                                         <div class="col-6">
-                                            <div class="p-3 m-1">
+                                            <div class="p-4 m-1">
                                                 <h4>Published Materials</h4>
                                             </div>
                                         </div>
                                         <div class="col-6 align-self-center text-end pe-5">
-                                            <form class="d-flex">
-                                                <input class="form-control me-2" type="search" placeholder="Search">
-                                                <button class="btn btn-warning" type="send">
-                                                    <i class="fas fa-search fa-lg"></i>
-                                                </button>
-                                            </form>
+
                                         </div>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -63,137 +66,92 @@
                                         <div class="row g-0 w-100">
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="ebooks-tab" data-bs-toggle="tab" data-bs-target="#ebooks-tab-pane" type="button" role="tab" aria-controls="ebooks-tab-pane" aria-selected="false">eBooks</button>
+                                                    <button class="nav-link" id="ebooks-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#ebooks-tab-pane" type="button" role="tab"
+                                                        aria-controls="ebooks-tab-pane"
+                                                        aria-selected="false">eBooks</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane" type="button" role="tab" aria-controls="books-tab-pane" aria-selected="true">Books</button>
-                                                  </li>
-                                                <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="clippings-tab" data-bs-toggle="tab" data-bs-target="#clippings-tab-pane" type="button" role="tab" aria-controls="clippings-tab-pane" aria-selected="false" disabled>Clippings</button>
+                                                    <button class="nav-link active" id="books-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#books-tab-pane" type="button" role="tab"
+                                                        aria-controls="books-tab-pane"
+                                                        aria-selected="true">Books</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="eJourn/eMag-tab" data-bs-toggle="tab" data-bs-target="#eJourn/eMag-tab-pane" type="button" role="tab" aria-controls="eJourn/eMag-tab-pane" aria-selected="false" disabled>eJournals and eMagazines</button>
+                                                    <button class="nav-link" id="clippings-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#clippings-tab-pane" type="button" role="tab"
+                                                        aria-controls="clippings-tab-pane"
+                                                        aria-selected="false">Clippings</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="fiction-tab" data-bs-toggle="tab" data-bs-target="#fiction-tab-pane" type="button" role="tab" aria-controls="fiction-tab-pane" aria-selected="false" disabled>Fiction</button>
+                                                    <button class="nav-link" id="eJourn/eMag-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#eJourn/eMag-tab-pane" type="button" role="tab"
+                                                        aria-controls="eJourn/eMag-tab-pane"
+                                                        aria-selected="false">eJournals and eMagazines</button>
                                                 </li>
-                                              </ul>
-                                              <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel" aria-labelledby="ebooks-tab" tabindex="0">
-                                                    <div class="table-responsive-lg">
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Accession No.</th>
-                                                                    <th scope="col">Book Code</th>
-                                                                    <th scope="col">Author</th>
-                                                                    <th scope="col">Title</th>
-                                                                    <th scope="col">Copyright Date</th>
-                                                                    <th scope="col">Cover</th>
-                                                                    <th scope="col">Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">00001</td>
-                                                                    <td>E0001</td>
-                                                                    <td>Surname, Firstname</td>
-                                                                    <td>Title</td>
-                                                                    <td>0000</td>
-                                                                    <td> <button class="btn btn-primary" data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal4" disabled>
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </span>
-                                                                        View
-                                                                    </button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row g-1 w-100">
-                                                                        <button class="btn btn-warning" data-bs-toggle="modal"
-                                                                            data-bs-target="#myModal3" disabled>
-                                                                            <span class="btn-label">
-                                                                                <i class="fas fa-pen"></i>
-                                                                            </span>
-                                                                            Edit
-                                                                        </button>
-                                                                        <button class="btn btn-danger" data-bs-toggle="modal"
-                                                                            data-bs-target="#myModal2" disabled>
-                                                                            <span class="btn-label">
-                                                                                <i class="far fa-trash-alt"></i>
-                                                                            </span>
-                                                                            Delete
-                                                                        </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-link" id="fiction-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#fiction-tab-pane" type="button" role="tab"
+                                                        aria-controls="fiction-tab-pane"
+                                                        aria-selected="false">Fiction</button>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent">
+                                                <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel"
+                                                    aria-labelledby="ebooks-tab" tabindex="0">
+
+                                                    <div class="card border-1 border-danger">
+
+                                                        <div class="card-body">
+                                                            <h1 class="mt-5 mb-5 text-center">
+                                                                Data Unavailable
+                                                            </h1>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade show active" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab" tabindex="0">
+
+                                                <div class="tab-pane fade show active" id="books-tab-pane"
+                                                    role="tabpanel" aria-labelledby="books-tab" tabindex="1">
                                                     <div class="table-responsive-lg">
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Accession No.</th>
-                                                                    <th scope="col">Book Code</th>
-                                                                    <th scope="col">Author</th>
-                                                                    <th scope="col">Title</th>
-                                                                    <th scope="col">Copyright Date</th>
-                                                                    <th scope="col">Cover</th>
-                                                                    <th scope="col">Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">00001</td>
-                                                                    <td>B0001</td>
-                                                                    <td>Osamu, Dazai</td>
-                                                                    <td>No Longer Human</td>
-                                                                    <td>1941</td>
-                                                                    <td> <button class="btn btn-primary" data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal4">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </span>
-                                                                        View
-                                                                    </button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row g-1 w-100">
-                                                                        <button class="btn btn-warning" data-bs-toggle="modal"
-                                                                            data-bs-target="#myModal3">
-                                                                            <span class="btn-label">
-                                                                                <i class="fas fa-pen"></i>
-                                                                            </span>
-                                                                            Edit
-                                                                        </button>
-                                                                        <button class="btn btn-danger" data-bs-toggle="modal"
-                                                                            data-bs-target="#myModal2">
-                                                                            <span class="btn-label">
-                                                                                <i class="far fa-trash-alt"></i>
-                                                                            </span>
-                                                                            Delete
-                                                                        </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                        <div class="card-body d-flex flex-fill">
+                                                            <canvas id="chLine"></canvas>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel" aria-labelledby="clippings-tab" tabindex="0">
-    
+                                                <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel"
+                                                    aria-labelledby="clippings-tab" tabindex="2">
+                                                    <div class="card border-1 border-danger">
+
+                                                        <div class="card-body">
+                                                            <h1 class="mt-5 mb-5 text-center">
+                                                                Data Unavailable
+                                                            </h1>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel" aria-labelledby="eJourn/eMag-tab" tabindex="0">
-                                                    
+                                                <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel"
+                                                    aria-labelledby="eJourn/eMag-tab" tabindex="3">
+                                                    <div class="card border-1 border-danger">
+
+                                                        <div class="card-body">
+                                                            <h1 class="mt-5 mb-5 text-center">
+                                                                Data Unavailable
+                                                            </h1>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel" aria-labelledby="fiction-tab" tabindex="0">
-                                                    
+                                                <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel"
+                                                    aria-labelledby="fiction-tab" tabindex="0">
+                                                    <div class="card border-1 border-danger">
+
+                                                        <div class="card-body">
+                                                            <h1 class="mt-5 mb-5 text-center">
+                                                                Data Unavailable
+                                                            </h1>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </div>
-                                            
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
