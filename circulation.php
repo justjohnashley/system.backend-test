@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
     <link rel="icon" href="assets/img/buffalo.ico" type="image/x-icon">
-    <title>Dashboard Test</title>
+    <title>LU - DigiLibMS | Circulation</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -20,155 +20,12 @@
 <body>
     <div class="wrapper">
 
-        <aside id="sidebar">
-            <!-- Content for Sidebar -->
-            <div class="h-100">
-                <div class="sidebar-logo">
-                    <a href="#"><i class="fas fa-book-reader pe-2"></i>
-                        LU - Digital Library</a>
-                </div>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        <i class="fas fa-user-shield pe-2"></i>
-                        Logged in as Library Director
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="index.html" class="sidebar-link">
-                            <i class="fas fa-home pe-2"></i>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="sidebar-header">
-                        Admin Controls
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#libholds" data-bs-toggle="collapse"
-                            aria-expanded="false">
-                            <i class="fas fa-bookmark pe-2"></i>
-                            Library Holdings
-                        </a>
-                        <ul id="libholds" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link" data-bs-target="#pubmat" data-bs-toggle="collapse"
-                                    aria-expanded="false">
-                                    <i class="fas fa-user-check ps-3 pe-2"></i>
-                                    Published Materials
-                                </a>
-                                <ul id="pubmat" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;eBooks</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="books.html" class="sidebar-link">&emsp;Books</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Clippings</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;eJournals and eMagazines</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Fiction</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Clippings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link" data-bs-target="#notpubmat" data-bs-toggle="collapse"
-                                    aria-expanded="false">
-                                    <i class="fas fa-user-alt-slash ps-3 pe-2"></i>
-                                    Unpublished Materials
-                                </a>
-                                <ul id="notpubmat" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Workbooks</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;SHS Workbooks</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Thesis</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Capstone</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Feasibility Studies</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Manuscript</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Narrative Reports</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="circulation.html" class="sidebar-link">
-                            <i class="fas fa-redo pe-2"></i>
-                            Circulation
-                        </a>
-                    </li>
-                    <li class="sidebar-header">
-                        Automated Processes
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#automation"
-                            data-bs-toggle="collapse" aria-expanded="false">
-                            <i class="fas fa-hashtag pe-2"></i>
-                            Report Generation
-                        </a>
-                        <ul id="automation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Inventory</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link" data-bs-target="#logb" data-bs-toggle="collapse"
-                                    aria-expanded="false">
-                                    Logbook Records
-                                </a>
-                                <ul id="logb" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&ensp;Student and Personnel</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&ensp;Visitors</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-        </aside>
+        <?php include 'includes/sidebar.php'; ?>
 
         <!-- MAIN -->
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom">
-                <button class="btn" id="sidebar-toggle" type="button">
-                    <span class="navbar-toggler-icon"></span>
+            <?php include 'includes/navbar.php'; ?>
 
-                </button>
-                <div class="navbar-collapse navbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="image/pfp.jpg" class="avatar img-fluid rounded" alt="">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
-                                <a href="login1.html" class="dropdown-item">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
 
             <main class="content px-3 py-2">
                 <div class="container-fluid">
@@ -414,38 +271,9 @@
 
 
 
-            <a href="#" class="theme-toggle">
-                <i class="far fa-sun"></i>
-                <i class="far fa-moon"></i>
-            </a>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-2">
-                                <a href="https://lu.edu.ph" class="text-muted">
-                                    <strong>Laguna University 2024</strong>
-                                </a>
-                                | DigiLibMS 1.0.0
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">About</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">Help</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://elibrary.lu.edu.ph" class="text-success"><strong>Digital
-                                            Library</strong></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <?php include 'includes/theme-toggler.php'; ?>
+
+            <?php include 'includes/footer.php'; ?>
 
         </div>
     </div>
@@ -454,11 +282,8 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-
-    <script src="script.js"></script>
+    <?php include 'includes/scripts.php'; ?>
+    
 </body>
 
 </html>

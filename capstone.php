@@ -1,8 +1,3 @@
-<?php
-session_start();
-include "db.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
@@ -11,7 +6,7 @@ include "db.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
     <link rel="icon" href="assets/img/buffalo.ico" type="image/x-icon">
-    <title>Published Materials - Books</title>
+    <title>Unpublished Materials - Capstone Projects</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -25,17 +20,18 @@ include "db.php";
 <body>
     <div class="wrapper">
 
-        <?php include 'includes/sidebar.php'; ?>
+    <?php include 'includes/sidebar.php'; ?>
 
 
         <!-- MAIN -->
         <div class="main">
-            <?php include 'includes/navbar.php'; ?>
+        <?php include 'includes/navbar.php'; ?>
+
 
             <main class="content px-3 py-2">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3>Published Materials</h3>
+                        <h3>Unpublished Materials</h3>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-0 d-flex">
@@ -44,7 +40,7 @@ include "db.php";
                                     <div class="row g-0 w-100">
                                         <div class="col-4">
                                             <div class="p-3 m-1">
-                                                <h4>List of Books</h4>
+                                                <h4>List of Capstone Projects</h4>
                                             </div>
                                         </div>
                                         <div class="col-5 align-self-center text-end">
@@ -71,15 +67,14 @@ include "db.php";
                             </div>
                         </div>
 
-                        <?php include 'modal/book-add.php' ?>
+                        <?php include 'modal/caps-add.php' ?>
                         
-                        <?php include 'modal/book-delete.php' ?>
+                        <?php include 'modal/caps-delete.php' ?>
                         
-                        <?php include 'modal/book-edit.php' ?>
+                        <?php include 'modal/caps-edit.php' ?>
                         
-                        <?php include 'modal/book-view.php' ?>
+                        <?php include 'modal/caps-view.php' ?>
 
-                        <!-- TABLE CONTENTS -->
                         <div class="col-12 col-md-0 d-flex">
                             <div class="card flex-fill border-0">
                                 <div class="card-body py-4">
@@ -90,10 +85,10 @@ include "db.php";
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Accession No.</th>
-                                                            <th scope="col">Sublocation</th>
+                                                            <th scope="col">Capstone Code</th>
                                                             <th scope="col">Author</th>
                                                             <th scope="col">Title</th>
-                                                            <th scope="col">Copyright Date</th>
+                                                            <th scope="col">Year Uploaded</th>
                                                             <th scope="col">Cover</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -101,10 +96,13 @@ include "db.php";
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">00001</td>
-                                                            <td>Filipiniana</td>
-                                                            <td>La Putt, Juny Pilapil</td>
-                                                            <td>Introduction to Computer concepts</td>
-                                                            <td>1984</td>
+                                                            <td>CAP0001</td>
+                                                            <td>Berdali Eugenia</td>
+                                                            <td>The Reflective/Dialogical
+                                                                ESL/EFL Teacher A
+                                                                Co-authorship in the
+                                                                Naming of the World</td>
+                                                            <td>2012</td>
                                                             <td> <button class="btn btn-outline-success">
                                                                     <span class="btn-label">
                                                                         <i class="fas fa-file-upload"></i>
@@ -114,31 +112,28 @@ include "db.php";
                                                             </td>
                                                             <td>
                                                                 <div class="row g-1 w-100">
-                                                                    <button class="btn btn-primary"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal4">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </span>
-                                                                        View
-                                                                    </button>
-                                                                    <button class="btn btn-warning"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal3">
-                                                                        <span class="btn-label">
-                                                                            <i class="fas fa-pen"></i>
-                                                                        </span>
-                                                                        Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal2">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-trash-alt"></i>
-                                                                        </span>
-                                                                        Delete
-                                                                    </button>
-                                                                </div>
+                                                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                                                    data-bs-target="#myModal4">
+                                                                    <span class="btn-label">
+                                                                        <i class="far fa-eye"></i>
+                                                                    </span>
+                                                                    View
+                                                                </button>
+                                                                <button class="btn btn-warning" data-bs-toggle="modal"
+                                                                    data-bs-target="#myModal3">
+                                                                    <span class="btn-label">
+                                                                        <i class="fas fa-pen"></i>
+                                                                    </span>
+                                                                    Edit
+                                                                </button>
+                                                                <button class="btn btn-danger" data-bs-toggle="modal"
+                                                                    data-bs-target="#myModal2">
+                                                                    <span class="btn-label">
+                                                                        <i class="far fa-trash-alt"></i>
+                                                                    </span>
+                                                                    Delete
+                                                                </button>
+                                                            </div>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -165,7 +160,7 @@ include "db.php";
 
 
     <?php include 'includes/scripts.php'; ?>
-
+    
 </body>
 
 </html>

@@ -2,7 +2,7 @@
             <!-- Content for Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
-                    <a href="#"><i class="fas fa-book-reader pe-2"></i>
+                    <a href="index.php"><i class="fas fa-book-reader pe-2"></i>
                         LU - Digital Library</a>
                 </div>
                 <ul class="sidebar-nav">
@@ -67,7 +67,7 @@
                                         <a href="#" class="sidebar-link">&emsp;Thesis</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="capstone.html" class="sidebar-link">&emsp;Capstone</a>
+                                        <a href="capstone.php" class="sidebar-link">&emsp;Capstone</a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="#" class="sidebar-link">&emsp;Feasibility Studies</a>
@@ -83,7 +83,7 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a href="circulation.html" class="sidebar-link">
+                        <a href="circulation.php" class="sidebar-link">
                             <i class="fas fa-redo pe-2"></i>
                             Circulation
                         </a>
@@ -99,21 +99,10 @@
                         </a>
                         <ul id="automation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="inventory.html" class="sidebar-link">Inventory</a>
+                                <a href="inventory.php" class="sidebar-link">Inventory</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link" data-bs-target="#logb" data-bs-toggle="collapse"
-                                    aria-expanded="false">
-                                    Logbook Records
-                                </a>
-                                <ul id="logb" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&ensp;Student and Personnel</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&ensp;Visitors</a>
-                                    </li>
-                                </ul>
+                                <a href="logbook.php" class="sidebar-link">Logbook Records</a>
                             </li>
                         </ul>
                     </li>

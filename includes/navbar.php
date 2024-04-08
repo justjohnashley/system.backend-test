@@ -10,7 +10,7 @@
                                 <img src="image/pfp.jpg" class="avatar img-fluid rounded" alt="">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a href="profile.html" class="dropdown-item">My Profile</a>
+                                <a href="profile.php" class="dropdown-item">My Profile</a>
                                 <a href="login1.html" class="dropdown-item">Logout</a>
                             </div>
                         </li>
