@@ -2,7 +2,7 @@
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form name="add" action="" method="post">
+            <form name="add" action="b_add.php" method="POST">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Add</h4>
@@ -18,11 +18,16 @@
                                 <label for="category" class="form-label">Category</label>
                                 <select class="form-select" name="slocation">
                                     <option selected>Select a sublocation...</option>
-                                    <option value="1">General Collection</option>
-                                    <option value="2">Filipiniana</option>
-                                    <option value="3">Filipiniana Reference</option>
-                                    <option value="4">General Reference</option>
-
+                                    <?php
+                                    $sql = "SELECT * FROM book_category";
+                                    $query = $con->query($sql);
+                                    while ($catrow = $query->fetch_assoc()) {
+                                        $selected = ($catid == $catrow['id']) ? " selected" : "";
+                                        echo "
+                                                <option value='" . $catrow['id'] . "' " . $selected . ">" . $catrow['name'] . "</option>
+                                                                    ";
+                                    }
+                                    ?>
                                 </select>
                             </div>
 
@@ -35,12 +40,6 @@
                             <div class="col-12">
                                 <label for="booktitle" class="form-label">Book Title</label>
                                 <input type="text" class="form-control" id="booktitle" name="btitle">
-                            </div>
-
-                            <div class="col-12">
-                                <label for="bookcode" class="form-label">Classification
-                                    No.</label>
-                                <input type="text" class="form-control" id="classnum" name="clnum">
                             </div>
 
                             <div class="col-12">
@@ -78,8 +77,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" name="submit1"
-                        id="liveAlertBtn">Submit</button>
+                    <button type="submit" class="btn btn-success" name="book-add">Submit</button>
                 </div>
 
             </form>
