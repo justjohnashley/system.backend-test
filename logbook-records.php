@@ -2,20 +2,10 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
-    <link rel="icon" href="assets/img/buffalo.ico" type="image/x-icon">
-    <title>LU - DigilibMS | Logbook Records</title>
+    <?php include 'includes/header.php'; ?>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>LU - DigiLibMS | Logbook Records</title>
 
-    <!-- Fonts and icons -->
-    <script src="assets/js/webfont/webfont.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
-</head>
 
 <body>
     <div class="wrapper">
@@ -67,9 +57,9 @@
                                         <div class="row g-0 w-100">
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="college-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#college-tab-pane" type="button" role="tab"
-                                                        aria-controls="college-tab-pane"
+                                                    <button class="nav-link active" id="college-tab"
+                                                        data-bs-toggle="tab" data-bs-target="#college-tab-pane"
+                                                        type="button" role="tab" aria-controls="college-tab-pane"
                                                         aria-selected="true">College</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
@@ -95,7 +85,8 @@
                                                 <div class="tab-pane fade show active" id="college-tab-pane"
                                                     role="tabpanel" aria-labelledby="college-tab" tabindex="0">
                                                     <div class="table-responsive-lg">
-                                                        <table class="table table-hover">
+                                                        <table id="libtable" class="table table-hover"
+                                                            style="width: 100%">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Student No.</th>
@@ -121,20 +112,20 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="shs-tab-pane" role="tabpanel"
                                                     aria-labelledby="shs-tab" tabindex="1">
-                                                        <div class="card border-1 border-danger">
-                                                        
-                                                            <div class="card-body">
-                                                                <h1 class="mt-5 mb-5 text-center">
-                                                                    Data Unavailable
-                                                                </h1>
-                                                            </div>
+                                                    <div class="card border-1 border-danger">
+
+                                                        <div class="card-body">
+                                                            <h1 class="mt-5 mb-5 text-center">
+                                                                Data Unavailable
+                                                            </h1>
                                                         </div>
-                                                    
+                                                    </div>
+
                                                 </div>
                                                 <div class="tab-pane fade" id="personnel-tab-pane" role="tabpanel"
                                                     aria-labelledby="personnel-tab" tabindex="2">
                                                     <div class="card border-1 border-danger">
-                                                        
+
                                                         <div class="card-body">
                                                             <h1 class="mt-5 mb-5 text-center">
                                                                 Data Unavailable
@@ -145,7 +136,7 @@
                                                 <div class="tab-pane fade" id="visitor-tab-pane" role="tabpanel"
                                                     aria-labelledby="visitor-tab" tabindex="3">
                                                     <div class="card border-1 border-danger">
-                                                        
+
                                                         <div class="card-body">
                                                             <h1 class="mt-5 mb-5 text-center">
                                                                 Data Unavailable

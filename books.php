@@ -7,26 +7,16 @@ include "db.php";
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
-    <link rel="icon" href="assets/img/buffalo.ico" type="image/x-icon">
-    <title>Published Materials - Books</title>
+    <?php include 'includes/header.php'; ?>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Library Holdings | Published Materials - Books</title>
 
-    <!-- Fonts and icons -->
-    <script src="assets/js/webfont/webfont.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="wrapper">
 
         <?php include 'includes/sidebar.php'; ?>
-
 
         <!-- MAIN -->
         <div class="main">
@@ -43,7 +33,7 @@ include "db.php";
                                 <div class="card-body text-light p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
                                         <div class="col-4">
-                                            <div class="p-3 m-1">
+                                            <div class="p-4 m-1">
                                                 <h4>List of Books</h4>
                                             </div>
                                         </div>
@@ -86,7 +76,7 @@ include "db.php";
                                     <div class="d-flex align-content-center flex-wrap">
                                         <div class="row g-0 w-100">
                                             <div class="table-responsive-xl">
-                                                <table class="table table-hover rounded-3">
+                                                <table id="libtable" class="table table-hover rounded-3" style="width: 100%">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Accession No.</th>
@@ -107,9 +97,9 @@ include "db.php";
                                                             <td>1984</td>
                                                             <td> <button class="btn btn-outline-success">
                                                                     <span class="btn-label">
-                                                                        <i class="fas fa-file-upload"></i>
-                                                                    </span>
-                                                                    Upload
+                                                                        <i class="far fa-file-image"></i>
+                                                                    </span><br>
+                                                                    No cover uploaded
                                                                 </button>
                                                             </td>
                                                             <td>

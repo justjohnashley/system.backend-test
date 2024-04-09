@@ -2,19 +2,10 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
-    <link rel="icon" href="assets/img/buffalo.ico" type="image/x-icon">
+    <?php include 'includes/header.php'; ?>
+
     <title>LU - DigiLibMS | Circulation</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- Fonts and icons -->
-    <script src="assets/js/webfont/webfont.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -83,7 +74,7 @@
                                     <div class="d-flex align-content-center flex-wrap">
                                         <div class="row g-0 w-100">
                                             <div class="table-responsive">
-                                                <table id="example" class="table table-striped table-hover">
+                                                <table id="libtable" class="table table-striped table-hover" style="width: 100%">
                                                     <thead>
                                                         <tr>
                                                             <th>Type</th>
@@ -101,7 +92,7 @@
                                                             <td>Student</td>
                                                             <td>221-0000</td>
                                                             <td>Yor, Wysiwyg</td>
-                                                            <td>Literature</td>
+                                                            <td>Book</td>
                                                             <td>B0001</td>
                                                             <td>The Woman Who Had Two Navels</td>
                                                             <td>2024/02/20</td>
@@ -122,7 +113,7 @@
                                                             <td>Student</td>
                                                             <td>221-0000</td>
                                                             <td>Yor, Wysiwyg</td>
-                                                            <td>Literature</td>
+                                                            <td>Book</td>
                                                             <td>B0001</td>
                                                             <td>The Woman Who Had Two Navels</td>
                                                             <td>2024/02/20</td>
@@ -143,7 +134,7 @@
                                                             <td>Student</td>
                                                             <td>221-0000</td>
                                                             <td>Yor, Wysiwyg</td>
-                                                            <td>Literature</td>
+                                                            <td>Book</td>
                                                             <td>B0001</td>
                                                             <td>The Woman Who Had Two Navels</td>
                                                             <td>2024/02/20</td>
@@ -164,7 +155,7 @@
                                                             <td>Student</td>
                                                             <td>221-0000</td>
                                                             <td>Yor, Wysiwyg</td>
-                                                            <td>Literature</td>
+                                                            <td>Book</td>
                                                             <td>B0001</td>
                                                             <td>The Woman Who Had Two Navels</td>
                                                             <td>2024/02/20</td>
@@ -213,15 +204,25 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <form id="searchForm" class="d-flex">
-                                            <input class="form-control me-2" type="search" placeholder="Search ID">
-                                            <button class="btn btn-success" type="submit">
-                                                <i class="fas fa-search fa-lg"></i>
-                                            </button>
-                                        </form>
-                                        <div class="search-result-box">
-                                            <div class="collapse" id="result">
-                                                <h4>THIS IS THE RESULT BOX</h4>
+                                        <div class="row">
+                                            <div class="col-12 p-3">
+                                                <form id="searchForm" class="d-flex">
+                                                    <input class="form-control me-2" type="search"
+                                                        placeholder="Identification No.">
+
+                                                </form>
+                                            </div>
+                                            <div class="col-12 p-3">
+                                                <form id="searchForm" class="d-flex">
+                                                    <input class="form-control me-2" type="search"
+                                                        placeholder="Accession No.">
+
+                                                </form>
+                                            </div>
+                                            <div class="col-12 text-end">
+                                                <button class="btn btn-success w-50 " type="submit">
+                                                    <i class="fas fa-plus fa-lg"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -235,7 +236,7 @@
                                             Recently Borrowed Books
                                         </h5>
                                         <h6 class="card-subtitle text-muted text-center">
-                                            mm/dd/yyyy 
+                                            mm/dd/yyyy
                                         </h6>
                                     </div>
                                     <div class="card-body">
@@ -252,7 +253,7 @@
                                             Recently Returned Books
                                         </h5>
                                         <h6 class="card-subtitle text-muted text-center">
-                                            mm/dd/yyyy 
+                                            mm/dd/yyyy
                                         </h6>
                                     </div>
                                     <div class="card-body">
@@ -283,7 +284,7 @@
 
 
     <?php include 'includes/scripts.php'; ?>
-    
+
 </body>
 
 </html>
