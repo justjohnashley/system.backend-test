@@ -3,7 +3,7 @@
     include 'db.php';
 
 	if(isset($_POST['book-delete'])){
-		$id = $_POST['bookid'];
+		$id = $_POST['id'];
 		$sql = "DELETE FROM book WHERE id = '$id'";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Book deleted successfully';

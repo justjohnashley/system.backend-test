@@ -74,11 +74,6 @@ if (isset($_GET['category'])) {
 
                         <?php include 'modal/book-add.php' ?>
 
-                        <?php include 'modal/book-delete.php' ?>
-
-                        <?php include 'modal/book-edit.php' ?>
-
-                        <?php include 'modal/book-view.php' ?>
 
                         <!-- TABLE CONTENTS -->
                         <div class="col-12 col-md-0 d-flex">
@@ -150,7 +145,8 @@ if (isset($_GET['category'])) {
                                                                         </button>
                                                                         <button class="btn btn-danger"
                                                                             data-bs-toggle="modal"
-                                                                            data-bs-target="#myModal2">
+                                                                            data-bs-target="#myModal2"
+                                                                            data-bs-id="<?php echo $row['bookid'] ?>">
                                                                             <span class="btn-label">
                                                                                 <i class="far fa-trash-alt"></i>
                                                                             </span>
@@ -159,6 +155,11 @@ if (isset($_GET['category'])) {
                                                                     </div>
                                                                 </td>
                                                             </tr>
+                                                            <?php include 'modal/book-edit.php' ?>
+
+                                                            <?php include 'modal/book-view.php' ?>
+                                                            
+                                                            <?php include 'modal/book-delete.php' ?>
                                                             <?php
                                                             }
                                                             ?>
