@@ -90,14 +90,7 @@
                                                 <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel"
                                                     aria-labelledby="ebooks-tab" tabindex="0">
 
-                                                    <div class="card border-1 border-danger">
-
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
+                                                    <?php include 'includes/!avail.php'?>
                                                 </div>
 
                                                 <div class="tab-pane fade show active" id="books-tab-pane"
@@ -110,36 +103,18 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel"
                                                     aria-labelledby="clippings-tab" tabindex="2">
-                                                    <div class="card border-1 border-danger">
 
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
+                                                    <?php include 'includes/!avail.php'?>
                                                 </div>
                                                 <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel"
                                                     aria-labelledby="eJourn/eMag-tab" tabindex="3">
-                                                    <div class="card border-1 border-danger">
 
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
+                                                    <?php include 'includes/!avail.php'?>
                                                 </div>
                                                 <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel"
-                                                    aria-labelledby="fiction-tab" tabindex="0">
-                                                    <div class="card border-1 border-danger">
+                                                    aria-labelledby="fiction-tab" tabindex="4">
 
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
+                                                    <?php include 'includes/!avail.php'?>
                                                 </div>
                                             </div>
                                         </div>
