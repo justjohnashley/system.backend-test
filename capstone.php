@@ -1,3 +1,19 @@
+<?php
+
+require_once ('db.php');
+$query = "SELECT * FROM capstone";
+$result = mysqli_query($con, $query);
+
+?>
+<?php
+$catid = 0;
+$where = '';
+if (isset($_GET['category'])) {
+    $catid = $_GET['category'];
+    $where = 'WHERE capstone.cap_type = ' . $catid;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
@@ -59,12 +75,6 @@
 
                         <?php include 'modal/caps-add.php' ?>
 
-                        <?php include 'modal/caps-delete.php' ?>
-
-                        <?php include 'modal/caps-edit.php' ?>
-
-                        <?php include 'modal/caps-view.php' ?>
-
                         <div class="col-12 col-md-0 d-flex">
                             <div class="card flex-fill border-0">
                                 <div class="card-body py-4">
@@ -74,7 +84,7 @@
                                                 <table id="libtable" class="table table-hover rounded-3" style="width: 100%">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Accession No.</th>
+                                                            <th scope="col">Item No.</th>
                                                             <th scope="col">Capstone Code</th>
                                                             <th scope="col">Author</th>
                                                             <th scope="col">Title</th>
@@ -83,53 +93,9 @@
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">00001</td>
-                                                            <td>CAP0001</td>
-                                                            <td>Berdali Eugenia</td>
-                                                            <td>The Reflective/Dialogical
-                                                                ESL/EFL Teacher A
-                                                                Co-authorship in the
-                                                                Naming of the World</td>
-                                                            <td>2012</td>
-                                                            <td> <button class="btn btn-outline-success">
-                                                                    <span class="btn-label">
-                                                                        <i class="far fa-file-image"></i>
-                                                                    </span> <br>
-                                                                    No cover uploaded
-                                                                </button>
-                                                            </td>
-                                                            <td>
-                                                                <div class="row g-1 w-100">
-                                                                    <button class="btn btn-primary"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal4">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </span>
-                                                                        View
-                                                                    </button>
-                                                                    <button class="btn btn-warning"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal3">
-                                                                        <span class="btn-label">
-                                                                            <i class="fas fa-pen"></i>
-                                                                        </span>
-                                                                        Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal2">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-trash-alt"></i>
-                                                                        </span>
-                                                                        Delete
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
+
+                                                    <?php include 'caps-content.php' ?>
+                                                    
                                                 </table>
                                             </div>
                                         </div>

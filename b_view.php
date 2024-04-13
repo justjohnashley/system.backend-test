@@ -41,7 +41,7 @@ if(isset($_POST["cover-up"])){
       "
       <script>
         alert('Successfully Added');
-        document.location.href = 'books-test.php';
+        document.location.href = 'books.php';
       </script>
       ";
     }

@@ -16,6 +16,6 @@
 		$_SESSION['error'] = 'Select item to delete first';
 	}
 
-	header('location: books-test.php');
+	header('location: books.php');
 	
 ?>

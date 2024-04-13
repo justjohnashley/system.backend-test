@@ -14,7 +14,7 @@
 		$pubplace = $_POST['plpub'];
 
 
-		$sql = "INSERT INTO book (isbn, title, category_id, code, author, cryear, descr, publisher, placepub) VALUES ('$isbn', '$title', '$category', '$code', '$author', '$crdate', '$description', '$publisher', '$pubplace')";
+		$sql = "INSERT INTO book (isbn, title, category_id, bcode, author, cryear, descr, publisher, placepub) VALUES ('$isbn', '$title', '$category', '$code', '$author', '$crdate', '$description', '$publisher', '$pubplace')";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Book added successfully';
 		}
@@ -26,6 +26,6 @@
 		$_SESSION['error'] = 'Fill up add form first';
 	}
 
-	header('location: books-test.php');
+	header('location: books.php');
 
 ?>

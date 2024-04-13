@@ -12,21 +12,48 @@
     <?php include 'style.css' ?>
 </style>
 
-<body>
+<body onload="initClock()">
     <div class="wrapper">
 
 
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom">
-                <button class="btn me-3" id="sidebar-toggle" type="button" disabled>
-                    <span class="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand px-3 border-bottom border-success justify-content-between ">
+                <div class="container-fluid">
+                    <div class="col-3">
+                        <button class="btn me-3" id="sidebar-toggle" type="button" disabled>
+                            <span class="navbar-toggler-icon"></span>
 
-                </button>
+                        </button>
+                    </div>
 
-                <div class="sidebar-logo bg-success rounded-3">
-                    <a href="#"><i class="fas fa-book-reader pe-2"></i>
-                        LU - Digital Library</a>
+                    <div class="col-6">
+                        <div class="sidebar-logo bg-success rounded-3 text-center mx-3">
+                            <a href="#"><i class="fas fa-book-reader pe-2"></i>
+                                LU - Digital Library</a>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="datetime m-0">
+                            <div class="date text-end fs-6 text-muted">
+                                <span id="today">Today</span>,
+                                <span id="month">Month</span>
+                                <span id="day">00</span>,
+                                <span id="year">Year</span>
+                            </div>
+                            <div class="time text-end fs-1 text-emphasis mb-0">
+                                <strong> <span id="hour">00</span> :
+                                    <span id="minutes">00</span> :
+                                    <span id="seconds">00</span>
+                                    <span id="period" class="bg-secondary px-2 rounded-3 text-emphasis">AM</span> </strong>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+
+
 
             </nav>
 

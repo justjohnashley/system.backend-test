@@ -1,30 +1,27 @@
 <tbody>
     <?php
-    $sql = "SELECT *, book.id AS bookid FROM book LEFT JOIN book_category ON book_category.id=book.category_id $where";
+    $sql = "SELECT *, capstone.id AS capid FROM capstone LEFT JOIN cap_category ON cap_category.id=capstone.cap_type $where";
     $query = $con->query($sql);
     while ($row = $query->fetch_assoc()) {
         ?>
         <tr>
             <td scope="row">
-                <?php printf("%05d", $row['bookid']) ?>
+                <?php printf("%05d", $row['capid']) ?>
             </td>
             <td>
-                <?php echo $row['bcode'] ?>
-            </td>
-            <td>
-                <?php echo $row['name'] ?>
-            </td>
-            <td>
-                <?php echo $row['title'] ?>
+                <?php echo $row['cpcode'] ?>
             </td>
             <td>
                 <?php echo $row['author'] ?>
             </td>
             <td>
-                <?php echo $row['cryear'] ?>
+                <?php echo $row['title'] ?>
             </td>
-
             <td>
+                <?php echo $row['upyear'] ?>
+            </td>
+            <td>
+                
                 <div class="row p-2 d-flex justify-content-center">
                     <button class="btn btn-outline-success">
                         <span class="btn-label">
@@ -36,21 +33,19 @@
             </td>
             <td>
                 <div class="row g-1 w-100">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bmview">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal4">
                         <span class="btn-label">
                             <i class="far fa-eye"></i>
                         </span>
 
                     </button>
-                    <button class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#bmedit"
-                        data-id="<?php echo $row['bookid'] ?>">
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal3">
                         <span class="btn-label">
                             <i class="fas fa-pen"></i>
                         </span>
 
                     </button>
-                    <button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#bmdelete"
-                        data-id="<?php echo $row['bookid'] ?>">
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2">
                         <span class="btn-label">
                             <i class="far fa-trash-alt"></i>
                         </span>
@@ -62,10 +57,11 @@
         <?php
     }
     ?>
-    <?php include 'modal/book-edit.php' ?>
+    <?php include 'modal/caps-edit.php' ?>
 
-    <?php include 'modal/book-view.php' ?>
+    <?php include 'modal/caps-view.php' ?>
 
-    <?php include 'modal/book-delete.php' ?>
+    <?php include 'modal/caps-delete.php' ?>
+
 
 </tbody>

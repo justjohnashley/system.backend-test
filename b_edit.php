@@ -16,7 +16,7 @@
 		$pubplace = $_POST['plpub'];
 		$cover = $_POST['cover'];
 
-		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', category_id = '$category', code = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace', cover = '$cover' WHERE id = '$id'";
+		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', category_id = '$category', bcode = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace', cover = '$cover' WHERE id = '$id'";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Book updated successfully';
 		}
@@ -28,6 +28,6 @@
 		$_SESSION['error'] = 'Fill up edit form first';
 	}
 
-	header('location:books-test.php');
+	header('location:books.php');
 
 ?>

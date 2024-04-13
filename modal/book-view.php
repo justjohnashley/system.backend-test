@@ -1,5 +1,5 @@
 <!-- MODAL FOR VIEW BUTTON -->
-<div class="modal fade" id="myModal4">
+<div class="modal fade" id="bmview">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 

@@ -1,6 +1,18 @@
 <?php
-session_start();
-include "db.php";
+
+require_once ('db.php');
+$query = "SELECT * FROM book";
+$result = mysqli_query($con, $query);
+
+?>
+<?php
+$catid = 0;
+$where = '';
+if (isset($_GET['category'])) {
+    $catid = $_GET['category'];
+    $where = 'WHERE book.category_id = ' . $catid;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,14 +58,14 @@ include "db.php";
                                             </form>
                                         </div>
                                         <div class="col-3 align-self-center text-center">
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#myModal">
+                                            <a href="bmadd" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#bmadd">
                                                 <span class="btn-label">
                                                     <i class="fa fa-plus">
                                                     </i>
                                                 </span>
                                                 Add
-                                            </button>
+                                            </a>
 
                                         </div>
                                     </div>
@@ -63,75 +75,29 @@ include "db.php";
 
                         <?php include 'modal/book-add.php' ?>
 
-                        <?php include 'modal/book-delete.php' ?>
-
-                        <?php include 'modal/book-edit.php' ?>
-
-                        <?php include 'modal/book-view.php' ?>
-
-                        <!-- TABLE CONTENTS -->
                         <div class="col-12 col-md-0 d-flex">
                             <div class="card flex-fill border-0">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-content-center flex-wrap">
                                         <div class="row g-0 w-100">
                                             <div class="table-responsive-xl">
-                                                <table id="libtable" class="table table-hover rounded-3" style="width: 100%">
+                                                <table id="libtable" class="table table-hover table-striped"
+                                                    style="width: 100%">
                                                     <thead>
                                                         <tr>
+                                                            <th scope="col">Item No.</th>
                                                             <th scope="col">Accession No.</th>
                                                             <th scope="col">Sublocation</th>
-                                                            <th scope="col">Author</th>
                                                             <th scope="col">Title</th>
+                                                            <th scope="col">Author</th>
                                                             <th scope="col">Copyright Date</th>
                                                             <th scope="col">Cover</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">00001</td>
-                                                            <td>Filipiniana</td>
-                                                            <td>La Putt, Juny Pilapil</td>
-                                                            <td>Introduction to Computer concepts</td>
-                                                            <td>1984</td>
-                                                            <td> <button class="btn btn-outline-success">
-                                                                    <span class="btn-label">
-                                                                        <i class="far fa-file-image"></i>
-                                                                    </span><br>
-                                                                    No cover uploaded
-                                                                </button>
-                                                            </td>
-                                                            <td>
-                                                                <div class="row g-1 w-100">
-                                                                    <button class="btn btn-primary"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal4">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </span>
-                                                                        View
-                                                                    </button>
-                                                                    <button class="btn btn-warning"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal3">
-                                                                        <span class="btn-label">
-                                                                            <i class="fas fa-pen"></i>
-                                                                        </span>
-                                                                        Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#myModal2">
-                                                                        <span class="btn-label">
-                                                                            <i class="far fa-trash-alt"></i>
-                                                                        </span>
-                                                                        Delete
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
+
+                                                    <?php include 'books-content.php' ?>
+
                                                 </table>
                                             </div>
                                         </div>
@@ -155,6 +121,47 @@ include "db.php";
 
 
     <?php include 'includes/scripts.php'; ?>
+
+    <script>
+        $(function () {
+            $(document).on('click', '.edit', function (e) {
+                e.preventDefault();
+                $('#bmedit').modal('show');
+                var id = $(this).data('id');
+                getRow(id);
+            });
+
+            $(document).on('click', '.delete', function (e) {
+                e.preventDefault();
+                $('#bmdelete').modal('show');
+                var id = $(this).data('id');
+                getRow(id);
+            });
+        });
+
+        function getRow(id) {
+            $.ajax({
+                type: 'POST',
+                url: 'b_row.php',
+                data: { id: id },
+                dataType: 'json',
+                success: function (response) {
+                    $('.bookid').val(response.bookid);
+                    $('#catselect').val(response.category_id).html(response.name);
+                    $('#edit_code').val(response.code);
+                    $('#edit_year').val(response.cryear);
+                    $('#edit_title').val(response.title);
+                    $('#edit_author').val(response.author);
+                    $('#edit_publisher').val(response.publisher);
+                    $('#edit_place').val(response.placepub);
+                    $('#edit_desc').val(response.descr);
+                    $('#edit_isbn').val(response.isbn);
+                    $('#edit_cover').val(response.cover);
+
+                }
+            });
+        }
+    </script>
 
 </body>
 

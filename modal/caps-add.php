@@ -15,10 +15,18 @@
 
                         <div class="col-12">
                             <label for="category" class="form-label">Program</label>
-                            <select class="form-select">
-                                <option selected>Select a category...</option>
-                                <option value="1">BSIT</option>
-                                <option value="2">BSCS</option>
+                            <select class="form-select" name="type">
+                            <option selected></option>
+                                    <?php
+                                    $sql = "SELECT * FROM cap_category";
+                                    $query = $con->query($sql);
+                                    while ($catrow = $query->fetch_assoc()) {
+                                        $selected = ($catid == $catrow['id']) ? " selected" : "";
+                                        echo "
+                                                <option value='" . $catrow['id'] . "' " . $selected . ">" . $catrow['name'] . "</option>
+                                                                    ";
+                                    }
+                                    ?>
                             </select>
                         </div>
 
