@@ -148,7 +148,7 @@ if (isset($_GET['category'])) {
                 success: function (response) {
                     $('.bookid').val(response.bookid);
                     $('#catselect').val(response.category_id).html(response.name);
-                    $('#edit_code').val(response.code);
+                    $('#edit_code').val(response.bcode);
                     $('#edit_year').val(response.cryear);
                     $('#edit_title').val(response.title);
                     $('#edit_author').val(response.author);

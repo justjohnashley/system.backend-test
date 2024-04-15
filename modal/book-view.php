@@ -20,7 +20,7 @@
                                 <label for="cover" class="label">Upload book cover:</label>
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control border-success" id="cover" name="cover"
-                                        accept=".jpg, .png" value="">
+                                        accept=".jpg, .png" value="" required>
                                 </div>
 
                             </div>

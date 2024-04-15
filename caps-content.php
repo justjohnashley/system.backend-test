@@ -9,7 +9,7 @@
                 <?php printf("%05d", $row['capid']) ?>
             </td>
             <td>
-                <?php echo $row['cpcode'] ?>
+                <?php echo $row['code'] ?>
             </td>
             <td>
                 <?php echo $row['author'] ?>
@@ -21,7 +21,7 @@
                 <?php echo $row['upyear'] ?>
             </td>
             <td>
-                
+
                 <div class="row p-2 d-flex justify-content-center">
                     <button class="btn btn-outline-success">
                         <span class="btn-label">
@@ -33,19 +33,21 @@
             </td>
             <td>
                 <div class="row g-1 w-100">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal4">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cpview">
                         <span class="btn-label">
                             <i class="far fa-eye"></i>
                         </span>
 
                     </button>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal3">
+                    <button class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#cpedit"
+                        data-id="<?php echo $row['capid'] ?>">
                         <span class="btn-label">
                             <i class="fas fa-pen"></i>
                         </span>
 
                     </button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2">
+                    <button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#cpdelete"
+                        data-id="<?php echo $row['capid'] ?>">
                         <span class="btn-label">
                             <i class="far fa-trash-alt"></i>
                         </span>

@@ -13,10 +13,10 @@
             </div>
 
             <form name="delete" method="POST" action="b_delete.php">
-                <input type="hidden" class="bookid" name="id" >
+                <input type="hidden" class="bookid" name="id">
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger" name="book-delete">Yes</button>
+                    <button type="submit" class="btn btn-danger m-2" name="book-delete">Yes</button>
                 </div>
             </form>
         </div>

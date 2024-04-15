@@ -14,6 +14,7 @@ if (isset($_GET['category'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
@@ -59,7 +60,7 @@ if (isset($_GET['category'])) {
                                         </div>
                                         <div class="col-3 align-self-center text-center">
                                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#myModal">
+                                                data-bs-target="#cpadd">
                                                 <span class="btn-label">
                                                     <i class="fa fa-plus">
                                                     </i>
@@ -81,7 +82,7 @@ if (isset($_GET['category'])) {
                                     <div class="d-flex align-content-center flex-wrap">
                                         <div class="row g-0 w-100">
                                             <div class="table-responsive-xl">
-                                                <table id="libtable" class="table table-hover rounded-3" style="width: 100%">
+                                                <table id="libtable" class="table table-hover table-striped rounded-3" style="width: 100%">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Item No.</th>
@@ -119,6 +120,43 @@ if (isset($_GET['category'])) {
 
 
     <?php include 'includes/scripts.php'; ?>
+
+    <script>
+        $(function () {
+            $(document).on('click', '.edit', function (e) {
+                e.preventDefault();
+                $('#cpedit').modal('show');
+                var id = $(this).data('id');
+                getRow(id);
+            });
+
+            $(document).on('click', '.delete', function (e) {
+                e.preventDefault();
+                $('#cpdelete').modal('show');
+                var id = $(this).data('id');
+                getRow(id);
+            });
+        });
+
+        function getRow(id) {
+            $.ajax({
+                type: 'POST',
+                url: 'c_row.php',
+                data: { id: id },
+                dataType: 'json',
+                success: function (response) {
+                    $('.capid').val(response.capid);
+                    $('#catselect').val(response.cap_type).html(response.name);
+                    $('#edit_code').val(response.code);
+                    $('#edit_uploadyr').val(response.upyear);
+                    $('#edit_title').val(response.title);
+                    $('#edit_author').val(response.author);
+                    $('#edit_desc').val(response.descr);
+
+                }
+            });
+        }
+    </script>
 
 </body>
 
