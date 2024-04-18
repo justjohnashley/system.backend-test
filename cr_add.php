@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db.php';
 
 if (isset($_POST['borrow-add'])) {
@@ -40,7 +41,7 @@ if (isset($_POST['borrow-add'])) {
                     if (!isset($_SESSION['error'])) {
                         $_SESSION['error'] = array();
                     }
-                    $_SESSION['error'][] = 'Book with Accession No. - ' . $itemid . ' unavailable';
+                    $_SESSION['error'][] = 'Book with Accession No. (' . $itemid . ') is unavailable';
                 }
 
             }

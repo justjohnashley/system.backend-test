@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once ('db.php');
 $query = "SELECT * FROM borrow";
 $result = mysqli_query($con, $query);
@@ -27,8 +27,41 @@ $result = mysqli_query($con, $query);
 
             <main class="content px-3 py-2">
                 <div class="container-fluid">
-                <div class="mb-3">
+                    <div class="mb-3">
                         <h3>Circulation</h3>
+                        
+
+                        <?php
+                        if (isset($_SESSION['error'])) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <h4 class="m-1"><i class="fas fa-exclamation-circle m-2"></i> <strong>Error!</strong></h4>
+                                <ul class="fs-6 mt-2"> 
+                                    <?php
+                                    foreach ($_SESSION['error'] as $error) {
+                                        echo "
+                                            <li>" . $error . "</li>
+                                        ";
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                            <?php
+                            unset($_SESSION['error']);
+                        }
+
+                        if (isset($_SESSION['success'])) {
+                            echo "
+                                <div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                                <h4 class='m-1'><i class='fas fa-check-circle m-2'></i> <strong>Success!</strong></h4>
+                                    <ul class='fs-6 mt-2'>" . $_SESSION['success'] . "</ul>
+                                </div>
+                            ";
+                            unset($_SESSION['success']);
+                        }
+                        ?>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-0 d-flex">
@@ -54,7 +87,7 @@ $result = mysqli_query($con, $query);
                                                 <button type="button" class="btn btn-secondary px-5"
                                                     data-bs-toggle="collapse" data-bs-target="#librecs"
                                                     aria-controls="librecs"><i class="fa fa-plus"></i>
-                                                    
+
                                                 </button>
                                             </div>
                                         </div>
@@ -72,7 +105,8 @@ $result = mysqli_query($con, $query);
                                     <div class="d-flex align-content-center flex-wrap">
                                         <div class="row g-0 w-100">
                                             <div class="table-responsive">
-                                                <table id="libtable" class="table table-striped table-hover" style="width: 100%">
+                                                <table id="libtable" class="table table-striped table-hover"
+                                                    style="width: 100%">
                                                     <thead>
                                                         <tr>
                                                             <th>Type</th>
@@ -124,7 +158,7 @@ $result = mysqli_query($con, $query);
     </div>
 
 
-    
+
 
 
     <?php include 'includes/scripts.php'; ?>

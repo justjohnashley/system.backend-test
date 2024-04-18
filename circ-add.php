@@ -53,7 +53,21 @@
             </div>
             <div class="card-body">
                 <h1 class="mt-5 mb-5 text-center">
-                    15
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS count FROM borrow WHERE DATE(date_borrow) = CURDATE()";
+
+                    $result = mysqli_query($con, $sql);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $count = $row['count'];
+
+                        echo $count;
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    } ?>
+
                 </h1>
             </div>
         </div>
@@ -65,12 +79,25 @@
                     Recently Returned Books
                 </h5>
                 <h6 class="card-subtitle text-muted text-center">
-                    
+
                 </h6>
             </div>
             <div class="card-body">
                 <h1 class="mt-5 mb-5 text-center">
-                    10
+                    <?php
+                    
+                    $sql = "SELECT COUNT(*) AS count FROM borrow WHERE status = 1 AND DATE(date_borrow) = CURDATE()";
+
+                    $result = mysqli_query($con, $sql);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $count = $row['count'];
+
+                        echo $count;
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    } ?>
                 </h1>
             </div>
         </div>
