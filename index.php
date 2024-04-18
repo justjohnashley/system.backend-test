@@ -47,20 +47,22 @@
                                     <div class="card flex-fill border-1 border-danger">
                                         <div class="card-body py-4">
                                             <div class="d-flex justify-content-center">
-                                                    <div class="datetime p-3">
-                                                        <div class="date text-center fs-6">
-                                                            <span id="today">Today</span>,
-                                                            <span id="month">Month</span>
-                                                            <span id="day">00</span>,
-                                                            <span id="year">Year</span>
-                                                        </div>
-                                                        <div class="time text-center fs-1">
-                                                        <strong>    <span id="hour">00</span> :
+                                                <div class="datetime p-3">
+                                                    <div class="date text-center fs-6">
+                                                        <span id="today">Today</span>,
+                                                        <span id="month">Month</span>
+                                                        <span id="day">00</span>,
+                                                        <span id="year">Year</span>
+                                                    </div>
+                                                    <div class="time text-center fs-1">
+                                                        <strong> <span id="hour">00</span> :
                                                             <span id="minutes">00</span> :
                                                             <span id="seconds">00</span>
-                                                            <span id="period" class="bg-danger px-2 rounded-3 text-emphasis fs-3">AM</span> </strong>
-                                                        </div>
+                                                            <span id="period"
+                                                                class="bg-danger px-2 rounded-3 text-emphasis fs-3">AM</span>
+                                                        </strong>
                                                     </div>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -116,7 +118,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="inventory.html" class="">
+                                <a href="inventory.php" class="">
                                     <div class="col-md-12">
                                         <div class="card border-0">
                                             <div class="card-header">
@@ -157,27 +159,14 @@
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">S#</th>
-                                                    <th scope="col">BC#</th>
+                                                    <th scope="col">ID#</th>
+                                                    <th scope="col">BC</th>
                                                     <th scope="col">Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">221-****</th>
-                                                    <td>B0001</td>
-                                                    <td>Returned</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">221-****</th>
-                                                    <td>B0001</td>
-                                                    <td>Borrowed</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">221-****</th>
-                                                    <td>B0001</td>
-                                                    <td>Returned</td>
-                                                </tr>
+                                                <?php include 'index-circ.php'; ?>
+
                                             </tbody>
                                         </table>
                                     </div>

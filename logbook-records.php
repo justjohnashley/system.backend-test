@@ -99,7 +99,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <th scope="row">221-0000</td>
+                                                                    <td scope="row">221-0000</td>
                                                                     <td>Surname</td>
                                                                     <td>Given Name</td>
                                                                     <td>BSIT</td>

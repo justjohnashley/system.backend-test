@@ -1,5 +1,5 @@
 
-<footer class="footer">
+<footer class="footer pt-3 border-top">
     <div class="container-fluid">
         <div class="row text-muted">
             <div class="col-6 text-start">
