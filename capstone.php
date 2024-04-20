@@ -87,6 +87,7 @@ if (isset($_GET['category'])) {
                                                         <tr>
                                                             <th scope="col">Item No.</th>
                                                             <th scope="col">Capstone Code</th>
+                                                            <th scope="col">Program</th>
                                                             <th scope="col">Author</th>
                                                             <th scope="col">Title</th>
                                                             <th scope="col">Year Uploaded</th>

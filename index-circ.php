@@ -6,11 +6,11 @@ $result = mysqli_query($con, $query);
 ?>
 
 <?php
-    $sql = "SELECT *, borrow.id AS itemid, student.student_id AS studid, user_type.name AS usertype, borrow.status AS brstat
+    $sql = "SELECT *, student.student_id AS studid, borrow.status AS brstat
     FROM borrow 
     LEFT JOIN student ON student.id=borrow.student_id 
     LEFT JOIN user_type ON user_type.id=student.utype
-    LEFT JOIN book ON book.id=borrow.book_id ORDER BY date_borrow DESC";
+    LEFT JOIN book ON book.id=borrow.book_id ORDER BY date_borrow DESC LIMIT 5;";
     $query = $con->query($sql);
     while ($row = $query->fetch_assoc()) {
         if ($row['brstat']) {

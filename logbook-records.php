@@ -1,11 +1,27 @@
+<?php
+include 'db2.php';
+
+$sql_college = "SELECT col_studentID, col_lastName, col_firstName, col_program, col_dateTime, col_purpose FROM logbook_college ORDER BY col_dateTime DESC";
+$stmt_college = $pdo->prepare($sql_college);
+$stmt_college->execute();
+$college_users = $stmt_college->fetchAll();
+
+$sql_personnel = "SELECT per_ID, per_lastName, per_firstName, per_department, per_dateTime, per_purpose FROM logbook_personnel ORDER BY per_dateTime DESC";
+$stmt_personnel = $pdo->prepare($sql_personnel);
+$stmt_personnel->execute();
+$personnel_users = $stmt_personnel->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 <head>
     <?php include 'includes/header.php'; ?>
 
-    <title>LU - DigiLibMS | Logbook Records</title>
+    <title>LU - DigilibMS | Logbook Records</title>
 
+</head>
 
 <body>
     <div class="wrapper">
@@ -49,7 +65,6 @@
                             </div>
                         </div>
 
-                        <!-- TABLE CONTENTS -->
                         <div class="col-12 col-md-0 d-flex">
                             <div class="card flex-fill border-0">
                                 <div class="card-body py-4">
@@ -85,8 +100,7 @@
                                                 <div class="tab-pane fade show active" id="college-tab-pane"
                                                     role="tabpanel" aria-labelledby="college-tab" tabindex="0">
                                                     <div class="table-responsive-lg">
-                                                        <table id="libtable" class="table table-hover"
-                                                            style="width: 100%">
+                                                        <table id="libtable" class="table table-hover">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Student No.</th>
@@ -98,14 +112,23 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td scope="row">221-0000</td>
-                                                                    <td>Surname</td>
-                                                                    <td>Given Name</td>
-                                                                    <td>BSIT</td>
-                                                                    <td>Other/s</td>
-                                                                    <td>2024/04/01 15:30</td>
-                                                                </tr>
+                                                                <?php foreach ($college_users as $col_users): ?>
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            <?= htmlspecialchars($col_users['col_studentID']) ?>
+                                                                            </td>
+                                                                        <td><?= htmlspecialchars($col_users['col_lastName']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($col_users['col_firstName']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($col_users['col_program']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($col_users['col_purpose']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($col_users['col_dateTime']) ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -124,14 +147,40 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="personnel-tab-pane" role="tabpanel"
                                                     aria-labelledby="personnel-tab" tabindex="2">
-                                                    <div class="card border-1 border-danger">
-
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
+                                                    <div class="table-responsive-lg">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Personnel ID</th>
+                                                                    <th scope="col">Last Name</th>
+                                                                    <th scope="col">First Name</th>
+                                                                    <th scope="col">Department</th>
+                                                                    <th scope="col">Purpose</th>
+                                                                    <th scope="col">Date & Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($personnel_users as $per_users): ?>
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            <?= htmlspecialchars($per_users['per_ID']) ?>
+                                                                            </td>
+                                                                        <td><?= htmlspecialchars($per_users['per_lastName']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($per_users['per_firstName']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($per_users['per_department']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($per_users['per_purpose']) ?>
+                                                                        </td>
+                                                                        <td><?= htmlspecialchars($per_users['per_dateTime']) ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
+
                                                 </div>
                                                 <div class="tab-pane fade" id="visitor-tab-pane" role="tabpanel"
                                                     aria-labelledby="visitor-tab" tabindex="3">

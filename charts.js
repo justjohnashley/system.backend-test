@@ -117,12 +117,12 @@ var donutOptions = {
 
 // donut 1
 var chDonutData1 = {
-    labels: ['Bootstrap', 'Popper', 'Other'],
+    labels: ['Borrowed', 'Returned'],
     datasets: [
       {
-        backgroundColor: colors.slice(0,3),
+        backgroundColor: colors.slice(0,2),
         borderWidth: 0,
-        data: [74, 11, 40]
+        data: [74, 51]
       }
     ]
 };

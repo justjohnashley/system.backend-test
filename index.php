@@ -72,54 +72,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- Table Elements -->
-                                    <div class="card border-0">
-                                        <div class="card-header">
-                                            <h5 class="card-title mt-2">
-                                                Logbook Records
-                                            </h5>
-                                            <h6 class="card-subtitle text-muted">
-                                                Real-time view of digital records of the Library Logbook
-                                            </h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive-lg">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Date and Time</th>
-                                                            <th scope="col">Student No.</th>
-                                                            <th scope="col">Surname</th>
-                                                            <th scope="col">Type</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">03/01/98 12:30</th>
-                                                            <td>221-5896</td>
-                                                            <td>Mercado</td>
-                                                            <td>Student</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">03/01/12 12:30</th>
-                                                            <td>198-1475</td>
-                                                            <td>Protacio</td>
-                                                            <td>Personnel</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">03/01/24 12:30</th>
-                                                            <td>111-444</td>
-                                                            <td>Rizal</td>
-                                                            <td>Student</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="inventory.php" class="">
-                                    <div class="col-md-12">
+                                    <a href="inventory.php" class="">
                                         <div class="card border-0">
                                             <div class="card-header">
                                                 <h5 class="card-title mt-2">
@@ -130,45 +83,76 @@
                                                 </h6>
                                             </div>
                                             <div class="card-body d-flex flex-fill">
-                                                <canvas id="chLine"></canvas>
+                                                <canvas id="chBar"></canvas>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="logbook-records.php" class="">
+                                        <?php include 'index-logbook.php'; ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3 px-0 py-3">
-                            <div class="card h-100 border-1 border-success">
-                                <a href="circulation.php" class="card-click">
-                                    <div class="card-header">
-                                        <div class="row align-items-center">
-                                            <div class="col-10">
-                                                <h5 class="card-title mt-2">
-                                                    Circulation History
-                                                </h5>
+                            <div class="row">
+                                <div class="col-12 pb-2">
+                                    <div class="card h-100 border-1 border-success">
+                                        <a href="circulation.php" class="card-click">
+                                            <div class="card-header">
+                                                <div class="row align-items-center">
+                                                    <div class="col-10">
+                                                        <h5 class="card-title mt-2">
+                                                            Circulation History
+                                                        </h5>
+                                                    </div>
+                                                    <div class="col-2 align-self-center">
+                                                        <i class="fas fa-history fa-md"></i>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div class="col-2 align-self-center">
-                                                <i class="fas fa-history fa-md"></i>
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="table-responsive-xl">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">ID#</th>
+                                                            <th scope="col">BC</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php include 'index-circ.php'; ?>
+
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-
                                     </div>
-                                </a>
-                                <div class="card-body">
-                                    <div class="table-responsive-xl">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">ID#</th>
-                                                    <th scope="col">BC</th>
-                                                    <th scope="col">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php include 'index-circ.php'; ?>
+                                </div>
+                                <div class="col-12">
+                                    <div class="card h-100 border-1 border-success">
+                                        <a href="circulation.php" class="card-click">
+                                            <div class="card-header">
+                                                <div class="row align-items-center">
+                                                    <div class="col-10">
+                                                        <h5 class="card-title mt-2">
+                                                            Summary
+                                                        </h5>
+                                                    </div>
+                                                    <div class="col-2 align-self-center">
+                                                        <i class="fas fa-chart-pie fa-md"></i>
+                                                    </div>
+                                                </div>
 
-                                            </tbody>
-                                        </table>
+                                            </div>
+                                        </a>
+                                        <div class="card-body d-flex flex-fill">
+                                            <canvas id="chDonut1"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

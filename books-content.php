@@ -35,27 +35,30 @@
                 </div>
             </td>
             <td>
-                <div class="row g-1 w-100">
+                <div class="row gy-1 w-100 d-flex justify-content-center mx-1">
+                    <div class="col text-center p-0">
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bmview">
                         <span class="btn-label">
                             <i class="far fa-eye"></i>
                         </span>
 
-                    </button>
+                    </button></div>
+                    <div class="col text-center p-0">
                     <button class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#bmedit"
                         data-id="<?php echo $row['bookid'] ?>">
                         <span class="btn-label">
                             <i class="fas fa-pen"></i>
                         </span>
 
-                    </button>
+                    </button></div>
+                    <div class="col text-center p-0">
                     <button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#bmdelete"
                         data-id="<?php echo $row['bookid'] ?>">
                         <span class="btn-label">
                             <i class="far fa-trash-alt"></i>
                         </span>
 
-                    </button>
+                    </button></div>
                 </div>
             </td>
         </tr>

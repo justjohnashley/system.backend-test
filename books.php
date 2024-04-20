@@ -58,13 +58,13 @@ if (isset($_GET['category'])) {
                                             </form>
                                         </div>
                                         <div class="col-3 align-self-center text-center">
-                                            <a href="bmadd" class="btn btn-secondary" data-bs-toggle="modal"
+                                            <a href="bmadd" class="btn btn-secondary px-5" data-bs-toggle="modal"
                                                 data-bs-target="#bmadd">
                                                 <span class="btn-label">
                                                     <i class="fa fa-plus">
                                                     </i>
                                                 </span>
-                                                Add
+                                                
                                             </a>
 
                                         </div>

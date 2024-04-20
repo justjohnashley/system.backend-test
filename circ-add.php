@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-12 text-end">
                             <button class="btn btn-success w-50 " type="submit" name="borrow-add">
-                                <i class="fas fa-plus fa-lg"></i>
+                                <i class="fas fa-check fa-lg"></i>
                             </button>
 
                         </div>

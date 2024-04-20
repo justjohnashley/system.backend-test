@@ -29,7 +29,7 @@ function updateClock() {
                 hr = now.getHours(),
                 min = now.getMinutes(),
                 sec = now.getSeconds(),
-                pr = "AM";
+                pr = hr >= 12 ? "PM" : "AM";
 
             if (hr == 0) {
                 hr = 12;
