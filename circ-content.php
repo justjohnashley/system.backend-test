@@ -8,12 +8,11 @@
     $query = $con->query($sql);
     while ($row = $query->fetch_assoc()) {
         if ($row['brstat']) {
-            $status = '<span class="badge text-bg-success">returned</span>';
+            $status = '<span class="badge text-bg-success p-2">returned</span>';
         } else {
-            $status = '<button class="btn btn-danger w-100 return" data-bs-toggle="modal" data-bs-target="#creturn" data-id="' . $row['itemid'] . '" >
-                <span class="btn-label">
-                    <i class="fas fa-undo-alt"></i></span>
-                </button>';
+            $status = '<a class="return" data-bs-toggle="modal" data-bs-target="#creturn" data-id="' . $row['itemid'] . '"><span class="badge text-bg-danger p-2">
+                unreturned
+                </span></a>';
         }
         ?>
         <tr>
@@ -33,7 +32,7 @@
                 <?php echo $row['title'] ?>
             </td>
             <td>
-                <?php echo date('M d, Y', strtotime($row['date_borrow'])) ?>
+                <?php echo date('M d, Y h:i A', strtotime($row['date_borrow'])) ?>
             </td>
             <td>
                 <?php echo $status ?>

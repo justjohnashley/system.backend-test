@@ -21,7 +21,7 @@
                 <?php echo $row['author'] ?>
             </td>
             <td>
-                <?php echo $row['cryear'] ?>
+                <?php echo date('M d, Y', strtotime($row['cryear'])) ?>
             </td>
 
             <td>

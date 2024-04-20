@@ -114,7 +114,7 @@ $result = mysqli_query($con, $query);
                                                             <th>Name</th>
                                                             <th>Code</th>
                                                             <th>Title</th>
-                                                            <th>Date Borrowed</th>
+                                                            <th>Date & Time Borrowed</th>
                                                             <th>Status</th>
                                                         </tr>
                                                     </thead>
@@ -128,7 +128,7 @@ $result = mysqli_query($con, $query);
                                                             <th>Name</th>
                                                             <th>Code</th>
                                                             <th>Title</th>
-                                                            <th>Date Borrowed</th>
+                                                            <th>Date & Time Borrowed</th>
                                                             <th>Status</th>
                                                         </tr>
                                                     </tfoot>

@@ -1,5 +1,6 @@
 <?php
-session_start();
+//include 'includes/sessions.php';
+
 include 'db2.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            $_SESSION['studentID'] = $user['col_studentID']; 
+            $_SESSION['studentID'] = $user['col_studentID'];
             $_SESSION['correct_input'] = 'Login successfully!';
 
             $logbookSql = "INSERT INTO logbook_college (col_studentID, col_dateTime, col_lastName, col_firstName, col_program, col_purpose) 
@@ -26,18 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $logStmt->bindParam(':lastName', $user['col_lastName'], PDO::PARAM_STR);
             $logStmt->bindParam(':firstName', $user['col_firstName'], PDO::PARAM_STR);
             $logStmt->bindParam(':program', $user['col_program'], PDO::PARAM_STR);
-            $logStmt->bindParam(':purpose', $purpose, PDO::PARAM_STR); 
+            $logStmt->bindParam(':purpose', $purpose, PDO::PARAM_STR);
             $logStmt->execute();
 
-            header("Location: logbook.php"); 
+            header("Location: logbook.php");
         } else {
             $_SESSION['wrong_input'] = 'Incorrect student ID or password.';
             header("Location: logbook.php");
         }
         exit();
-    } 
-    
-    elseif (isset($_POST['status']) && $_POST['status'] == 'shs') {
+    } elseif (isset($_POST['status']) && $_POST['status'] == 'shs') {
         $studentID = $_POST['shs_studentID'];
         $password = $_POST['shs_password'];
 
@@ -49,17 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            $_SESSION['studentID'] = $user['shs_studentID']; 
+            $_SESSION['studentID'] = $user['shs_studentID'];
             $_SESSION['correct_input'] = 'Login successfully!';
-            header("Location: logbook.php"); 
+            header("Location: logbook.php");
         } else {
             $_SESSION['wrong_input'] = 'Incorrect student ID or password.';
             header("Location: logbook.php");
         }
         exit();
-    }
-
-    elseif (isset($_POST['status']) && $_POST['status'] == 'personnel') {
+    } elseif (isset($_POST['status']) && $_POST['status'] == 'personnel') {
         $personnelID = $_POST['per_ID'];
         $password = $_POST['per_password'];
         $purpose = $_POST['per_purpose'];
@@ -72,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            $_SESSION['personnelID'] = $user['per_ID']; 
+            $_SESSION['personnelID'] = $user['per_ID'];
             $_SESSION['correct_input'] = 'Login successfully!';
 
             $logbookSql = "INSERT INTO logbook_personnel (per_ID, per_dateTime, per_lastName, per_firstName, per_department, per_purpose)
@@ -85,15 +82,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $logStmt->bindParam(':purpose', $purpose, PDO::PARAM_STR);
             $logStmt->execute();
 
-            header("Location: logbook.php"); 
+            header("Location: logbook.php");
         } else {
             $_SESSION['wrong_input'] = 'Incorrect ID or password.';
             header("Location: logbook.php");
         }
         exit();
-    }
-
-    elseif (isset($_POST['status']) && $_POST['status'] == 'visitor') {
+    } elseif (isset($_POST['status']) && $_POST['status'] == 'visitor') {
         $visitorID = $_POST['vis_ID'];
         $password = $_POST['vis_password'];
 
@@ -105,9 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            $_SESSION['visitorID'] = $user['vis_ID']; 
+            $_SESSION['visitorID'] = $user['vis_ID'];
             $_SESSION['correct_input'] = 'Login successfully!';
-            header("Location: logbook.php"); 
+            header("Location: logbook.php");
         } else {
             $_SESSION['wrong_input'] = 'Incorrect ID or password.';
             header("Location: logbook.php");
@@ -135,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body onload="initClock()">
     <div class="wrapper">
 
-        
+
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom border-success justify-content-between ">
                 <div class="container-fluid">
@@ -165,7 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <strong> <span id="hour">00</span> :
                                     <span id="minutes">00</span> :
                                     <span id="seconds">00</span>
-                                    <span id="period" class="bg-secondary px-2 rounded-3 text-emphasis">AM</span> </strong>
+                                    <span id="period" class="bg-secondary px-2 rounded-3 text-emphasis">AM</span>
+                                </strong>
                             </div>
                         </div>
                     </div>
@@ -186,272 +182,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="card border-0 illustration">
                                         <div class="card-body p-0">
                                             <div class="row g-2">
-                                                
+
                                                 <div class="col-md-6 d-flex justify-content-evenly">
                                                     <div class="p-3 m-1">
-                                                      <button class="btn btn-lg btn-size btn-glow-student" data-bs-toggle="modal" data-bs-target="#collegeModal">
-                                                        <h2 class="ms-3 mt-3 text-start">College</h2>
+                                                        <button class="btn btn-lg btn-size btn-glow-student"
+                                                            data-bs-toggle="modal" data-bs-target="#collegeModal">
+                                                            <h2 class="ms-3 mt-3 text-start">College</h2>
                                                             <h1 class="text-end display-3 me-2">
                                                                 <i class="fas fa-user-alt-slash"></i>
                                                             </h1>
-                                                      </button>
+                                                        </button>
                                                     </div>
                                                 </div>
 
-                                                    <!-- MODAL FOR COLLEGE LOGIN -->
-                                                    <div class="modal fade" id="collegeModal">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-
-                                                                <!-- Modal Header -->
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">College</h4>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-
-                                                                <!-- Modal body -->
-                                                                <div class="modal-body d-flex align-items-center justify-content-center">
-                                                                <div class="col-md-6 mt-5 mb-5">
-
-                                                                    <!-- login -->
-                                                                    <div class="row align-items-center">
-                                                                        <form action="logbook.php" method="POST">
-                                                                        <input type="hidden" name="status" value="college">
-
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="text" name="col_studentID" class="form-control form-control-lg bg-light fs-6" placeholder="Student ID" required>
-                                                                            </div>
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="password" name="col_password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
-                                                                            </div>
-
-                                                                            <div class="col-12">
-                                                                                <select class="form-select" name="col_purpose">
-                                                                                    <option selected>Select purpose</option>
-                                                                                    <option value="Borrow Books">Borrow Books</option>
-                                                                                    <option value="Research">Research</option>
-                                                                                    <option value="Return Books">Return Books</option>
-                                                                                    <option value="Other/s">Other/s</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="input-group mb-3 mt-3">
-                                                                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
-                                                                            </div>
-
-                                                                        </form>
-                                                                    </div>
-
-                                                                </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <?php include 'modal/log-college.php'; ?>
 
 
                                                 <div class="col-md-6 d-flex justify-content-evenly">
                                                     <div class="p-3 m-1">
-                                                        <button class="btn btn-lg btn-size btn-glow-shs" data-bs-toggle="modal" data-bs-target="#shsModal">
+                                                        <button class="btn btn-lg btn-size btn-glow-shs"
+                                                            data-bs-toggle="modal" data-bs-target="#shsModal">
                                                             <h2 class="ms-3 mt-3 text-start">SHS</h2>
                                                             <h1 class="text-end display-3 me-2">
                                                                 <i class="fas fa-user-alt-slash"></i>
                                                             </h1>
                                                         </button>
-                                                      </div>
+                                                    </div>
                                                 </div>
 
-                                                <!-- MODAL FOR SHS LOGIN -->
-                                                <div class="modal fade" id="shsModal">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-
-                                                                <!-- Modal Header -->
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">SHS</h4>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-
-                                                                <!-- Modal body -->
-                                                                <div class="modal-body d-flex align-items-center justify-content-center">
-                                                                <div class="col-md-6 mt-5 mb-5">
-
-                                                                    <!-- login -->
-                                                                    <div class="row align-items-center">
-                                                                        <form action="logbook.php" method="POST">
-                                                                        <input type="hidden" name="status" value="shs">
-
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="text" name="shs_studentID" class="form-control form-control-lg bg-light fs-6" placeholder="Student ID" required>
-                                                                            </div>
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="password" name="shs_password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
-                                                                            </div>
-
-                                                                            
-                                                                            <div class="col-12">
-                                                                                <select class="form-select" name="shs_purpose">
-                                                                                    <option selected>Select purpose</option>
-                                                                                    <option value="1">Borrow Books</option>
-                                                                                    <option value="2">Research</option>
-                                                                                    <option value="3">Return Books</option>
-                                                                                    <option value="4">Other/s</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="input-group mb-3 mt-3">
-                                                                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-
-                                                                </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <?php include 'modal/log-shs.php'; ?>
 
 
                                                 <div class="col-md-6 d-flex justify-content-evenly">
                                                     <div class="p-3 m-1">
-                                                      <button class="btn btn-lg btn-size btn-glow-personnel" data-bs-toggle="modal" data-bs-target="#personnelModal">
-                                                        <h2 class="ms-3 mt-3 text-start">Personnel</h2>
+                                                        <button class="btn btn-lg btn-size btn-glow-personnel"
+                                                            data-bs-toggle="modal" data-bs-target="#personnelModal">
+                                                            <h2 class="ms-3 mt-3 text-start">Personnel</h2>
                                                             <h1 class="text-end display-3 me-2">
                                                                 <i class="fas fa-user-alt-slash"></i>
                                                             </h1>
-                                                      </button>
+                                                        </button>
                                                     </div>
                                                 </div>
 
-                                                <!-- MODAL FOR PERSONNEL LOGIN -->
-                                                <div class="modal fade" id="personnelModal">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-
-                                                                <!-- Modal Header -->
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Personnel</h4>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-
-                                                                <!-- Modal body -->
-                                                                <div class="modal-body d-flex align-items-center justify-content-center">
-                                                                <div class="col-md-6 mt-5 mb-5">
-
-                                                                    <!-- login -->
-                                                                    <div class="row align-items-center">
-                                                                        <form action="logbook.php" method="POST">
-                                                                        <input type="hidden" name="status" value="personnel">
-
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="text" name="per_ID" class="form-control form-control-lg bg-light fs-6" placeholder="Personnel ID" required>
-                                                                            </div>
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="password" name="per_password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-12">
-                                                                                <select class="form-select" name="per_purpose">
-                                                                                    <option selected>Select purpose</option>
-                                                                                    <option value="Borrow Books">Borrow Books</option>
-                                                                                    <option value="Research">Research</option>
-                                                                                    <option value="Return Books">Return Books</option>
-                                                                                    <option value="Online Class">Online Class</option>
-                                                                                    <option value="Meeting">Meeting</option>
-                                                                                    <option value="Other/s">Other/s</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="input-group mb-3 mt-3">
-                                                                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
-                                                                            </div>
-
-                                                                        </form>
-                                                                    </div>
-
-                                                                </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <?php include 'modal/log-personnel.php'; ?>
 
                                                 <div class="col-md-6 d-flex justify-content-evenly">
                                                     <div class="p-3 m-1">
-                                                        <button class="btn btn-lg btn-size btn-glow-visitor" data-bs-toggle="modal" data-bs-target="#visitorModal">
+                                                        <button class="btn btn-lg btn-size btn-glow-visitor"
+                                                            data-bs-toggle="modal" data-bs-target="#visitorModal">
                                                             <h2 class="ms-3 mt-3 text-start">Visitor</h2>
                                                             <h1 class="text-end display-3 me-2">
                                                                 <i class="fas fa-user-alt-slash"></i>
                                                             </h1>
                                                         </button>
-                                                      </div>
+                                                    </div>
                                                 </div>
 
-                                                <!-- MODAL FOR VISITOR LOGIN -->
-                                                <div class="modal fade" id="visitorModal">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-
-                                                                <!-- Modal Header -->
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Visitor</h4>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-
-                                                                <!-- Modal body -->
-                                                                <div class="modal-body d-flex align-items-center justify-content-center">
-                                                                <div class="col-md-6 mt-5 mb-5">
-
-                                                                    <!-- login -->
-                                                                    <div class="row align-items-center">
-                                                                        <form action="logbook.php" method="POST">
-                                                                        <input type="hidden" name="status" value="visitor">
-
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="text" name="vis_ID" class="form-control form-control-lg bg-light fs-6" placeholder="Visitor ID" required>
-                                                                            </div>
-                                                                            <div class="input-group mb-3">
-                                                                                <input type="password" name="vis_password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-12">
-                                                                                <select class="form-select" name="vis_purpose">
-                                                                                    <option selected>Select purpose</option>
-                                                                                    <option value="1">Borrow Books</option>
-                                                                                    <option value="2">Research</option>
-                                                                                    <option value="3">Return Books</option>
-                                                                                    <option value="4">Other/s</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="input-group mb-3 mt-3">
-                                                                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                            
-                                                                </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <?php include 'modal/log-visitor.php'; ?>
 
                                             </div>
-                                            
-                                            <?php
-                                                if (isset($_SESSION['correct_input']) && !empty($_SESSION['correct_input'])) {
-                                                    $message = htmlspecialchars($_SESSION['correct_input']);
-                                                    echo "<div class='alert alert-success alert-fixed'>" . $message . "</div>";
-                                                    unset($_SESSION['correct_input']);
-                                                }
 
-                                                if (isset($_SESSION['wrong_input']) && !empty($_SESSION['wrong_input'])) {
-                                                    $message = htmlspecialchars($_SESSION['wrong_input']);
-                                                    echo "<div class='alert alert-danger alert-fixed'>" . $message . "</div>";
-                                                    unset($_SESSION['wrong_input']);
-                                                }
+                                            <?php
+                                            if (isset($_SESSION['correct_input']) && !empty($_SESSION['correct_input'])) {
+                                                $message = htmlspecialchars($_SESSION['correct_input']);
+                                                echo "<div class='alert alert-success alert-fixed'>" . $message . "</div>";
+                                                unset($_SESSION['correct_input']);
+                                            }
+
+                                            if (isset($_SESSION['wrong_input']) && !empty($_SESSION['wrong_input'])) {
+                                                $message = htmlspecialchars($_SESSION['wrong_input']);
+                                                echo "<div class='alert alert-danger alert-fixed'>" . $message . "</div>";
+                                                unset($_SESSION['wrong_input']);
+                                            }
                                             ?>
 
                                         </div>
@@ -459,9 +262,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             </div>
 
-                        
+
                         </div>
-                            
+
                     </div>
                 </div>
             </main>

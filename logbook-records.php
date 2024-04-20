@@ -100,7 +100,7 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                 <div class="tab-pane fade show active" id="college-tab-pane"
                                                     role="tabpanel" aria-labelledby="college-tab" tabindex="0">
                                                     <div class="table-responsive-lg">
-                                                        <table id="libtable" class="table table-hover">
+                                                        <table id="logtable1" class="table table-hover w-100">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Student No.</th>
@@ -125,7 +125,7 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                                         </td>
                                                                         <td><?= htmlspecialchars($col_users['col_purpose']) ?>
                                                                         </td>
-                                                                        <td><?= htmlspecialchars($col_users['col_dateTime']) ?>
+                                                                        <td><?= date('M d, Y h:i A', strtotime($col_users['col_dateTime'])) ?>
                                                                         </td>
                                                                     </tr>
                                                                 <?php endforeach; ?>
@@ -148,7 +148,7 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                 <div class="tab-pane fade" id="personnel-tab-pane" role="tabpanel"
                                                     aria-labelledby="personnel-tab" tabindex="2">
                                                     <div class="table-responsive-lg">
-                                                        <table class="table table-hover">
+                                                        <table id="logtable2" class="table table-hover w-100">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Personnel ID</th>
@@ -173,7 +173,7 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                                         </td>
                                                                         <td><?= htmlspecialchars($per_users['per_purpose']) ?>
                                                                         </td>
-                                                                        <td><?= htmlspecialchars($per_users['per_dateTime']) ?>
+                                                                        <td><?= date('M d, Y h:i A', strtotime($per_users['per_dateTime'])) ?>
                                                                         </td>
                                                                     </tr>
                                                                 <?php endforeach; ?>

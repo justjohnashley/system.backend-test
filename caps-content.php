@@ -1,6 +1,6 @@
 <tbody>
     <?php
-    $sql = "SELECT *, cap_category.name AS ctype, capstone.id AS capid FROM capstone LEFT JOIN cap_category ON cap_category.id=capstone.cap_type $where";
+    $sql = "SELECT *, capstone.id AS capid FROM capstone LEFT JOIN cap_category ON cap_category.id=capstone.cap_type $where";
     $query = $con->query($sql);
     while ($row = $query->fetch_assoc()) {
         ?>
@@ -12,7 +12,7 @@
                 <?php echo $row['code'] ?>
             </td>
             <td>
-                <?php echo $row['ctype'] ?>
+                <?php echo $row['name'] ?>
             </td>
             <td>
                 <?php echo $row['author'] ?>
@@ -21,7 +21,7 @@
                 <?php echo $row['title'] ?>
             </td>
             <td>
-                <?php echo $row['upyear'] ?>
+                <?php echo date('M d, Y', strtotime($row['upyear'])) ?>
             </td>
             <td>
 

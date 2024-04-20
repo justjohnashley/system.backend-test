@@ -11,7 +11,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a href="profile.php" class="dropdown-item">My Profile</a>
-                    <a href="login1.html" class="dropdown-item">Logout</a>
+                    <a href="logout.php" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>

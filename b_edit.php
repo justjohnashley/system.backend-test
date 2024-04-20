@@ -1,5 +1,6 @@
 <?php
 	//include 'includes/session.php';
+	session_start();
 	include 'db.php';
 
 
@@ -14,9 +15,8 @@
 		$description = $_POST['desc'];
 		$publisher = $_POST['pub'];
 		$pubplace = $_POST['plpub'];
-		$cover = $_POST['cover'];
 
-		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', category_id = '$category', bcode = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace', cover = '$cover' WHERE id = '$id'";
+		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', category_id = '$category', bcode = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace' WHERE id = '$id'";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Book updated successfully';
 		}

@@ -37,7 +37,7 @@
 
                             <div class="col-12">
                                 <label for="copyrightdate" class="form-label">Copyright Date</label>
-                                <input type="text" class="form-control" id="copyrightdate" name="cdate" required>
+                                <input type="date" class="form-control" id="copyrightdate" name="cdate" required>
                             </div>
 
                             <div class="col-12">
@@ -68,16 +68,16 @@
 
                             <div class="col-12">
                                 <label for="isbnumber" class="form-label">ISBN</label>
-                                <input type="text" class="form-control" id="isbnumber" name="isbn" required>
+                                <input type="number" class="form-control" id="isbnumber" name="isbn" required>
                             </div>
 
-                            <label for="col-12" class="label">Cover</label>
+                            <!--<label for="col-12" class="label">Cover</label>
                             <div class="input-group mb-3">
 
                                 <input type="file" class="form-control border-success" id="cover" name="cover"
                                     accept=".jpg, .png" value="">
                                     
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once ('db.php');
 $query = "SELECT * FROM capstone";
 $result = mysqli_query($con, $query);
@@ -39,6 +39,37 @@ if (isset($_GET['category'])) {
                 <div class="container-fluid">
                     <div class="mb-3">
                         <h3>Unpublished Materials</h3>
+                        <?php
+                        if (isset($_SESSION['error'])) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <h4 class="m-1"><i class="fas fa-exclamation-circle m-2"></i> <strong>Error!</strong></h4>
+                                <ul class="fs-6 mt-2">
+                                    <?php
+                                    foreach ($_SESSION['error'] as $error) {
+                                        echo "
+                                            <li>" . $error . "</li>
+                                        ";
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                            <?php
+                            unset($_SESSION['error']);
+                        }
+
+                        if (isset($_SESSION['success'])) {
+                            echo "
+                                <div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                                <h4 class='m-1'><i class='fas fa-check-circle m-2'></i> <strong>Success!</strong></h4>
+                                    <ul class='fs-6 mt-2'>" . $_SESSION['success'] . "</ul>
+                                </div>
+                            ";
+                            unset($_SESSION['success']);
+                        }
+                        ?>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-0 d-flex">
@@ -59,13 +90,13 @@ if (isset($_GET['category'])) {
                                             </form>
                                         </div>
                                         <div class="col-3 align-self-center text-center">
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-secondary px-5" data-bs-toggle="modal"
                                                 data-bs-target="#cpadd">
                                                 <span class="btn-label">
                                                     <i class="fa fa-plus">
                                                     </i>
                                                 </span>
-                                                Add
+                                                
                                             </button>
 
                                         </div>
@@ -90,7 +121,7 @@ if (isset($_GET['category'])) {
                                                             <th scope="col">Program</th>
                                                             <th scope="col">Author</th>
                                                             <th scope="col">Title</th>
-                                                            <th scope="col">Year Uploaded</th>
+                                                            <th scope="col">Date Uploaded</th>
                                                             <th scope="col">Cover</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -158,6 +189,8 @@ if (isset($_GET['category'])) {
             });
         }
     </script>
+
+    
 
 </body>
 

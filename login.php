@@ -2,6 +2,11 @@
 session_start();
 include 'db2.php';
 
+if (isset($_SESSION['ID'])) {
+    header("Location: index.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ID = $_POST['ID'];
     $password = $_POST['password'];

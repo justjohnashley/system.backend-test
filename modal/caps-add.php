@@ -31,8 +31,8 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="uploadyr" class="form-label">Year</label>
-                                <input type="text" class="form-control" id="uploadyr" name="upyr" required>
+                                <label for="uploadyr" class="form-label">Date Approved</label>
+                                <input type="date" class="form-control" id="uploadyr" name="upyr" required>
                             </div>
 
                             <div class="col-12">

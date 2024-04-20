@@ -1,3 +1,5 @@
+<?php include 'includes/sessions.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
@@ -79,7 +81,7 @@
                                                     Borrowed books
                                                 </h5>
                                                 <h6 class="card-subtitle text-muted">
-                                                    Daily view of books borrowed from the University Library.
+                                                    Monthly view of books borrowed from the University Library.
                                                 </h6>
                                             </div>
                                             <div class="card-body d-flex flex-fill">

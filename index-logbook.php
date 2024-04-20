@@ -16,12 +16,16 @@ $users = $stmt->fetchAll();
 
 <div class="card border-0">
     <div class="card-header">
-        <h5 class="card-title mt-2">
-            Logbook Records
-        </h5>
-        <h6 class="card-subtitle text-muted">
-            Real-time view of digital records of the Library Logbook
-        </h6>
+        <div class="row align-items-center">
+            <div class="col-10">
+                <h5 class="card-title mt-2">
+                    Logbook Records
+                </h5>
+            </div>
+            <div class="col-2 align-self-center text-end px-5">
+                <i class="fas fa-th-list fa-md"></i>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive-lg">
@@ -42,7 +46,7 @@ $users = $stmt->fetchAll();
                             <td><?= htmlspecialchars($user['LastName']) ?></td>
                             <td><?= htmlspecialchars($user['FirstName']) ?></td>
                             <td><?= htmlspecialchars($user['Type']) ?></td>
-                            <td><?= htmlspecialchars($user['DateTime']) ?></td>
+                            <td><?= date('M d, Y h:i A', strtotime($user['DateTime'])) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

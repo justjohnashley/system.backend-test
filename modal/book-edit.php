@@ -36,7 +36,7 @@
 
                             <div class="col-12">
                                 <label for="edit_year" class="form-label">Copyright Date</label>
-                                <input type="text" class="form-control" id="edit_year" name="cdate" required>
+                                <input type="date" class="form-control" id="edit_year" name="cdate" required>
                             </div>
 
                             <div class="col-12">
@@ -70,11 +70,11 @@
                                 <input type="text" class="form-control" id="edit_isbn" name="isbn" required>
                             </div>
 
-                            <label for="col-12" class="label">Cover</label>
+                            <!--<label for="col-12" class="label">Cover</label>
                             <div class="input-group mb-3">
 
                                 <input type="file" class="form-control border-success" id="cover" name="cover">
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
