@@ -21,7 +21,7 @@
                 <?php echo $row['author'] ?>
             </td>
             <td>
-                <?php echo date('M d, Y', strtotime($row['cryear'])) ?>
+                <?php echo $row['placepub'] .', '. $row['publisher']?>
             </td>
 
             <td>

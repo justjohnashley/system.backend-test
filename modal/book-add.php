@@ -32,14 +32,14 @@
 
                             <div class="col-12">
                                 <label for="bookcode" class="form-label">Book Code</label>
-                                <input type="text" class="form-control" id="code" name="bcode" required>
+                                <input type="text" class="form-control" id="code" name="bcode" required placeholder="LUL-****">
                             </div>
-
+                            <!--
                             <div class="col-12">
                                 <label for="copyrightdate" class="form-label">Copyright Date</label>
                                 <input type="date" class="form-control" id="copyrightdate" name="cdate" required>
-                            </div>
-
+                            </div> 
+                                    -->
                             <div class="col-12">
                                 <label for="booktitle" class="form-label">Book Title</label>
                                 <input type="text" class="form-control" id="booktitle" name="btitle" required>
@@ -51,8 +51,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="ppublication" class="form-label">Place of
-                                    Publication</label>
+                                <label for="ppublication" class="form-label">Publication Info</label>
                                 <input type="text" class="form-control" id="ppublication" name="plpub" required>
                             </div>
 
@@ -62,7 +61,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">Physical Description</label>
                                 <input type="text" class="form-control" id="description" name="desc" required>
                             </div>
 

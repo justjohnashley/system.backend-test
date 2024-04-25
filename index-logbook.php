@@ -33,8 +33,8 @@ $users = $stmt->fetchAll();
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">First Name</th>
                         <th scope="col">Type</th>
                         <th scope="col">Date & Time</th>
                     </tr>

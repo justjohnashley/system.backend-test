@@ -86,7 +86,7 @@
                 <h1 class="mt-5 mb-5 text-center">
                     <?php
                     
-                    $sql = "SELECT COUNT(*) AS count FROM borrow WHERE status = 1 AND DATE(date_borrow) = CURDATE()";
+                    $sql = "SELECT COUNT(*) AS count FROM borrow WHERE status = 1 AND DATE(date_return) = CURDATE()";
 
                     $result = mysqli_query($con, $sql);
 

@@ -1,6 +1,6 @@
 <?php
 //include 'includes/sessions.php';
-
+session_start();
 require_once ('db.php');
 $query = "SELECT * FROM book";
 $result = mysqli_query($con, $query);
@@ -123,7 +123,7 @@ if (isset($_GET['category'])) {
                                                         <th scope="col">Sublocation</th>
                                                         <th scope="col">Title</th>
                                                         <th scope="col">Author</th>
-                                                        <th scope="col">Copyright Date</th>
+                                                        <th scope="col">Publication Info.</th>
                                                         <th scope="col">Cover</th>
                                                         <th scope="col">Action</th>
                                                     </tr>

@@ -8,7 +8,8 @@
 		$bid = $_POST['bid'];
 
 		$sql = "UPDATE borrow SET status = 1 WHERE id = '$id';
-            UPDATE book SET status = 0 WHERE id = '$bid';";
+            UPDATE book SET status = 0 WHERE id = '$bid';
+			UPDATE borrow SET date_return = NOW() WHERE id = '$id';";
 		if($con->multi_query($sql)){
 			$_SESSION['success'] = 'Book returned successfully';
 		}
