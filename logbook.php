@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <style>
-    <?php include 'style.css' ?>
+    <?php include 'assets/css/style.css' ?>
 </style>
 
 <body onload="initClock()">

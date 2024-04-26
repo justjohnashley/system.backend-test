@@ -72,6 +72,62 @@
             </div>
         </div>
     </div>
+    <div class="collapse show" id="librecs" style>
+        <div class="card h-100 border-1 border-success">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <h5 class="card-title mt-2">
+                            Monthly Summary
+                        </h5>
+                    </div>
+                    <div class="col-2 align-self-center">
+                        <i class="fas fa-chart-pie fa-md"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <?php include 'circ-summary.php'; ?>
+
+                <canvas id="chDonut"></canvas>
+
+            </div>
+        </div>
+    </div>
+    <div class="collapse show" id="librecs" style>
+        <div class="card h-100 border-1 border-success">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <h5 class="card-title mt-2">
+                            All-time Favorites
+                        </h5>
+                    </div>
+                    <div class="col-2 align-self-center">
+                        <i class="fas fa-star fa-md"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-xl">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">AN</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php include 'circ-mbb.php'; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="collapse" id="librecs" style>
         <div class="card border-1 border-success">
             <div class="card-header">
@@ -85,7 +141,7 @@
             <div class="card-body">
                 <h1 class="mt-5 mb-5 text-center">
                     <?php
-                    
+
                     $sql = "SELECT COUNT(*) AS count FROM borrow WHERE status = 1 AND DATE(date_return) = CURDATE()";
 
                     $result = mysqli_query($con, $sql);

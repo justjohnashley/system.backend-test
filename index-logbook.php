@@ -15,18 +15,20 @@ $users = $stmt->fetchAll();
 ?>
 
 <div class="card border-0">
-    <div class="card-header">
-        <div class="row align-items-center">
-            <div class="col-10">
-                <h5 class="card-title mt-2">
-                    Logbook Records
-                </h5>
-            </div>
-            <div class="col-2 align-self-center text-end px-5">
-                <i class="fas fa-th-list fa-md"></i>
+    <a href="logbook-records.php" class="card-click">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-10">
+                    <h5 class="card-title mt-2">
+                        Logbook Records
+                    </h5>
+                </div>
+                <div class="col-2 align-self-center text-end px-5">
+                    <i class="fas fa-th-list fa-md"></i>
+                </div>
             </div>
         </div>
-    </div>
+    </a>
     <div class="card-body">
         <div class="table-responsive-lg">
             <table class="table table-hover">

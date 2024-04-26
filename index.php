@@ -74,26 +74,35 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <a href="inventory.php" class="">
-                                        <div class="card border-0">
+                                    <div class="card border-0">
+                                        <a href="inventory.php" class="card-click">
                                             <div class="card-header">
-                                                <h5 class="card-title mt-2">
-                                                    Borrowed books
-                                                </h5>
-                                                <h6 class="card-subtitle text-muted">
-                                                    Monthly view of books borrowed from the University Library.
-                                                </h6>
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <h5 class="card-title mt-2">
+                                                            Borrowed books
+                                                        </h5>
+                                                        <h6 class="card-subtitle text-muted">
+                                                            Quarterly record of books borrowed/returned to and from the University Library.
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-2 align-self-center text-end px-5">
+                                                        <i class="fas fa-chart-bar fa-md"></i>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-body d-flex flex-fill">
-                                                <canvas id="chBar"></canvas>
-                                            </div>
+                                        </a>
+                                        <div class="card-body d-flex flex-fill" style="height: 400px;">
+
+                                            <canvas id="CircBar"></canvas>
+                                            <?php include 'index-monthly.php'; ?>
+
                                         </div>
-                                    </a>
+
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="logbook-records.php" class="">
                                         <?php include 'index-logbook.php'; ?>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +125,7 @@
 
                                             </div>
                                         </a>
-                                        <div class="card-body">
+                                        <div class="card-body pb-0">
                                             <div class="table-responsive-xl">
                                                 <table class="table table-hover">
                                                     <thead>
@@ -135,14 +144,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 pb-2">
                                     <div class="card h-100 border-1 border-success">
                                         <a href="circulation.php" class="card-click">
                                             <div class="card-header">
                                                 <div class="row align-items-center">
                                                     <div class="col-10">
                                                         <h5 class="card-title mt-2">
-                                                            Summary
+                                                            Today's Summary
                                                         </h5>
                                                     </div>
                                                     <div class="col-2 align-self-center">
@@ -152,8 +161,47 @@
 
                                             </div>
                                         </a>
-                                        <div class="card-body d-flex flex-fill">
-                                            <canvas id="chDonut1"></canvas>
+                                        <div class="card-body pb-0">
+                                            <?php include 'index-summary.php'; ?>
+
+                                            <canvas id="chDonut"></canvas>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 ">
+                                    <div class="card h-100 border-1 border-success">
+                                        <a href="circulation.php" class="card-click">
+                                            <div class="card-header">
+                                                <div class="row align-items-center">
+                                                    <div class="col-10">
+                                                        <h5 class="card-title mt-2">
+                                                            Monthly Favorites
+                                                        </h5>
+                                                    </div>
+                                                    <div class="col-2 align-self-center">
+                                                        <i class="fas fa-star fa-md"></i>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                        <div class="card-body pb-0">
+                                            <div class="table-responsive-xl">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">AN</th>
+                                                            <th scope="col">Title</th>
+                                                            <th scope="col">#</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php include 'index-mbb.php'; ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -175,6 +223,39 @@
 
 
     <?php include 'includes/scripts.php'; ?>
+    
+
+
+    <script>
+        var MCirc = document.getElementById("CircBar");
+        if (MCirc) {
+            new Chart(CircBar, {
+                type: 'bar',
+                data: <?php echo json_encode($barChartData); ?>,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    scales: {
+                        xAxes: [{
+                            barPercentage: 0.4,
+                            categoryPercentage: 0.5
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    </script>
+
+
 
 </body>
 

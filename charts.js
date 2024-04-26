@@ -2,7 +2,7 @@
 /* chart.js chart examples */
 
 // chart colors
-var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+var colors = ['#20c997','#ffd75e','#333333','#c3e6cb','#dc3545','#6c757d'];
 
 /* large line chart */
 var chLine = document.getElementById("chLine");
@@ -80,18 +80,20 @@ if (chPie) {
 }
 
 /* bar chart */
-var chBar = document.getElementById("chBar");
+var chBar = document.getElementById("chBar1");
 if (chBar) {
-  new Chart(chBar, {
+  new Chart(chBar1, {
   type: 'bar',
   data: {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
     datasets: [{
-      data: [589, 445, 483, 503, 689, 692, 634],
+      label: "Borrowed",
+      data: [10, 5, 8, 6, 2, 15, 3],
       backgroundColor: colors[0]
     },
     {
-      data: [639, 465, 493, 478, 589, 632, 674],
+      label: "Returned",
+      data: [9, 5, 6, 8, 3, 12, 5],
       backgroundColor: colors[1]
     }]
   },

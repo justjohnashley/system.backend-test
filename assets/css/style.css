@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('custom-text-font.css');
 
 *,
 ::after,
@@ -7,7 +8,7 @@
 }
 
 body {
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Poppins', 'localPoppins', 'Arial';
     font-size: 0.875rem;
     opacity: 1;
     overflow-y: scroll;
@@ -19,7 +20,7 @@ body {
 a {
     cursor: pointer;
     text-decoration: none;
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Poppins', 'localPoppins', 'Arial';
 }
 
 li {
@@ -27,13 +28,14 @@ li {
 }
 
 h3 {
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Poppins', 'localPoppins', 'Arial';
     font-size: 1.750rem;
+    font-weight: 700;
     color: var(--bs-emphasis-color);
 }
 
 h4 {
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Poppins', 'localPoppins', 'Arial';
     font-size: 1.275rem;
     margin-bottom: 0px;
     color: var(--bs-emphasis-color);
@@ -266,6 +268,9 @@ a.card-click {
     color: var(--bs-emphasis-color);
 }
 
+a.card-click:hover {
+    color: var(--bs-success);
+}
 
 /* Scrollbar */
 

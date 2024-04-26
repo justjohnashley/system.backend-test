@@ -1,13 +1,12 @@
 <script src="assets/js/webfont/webfont.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="assets/plugin/DataTables/datatables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/charts.js"></script>
 
-<script src="script.js"></script>
+
+<script src="assets/js/script.js"></script>
 <script src="charts.js"></script>
 
 <script>
@@ -26,6 +25,23 @@
 
 
 </script>
+
+<script>
+        var Circulation = <?php echo json_encode($CSumPie); ?>;
+
+        var SummaryPie = document.getElementById("chDonut");
+        if (SummaryPie) {
+            new Chart(chDonut, {
+                type: 'pie',
+                data: Circulation,
+                options: {
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        }
+    </script>
 
 <script type="text/javascript">
 
