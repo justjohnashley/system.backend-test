@@ -269,7 +269,7 @@ a.card-click {
 }
 
 a.card-click:hover {
-    color: var(--bs-success);
+    color: #20c997;
 }
 
 /* Scrollbar */

@@ -9,12 +9,11 @@
 		$code = $_POST['cpcode'];
 		$author = $_POST['cauthor'];
 		$upyear = $_POST['upyr'];
-		$description = $_POST['desc'];
 
 
-		$sql = "INSERT INTO capstone (cap_type, upyear, title, code, author, descr) VALUES ('$category', '$upyear', '$title', '$code', '$author', '$description')";
+		$sql = "INSERT INTO capstone (cap_type, upyear, title, code, author, date_added) VALUES ('$category', '$upyear', '$title', '$code', '$author', NOW())";
 		if($con->query($sql)){
-			$_SESSION['success'] = 'Book added successfully';
+			$_SESSION['success'] = 'Capstone added successfully';
 		}
 		else{
 			$_SESSION['error'] = $con->error;

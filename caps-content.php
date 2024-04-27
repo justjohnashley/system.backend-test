@@ -21,7 +21,7 @@
                 <?php echo $row['title'] ?>
             </td>
             <td>
-                <?php echo date('M d, Y', strtotime($row['upyear'])) ?>
+                <?php echo $row['upyear'] ?>
             </td>
             <td>
 

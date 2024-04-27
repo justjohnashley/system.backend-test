@@ -11,9 +11,8 @@
 		$code = $_POST['cpcode'];
 		$author = $_POST['cauthor'];
 		$upyear = $_POST['upyr'];
-		$description = $_POST['desc'];
 
-		$sql = "UPDATE capstone SET code = '$code', title = '$title', cap_type = '$category', author = '$author', upyear = '$upyear', descr = '$description' WHERE id = '$id'";
+		$sql = "UPDATE capstone SET code = '$code', title = '$title', cap_type = '$category', author = '$author', upyear = '$upyear' WHERE id = '$id'";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Capstone updated successfully';
 		}

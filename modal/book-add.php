@@ -1,3 +1,10 @@
+<?php
+$query = "SELECT MAX(CAST(SUBSTRING(bcode, 5) AS UNSIGNED)) AS max_code FROM book";
+$result = mysqli_query($con, $query);
+$max_code_row = mysqli_fetch_assoc($result);
+$next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1) : 'LUL-2000'; 
+?>
+
 <!-- MODAL FOR ADD BUTTON -->
 <div class="modal fade" id="bmadd">
     <div class="modal-dialog modal-dialog-centered">
@@ -31,27 +38,32 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="bookcode" class="form-label">Book Code</label>
-                                <input type="text" class="form-control" id="code" name="bcode" required placeholder="LUL-****">
+                                <label for="bookcode" class="form-label">Accession No.</label>
+                                <input type="text" class="form-control" id="code" name="bcode" required value="<?php echo $next_code; ?>">
                             </div>
-                            <!--
+                            
                             <div class="col-12">
-                                <label for="copyrightdate" class="form-label">Copyright Date</label>
-                                <input type="date" class="form-control" id="copyrightdate" name="cdate" required>
+                                <label for="copyrightdate" class="form-label">Year Published</label>
+                                <input type="number" class="form-control" id="copyrightdate" name="cdate" min="1900" max="2100" required placeholder="YYYY">
                             </div> 
-                                    -->
+
                             <div class="col-12">
                                 <label for="booktitle" class="form-label">Book Title</label>
                                 <input type="text" class="form-control" id="booktitle" name="btitle" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="author" class="form-label">Author</label>
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="author" class="form-label">Author/s</label>
                                 <input type="text" class="form-control" id="author" name="bauthor" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="ppublication" class="form-label">Publication Info</label>
+                                <label for="ppublication" class="form-label">Publication Place</label>
                                 <input type="text" class="form-control" id="ppublication" name="plpub" required>
                             </div>
 
@@ -67,7 +79,7 @@
 
                             <div class="col-12">
                                 <label for="isbnumber" class="form-label">ISBN</label>
-                                <input type="number" class="form-control" id="isbnumber" name="isbn" required>
+                                <input type="number" class="form-control" id="isbnumber" name="isbn" maxlength="13" minlength="10" required placeholder="10-13 digits">
                             </div>
 
                             <!--<label for="col-12" class="label">Cover</label>

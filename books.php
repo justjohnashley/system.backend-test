@@ -77,20 +77,20 @@ if (isset($_GET['category'])) {
                         <div class="card border-success flex-fill border-3 illustration">
                             <div class="card-body text-light p-0 d-flex flex-fill">
                                 <div class="row g-0 w-100">
-                                    <div class="col-4">
+                                    <div class="col-8">
                                         <div class="p-4 m-1">
                                             <h4>List of Books</h4>
                                         </div>
                                     </div>
-                                    <div class="col-5 align-self-center text-end">
+                                    <!--<div class="col-5 align-self-center text-end">
                                         <form class="d-flex">
                                             <input class="form-control me-2" type="search" placeholder="Search">
                                             <button class="btn btn-success" type="send">
                                                 <i class="fas fa-search fa-lg"></i>
                                             </button>
                                         </form>
-                                    </div>
-                                    <div class="col-3 align-self-center text-center">
+                                    </div> -->
+                                    <div class="col-4 align-self-center text-center">
                                         <a href="bmadd" class="btn btn-secondary px-5" data-bs-toggle="modal"
                                             data-bs-target="#bmadd">
                                             <span class="btn-label">
@@ -122,7 +122,7 @@ if (isset($_GET['category'])) {
                                                         <th scope="col">Accession No.</th>
                                                         <th scope="col">Sublocation</th>
                                                         <th scope="col">Title</th>
-                                                        <th scope="col">Author</th>
+                                                        <th scope="col">Author/s</th>
                                                         <th scope="col">Publication Info.</th>
                                                         <th scope="col">Cover</th>
                                                         <th scope="col">Action</th>
@@ -184,6 +184,7 @@ if (isset($_GET['category'])) {
                     $('#edit_code').val(response.bcode);
                     $('#edit_year').val(response.cryear);
                     $('#edit_title').val(response.title);
+                    $('#edit_subj').val(response.subj);
                     $('#edit_author').val(response.author);
                     $('#edit_publisher').val(response.publisher);
                     $('#edit_place').val(response.placepub);
@@ -194,6 +195,20 @@ if (isset($_GET['category'])) {
                 }
             });
         }
+    </script>
+
+    <script>
+        document.getElementById("isbnumber").addEventListener("input", function () {
+            let input = this.value.trim(); 
+            input = input.slice(0, 13);
+            this.value = input;
+        });
+
+        document.getElementById("edit_isbn").addEventListener("input", function () {
+            let input = this.value.trim(); 
+            input = input.slice(0, 13);
+            this.value = input;
+        });
     </script>
 
 

@@ -31,8 +31,8 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="uploadyr" class="form-label">Date Approved</label>
-                                <input type="date" class="form-control" id="uploadyr" name="upyr" required>
+                                <label for="uploadyr" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="uploadyr" name="upyr" min="1900" max="2100" required>
                             </div>
 
                             <div class="col-12">
@@ -41,19 +41,15 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="capcode" class="form-label">Capstone Code</label>
+                                <label for="capcode" class="form-label">Call Number</label>
                                 <input type="text" class="form-control" id="capcode" name="cpcode" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="author" class="form-label">Author</label>
+                                <label for="author" class="form-label">Author/s</label>
                                 <input type="text" class="form-control" id="author" name="cauthor" required>
                             </div>
 
-                            <div class="col-12">
-                                <label for="description" class="form-label">Description</label>
-                                <input type="text" class="form-control mb-1" id="description" name="desc" required>
-                            </div>
                         </div>
                     </div>
                 </div>

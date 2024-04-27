@@ -21,7 +21,7 @@
                 <?php echo $row['author'] ?>
             </td>
             <td>
-                <?php echo $row['placepub'] .', '. $row['publisher']?>
+                <?php echo $row['cryear'] .', ' . $row['placepub'] .', '. $row['publisher']?>
             </td>
 
             <td>
@@ -35,7 +35,7 @@
                 </div>
             </td>
             <td>
-                <div class="row gy-1 w-100 d-flex justify-content-center mx-1">
+                <div class="row w-100 d-flex justify-content-center align-items-center mx-1">
                     <div class="col text-center p-0">
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bmview">
                         <span class="btn-label">

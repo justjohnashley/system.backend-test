@@ -8,6 +8,7 @@
         $id = $_POST['id'];
 		$isbn = $_POST['isbn'];
 		$title = $_POST['btitle'];
+		$subj = $_POST['subject'];
 		$category = $_POST['slocation'];
 		$code = $_POST['bcode'];
 		$author = $_POST['bauthor'];
@@ -16,7 +17,7 @@
 		$publisher = $_POST['pub'];
 		$pubplace = $_POST['plpub'];
 
-		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', category_id = '$category', bcode = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace' WHERE id = '$id'";
+		$sql = "UPDATE book SET isbn = '$isbn', title = '$title', subj = '$subj', category_id = '$category', bcode = '$code', author = '$author', cryear = '$crdate', descr = '$description', publisher = '$publisher', placepub = '$pubplace' WHERE id = '$id'";
 		if($con->query($sql)){
 			$_SESSION['success'] = 'Book updated successfully';
 		}

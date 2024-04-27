@@ -30,8 +30,8 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="edit_uploadyr" class="form-label">Date Approved</label>
-                                <input type="date" class="form-control" id="edit_uploadyr" name="upyr" required>
+                                <label for="edit_uploadyr" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="edit_uploadyr" name="upyr" min="1900" max="2100" required>
                             </div>
 
                             <div class="col-12">
@@ -40,19 +40,15 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="edit_code" class="form-label">Capstone Code</label>
+                                <label for="edit_code" class="form-label">Call Number</label>
                                 <input type="text" class="form-control" id="edit_code" name="cpcode" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="edit_author" class="form-label">Author</label>
+                                <label for="edit_author" class="form-label">Author/s</label>
                                 <input type="text" class="form-control" id="edit_author" name="cauthor" required>
                             </div>
 
-                            <div class="col-12">
-                                <label for="edit_desc" class="form-label">Description</label>
-                                <input type="text" class="form-control" id="edit_desc" name="desc" required>
-                            </div>
                         </div>
                     </div>
                 </div>

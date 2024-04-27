@@ -76,20 +76,20 @@ if (isset($_GET['category'])) {
                             <div class="card border-success flex-fill border-3 illustration">
                                 <div class="card-body text-light p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
-                                        <div class="col-4">
+                                        <div class="col-8">
                                             <div class="p-4 m-1">
                                                 <h4>List of Capstone Projects</h4>
                                             </div>
                                         </div>
-                                        <div class="col-5 align-self-center text-end">
+                                    <!--    <div class="col-5 align-self-center text-end">
                                             <form class="d-flex">
                                                 <input class="form-control me-2" type="search" placeholder="Search">
                                                 <button class="btn btn-success" type="send">
                                                     <i class="fas fa-search fa-lg"></i>
                                                 </button>
                                             </form>
-                                        </div>
-                                        <div class="col-3 align-self-center text-center">
+                                        </div> -->
+                                        <div class="col-4 align-self-center text-center">
                                             <button type="button" class="btn btn-secondary px-5" data-bs-toggle="modal"
                                                 data-bs-target="#cpadd">
                                                 <span class="btn-label">
@@ -117,11 +117,11 @@ if (isset($_GET['category'])) {
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Item No.</th>
-                                                            <th scope="col">Capstone Code</th>
+                                                            <th scope="col">Call Number</th>
                                                             <th scope="col">Program</th>
-                                                            <th scope="col">Author</th>
+                                                            <th scope="col">Author/s</th>
                                                             <th scope="col">Title</th>
-                                                            <th scope="col">Date Uploaded</th>
+                                                            <th scope="col">Year</th>
                                                             <th scope="col">Cover</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -183,7 +183,6 @@ if (isset($_GET['category'])) {
                     $('#edit_uploadyr').val(response.upyear);
                     $('#edit_title').val(response.title);
                     $('#edit_author').val(response.author);
-                    $('#edit_desc').val(response.descr);
 
                 }
             });
