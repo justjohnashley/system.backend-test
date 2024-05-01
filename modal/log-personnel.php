@@ -28,8 +28,8 @@
                             </div>
 
                             <div class="col-12">
-                                <select class="form-select" name="per_purpose">
-                                    <option selected>Select purpose</option>
+                                <select class="form-select" name="per_purpose" required>
+                                    <option selected value="">Select a purpose</option>
                                     <option value="Borrow Books">Borrow Books</option>
                                     <option value="Research">Research</option>
                                     <option value="Return Books">Return Books</option>

@@ -1,5 +1,5 @@
 <?php
-//include 'includes/sessions.php';
+include 'includes/sessions.php';
 
 include 'db2.php';
 

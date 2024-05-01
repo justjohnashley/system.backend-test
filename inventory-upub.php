@@ -4,7 +4,7 @@
 <head>
     <?php include 'includes/header.php'; ?>
 
-    <title>Inventory - Published Materials</title>
+    <title>Inventory - Unpublished Materials</title>
 
 </head>
 
@@ -26,7 +26,7 @@
                         <ol class="breadcrumb m-3">
                             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item"><a href="inventory.php">Inventory</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Published Materials</li>
+                            <li class="breadcrumb-item active" aria-current="page">Unpublished Materials</li>
                         </ol>
                     </nav>
                     <div class="row">
@@ -36,7 +36,7 @@
                                     <div class="row g-0 w-100">
                                         <div class="col-6">
                                             <div class="p-4 m-1">
-                                                <h4>Published Materials</h4>
+                                                <h4>Unpublished Materials</h4>
                                             </div>
                                         </div>
                                         <div class="col-6 align-self-center text-end pe-5">
@@ -56,63 +56,61 @@
                                         <div class="row g-0 w-100">
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="ebooks-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#ebooks-tab-pane" type="button" role="tab"
-                                                        aria-controls="ebooks-tab-pane"
-                                                        aria-selected="false">eBooks</button>
+                                                    <button class="nav-link" id="Workbooks-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#Workbooks-tab-pane" type="button" role="tab"
+                                                        aria-controls="Workbooks-tab-pane"
+                                                        aria-selected="false">Workbooks</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="books-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#books-tab-pane" type="button" role="tab"
-                                                        aria-controls="books-tab-pane"
-                                                        aria-selected="true">Books</button>
+                                                    <button class="nav-link" id="Thesis-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#Thesis-tab-pane" type="button" role="tab"
+                                                        aria-controls="Thesis-tab-pane"
+                                                        aria-selected="true">Thesis</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="clippings-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#clippings-tab-pane" type="button" role="tab"
-                                                        aria-controls="clippings-tab-pane"
-                                                        aria-selected="false">Clippings</button>
+                                                    <button class="nav-link active" id="Capstone-tab"
+                                                        data-bs-toggle="tab" data-bs-target="#Capstone-tab-pane"
+                                                        type="button" role="tab" aria-controls="Capstone-tab-pane"
+                                                        aria-selected="false">Capstone</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="eJourn/eMag-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#eJourn/eMag-tab-pane" type="button" role="tab"
-                                                        aria-controls="eJourn/eMag-tab-pane"
-                                                        aria-selected="false">eJournals and eMagazines</button>
+                                                    <button class="nav-link" id="Feasiblity-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#Feasiblity-tab-pane" type="button" role="tab"
+                                                        aria-controls="Feasiblity-tab-pane"
+                                                        aria-selected="false">Feasibility Studies</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="fiction-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#fiction-tab-pane" type="button" role="tab"
-                                                        aria-controls="fiction-tab-pane"
-                                                        aria-selected="false">Fiction</button>
+                                                    <button class="nav-link" id="NarrativeRep-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#NarrativeRep-tab-pane" type="button" role="tab"
+                                                        aria-controls="NarrativeRep-tab-pane"
+                                                        aria-selected="false">Narrative Reports</button>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel"
-                                                    aria-labelledby="ebooks-tab" tabindex="0">
-
+                                                <div class="tab-pane fade" id="Workbooks-tab-pane" role="tabpanel"
+                                                    aria-labelledby="Workbooks-tab" tabindex="0">
                                                     <?php include 'includes/!avail.php' ?>
                                                 </div>
 
-                                                <div class="tab-pane fade show active" id="books-tab-pane"
-                                                    role="tabpanel" aria-labelledby="books-tab" tabindex="1">
+                                                <div class="tab-pane fade" id="Thesis-tab-pane" role="tabpanel"
+                                                    aria-labelledby="Thesis-tab" tabindex="1">
+                                                    <?php include 'includes/!avail.php' ?>
+                                                </div>
+                                                <div class="tab-pane fade show active" id="Capstone-tab-pane"
+                                                    role="tabpanel" aria-labelledby="Capstone-tab" tabindex="2">
                                                     <div class="table-responsive-lg">
                                                         <div class="card-body d-flex flex-fill">
-                                                            <?php include 'inv-book.php' ?>
+                                                            <?php include 'inv-caps.php' ?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel"
-                                                    aria-labelledby="clippings-tab" tabindex="2">
+                                                <div class="tab-pane fade" id="Feasiblity-tab-pane" role="tabpanel"
+                                                    aria-labelledby="Feasiblity-tab" tabindex="3">
 
                                                     <?php include 'includes/!avail.php' ?>
                                                 </div>
-                                                <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel"
-                                                    aria-labelledby="eJourn/eMag-tab" tabindex="3">
-
-                                                    <?php include 'includes/!avail.php' ?>
-                                                </div>
-                                                <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel"
-                                                    aria-labelledby="fiction-tab" tabindex="4">
+                                                <div class="tab-pane fade" id="NarrativeRep-tab-pane" role="tabpanel"
+                                                    aria-labelledby="NarrativeRep-tab" tabindex="4">
 
                                                     <?php include 'includes/!avail.php' ?>
                                                 </div>

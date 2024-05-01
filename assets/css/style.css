@@ -236,6 +236,10 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
     font-size: 16px;
 }
 
+.password-toggle-icon i:hover {
+    color: var(--bs-blue);
+  }
+
 @media only screen and (max-width: 768px) {
 
     .box-area {
@@ -344,7 +348,7 @@ a.card-click:hover {
 /* logbook button fx */
 .btn-size{
     width: 30vw;
-    height: 28vh;
+    height: 26vh;
     margin: 10px;
 }
 

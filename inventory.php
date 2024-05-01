@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-12 col-md-6 d-flex">
                             <div class="card flex-fill border-0 illustration">
-                                <a href="#" class="card-click">
+                                <a href="inventory-upub.php" class="card-click">
                                 <div class="card-body p-0 d-flex flex-fill">
                                     <div class="row gx-3 w-100">
                                         <div class="col-12">
@@ -103,7 +103,7 @@
                         
                     </div>
                     <!-- Chart Elements -->
-                    <div class="row my-2">
+                <!--    <div class="row my-2">
                         <div class="col-md-12 py-1">
                             <div class="card border-0">
                                 <div class="card-header">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </main>
 
