@@ -410,3 +410,17 @@ a.card-click:hover {
     padding: 20px; 
     text-align: center;
 }
+
+#CircDonut {
+    width: 225px; 
+    height: 225px; 
+}
+
+.col-date-time,
+    .col-type,
+    .col-identification,
+    .col-name,
+    .col-code,
+    .col-title {
+        width: 15%; 
+    }

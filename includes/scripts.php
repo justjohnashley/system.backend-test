@@ -16,6 +16,10 @@
     });
 
     $(document).ready(function () {
+        $('#libtable2').DataTable();
+    });
+
+    $(document).ready(function () {
         $('#logtable1').DataTable();
     });
 
@@ -29,9 +33,9 @@
 <script>
         var Circulation = <?php echo json_encode($CSumPie); ?>;
 
-        var SummaryPie = document.getElementById("chDonut");
+        var SummaryPie = document.getElementById("CircPie");
         if (SummaryPie) {
-            new Chart(chDonut, {
+            new Chart(CircPie, {
                 type: 'pie',
                 data: Circulation,
                 options: {
@@ -42,6 +46,56 @@
             });
         }
     </script>
+
+<script>
+        var MCirc = document.getElementById("CircBar");
+        if (MCirc) {
+            new Chart(CircBar, {
+                type: 'bar',
+                data: <?php echo json_encode($barChartData); ?>,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    scales: {
+                        xAxes: [{
+                            barPercentage: 0.4,
+                            categoryPercentage: 0.5
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    </script>
+
+<script>
+    var CTotal = <?php echo json_encode($CircTotal); ?>;
+
+    var CsTotal = document.getElementById("CircDonut");
+    if (CsTotal) {
+        new Chart(CsTotal, {
+            type: 'doughnut',
+            data: CTotal,
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true, 
+                maintainAspectRatio: false,
+                
+            }
+        });
+    }
+</script>
+
 
 <script type="text/javascript">
 

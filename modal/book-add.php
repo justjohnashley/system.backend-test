@@ -43,8 +43,8 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
                             </div>
                             
                             <div class="col-12">
-                                <label for="copyrightdate" class="form-label">Year Published</label>
-                                <input type="number" class="form-control" id="copyrightdate" name="cdate" min="1900" max="2100" required placeholder="YYYY">
+                                <label for="yearpub" class="form-label">Year Published</label>
+                                <input type="number" class="form-control" id="yearpub" name="cdate" min="1900" max="2100" required placeholder="YYYY">
                             </div> 
 
                             <div class="col-12">

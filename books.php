@@ -198,14 +198,26 @@ if (isset($_GET['category'])) {
     </script>
 
     <script>
+        document.getElementById("yearpub").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 4);
+            this.value = input;
+        });
+
+        document.getElementById("edit_year").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 4);
+            this.value = input;
+        });
+
         document.getElementById("isbnumber").addEventListener("input", function () {
-            let input = this.value.trim(); 
+            let input = this.value.trim();
             input = input.slice(0, 13);
             this.value = input;
         });
 
         document.getElementById("edit_isbn").addEventListener("input", function () {
-            let input = this.value.trim(); 
+            let input = this.value.trim();
             input = input.slice(0, 13);
             this.value = input;
         });

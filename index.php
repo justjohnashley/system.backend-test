@@ -164,7 +164,7 @@
                                         <div class="card-body pb-0">
                                             <?php include 'index-summary.php'; ?>
 
-                                            <canvas id="chDonut"></canvas>
+                                            <canvas id="CircPie"></canvas>
 
                                         </div>
                                     </div>
@@ -223,38 +223,6 @@
 
 
     <?php include 'includes/scripts.php'; ?>
-    
-
-
-    <script>
-        var MCirc = document.getElementById("CircBar");
-        if (MCirc) {
-            new Chart(CircBar, {
-                type: 'bar',
-                data: <?php echo json_encode($barChartData); ?>,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    },
-                    scales: {
-                        xAxes: [{
-                            barPercentage: 0.4,
-                            categoryPercentage: 0.5
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                            }
-                        }]
-                    }
-                }
-            });
-        }
-    </script>
-
 
 
 </body>

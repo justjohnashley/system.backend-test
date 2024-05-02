@@ -12,7 +12,7 @@
     <div class="wrapper">
 
         <?php include 'includes/sidebar.php'; ?>
-        
+
         <!-- MAIN -->
         <div class="main">
             <?php include 'includes/navbar.php'; ?>
@@ -23,22 +23,76 @@
                     <div class="mb-3">
                         <h3>Inventory</h3>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
+                        <div class="col-4 col-md-4 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <div class="card-header">
+                                    <h5 class="card-title mt-2 text-center">
+                                        Total of Uploaded Materials
+                                    </h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <?php include 'inv-summary.php'; ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-4 col-md-4 d-flex">
+                            <div class="card flex-fill border-1 border-success illustration">
+                                <div class="card-header">
+                                    <h5 class="card-title mt-2 text-center">
+                                        Circulation Summary
+                                    </h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <?php include 'inv-circ.php'; ?>
+
+                                    <canvas id="CircDonut"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-4 col-md-4 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <a href="inventory-circ.php" class="card-click">
+                                    <div class="card-body p-0 d-flex flex-fill">
+                                        <div class="row gx-3 w-100">
+                                            <div class="col-12">
+                                                <div class="p-3 m-1 ms-3">
+                                                    <h4 class="mt-3">Circulation Records</h4>
+                                                    <h1 class="text-end display-3 mt-5">
+                                                        <i class="fas fa-history"></i>
+                                                    </h1>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+
                         <div class="col-12 col-md-6 d-flex">
                             <div class="card flex-fill border-0 illustration">
                                 <a href="inventory-pub.php" class="card-click">
-                                <div class="card-body p-0 d-flex flex-fill">
-                                    <div class="row gx-3 w-100">
-                                        <div class="col-12">
-                                            <div class="p-3 m-1 ms-3">
-                                                <h4 class="mb-2">Published Materials</h4>
-                                                <h1 class="text-end display-3 mb-0">
-                                                    <i class="fas fa-user-check"></i>
-                                                </h1>
+                                    <div class="card-body p-0 d-flex flex-fill">
+                                        <div class="row gx-3 w-100">
+                                            <div class="col-12">
+                                                <div class="p-3 m-1 ms-3">
+                                                    <h4 class="mt-3">Published Materials</h4>
+                                                    <h1 class="text-end display-3 mt-3">
+                                                        <i class="fas fa-user-check"></i>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
 
@@ -46,64 +100,28 @@
                         <div class="col-12 col-md-6 d-flex">
                             <div class="card flex-fill border-0 illustration">
                                 <a href="inventory-upub.php" class="card-click">
-                                <div class="card-body p-0 d-flex flex-fill">
-                                    <div class="row gx-3 w-100">
-                                        <div class="col-12">
-                                            <div class="p-3 m-1 ms-3">
-                                                <h4 class="mb-2">Unpublished Materials</h4>
-                                                <h1 class="text-end display-3 mb-0">
-                                                    <i class="fas fa-user-alt-slash"></i>
-                                                </h1>
+                                    <div class="card-body p-0 d-flex flex-fill">
+                                        <div class="row gx-3 w-100">
+                                            <div class="col-12">
+                                                <div class="p-3 m-1 ms-3">
+                                                    <h4 class="mt-3">Unpublished Materials</h4>
+                                                    <h1 class="text-end display-3 mt-3">
+                                                        <i class="fas fa-user-alt-slash"></i>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
 
                         </div>
-                        <div class="col-12 col-md-6 d-flex">
-                            <div class="card flex-fill border-0 illustration">
-                                <a href="#" class="card-click">
-                                <div class="card-body p-0 d-flex flex-fill">
-                                    <div class="row gx-3 w-100">
-                                        <div class="col-12">
-                                            <div class="p-3 m-1 ms-3">
-                                                <h4 class="mb-2">Borrowed</h4>
-                                                <h1 class="text-end display-3 mb-0">
-                                                    <i class="fas fa-upload"></i>
-                                                </h1>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
 
-                        </div>
-                        <div class="col-12 col-md-6 d-flex">
-                            <div class="card flex-fill border-0 illustration">
-                                <a href="#" class="card-click">
-                                <div class="card-body p-0 d-flex flex-fill">
-                                    <div class="row gx-3 w-100">
-                                        <div class="col-12">
-                                            <div class="p-3 m-1 ms-3">
-                                                <h4 class="mb-2">Returned</h4>
-                                                <h1 class="text-end display-3 mb-0">
-                                                    <i class="fas fa-download"></i>
-                                                </h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                        
+
+
                     </div>
                     <!-- Chart Elements -->
-                <!--    <div class="row my-2">
+                    <!--    <div class="row my-2">
                         <div class="col-md-12 py-1">
                             <div class="card border-0">
                                 <div class="card-header">

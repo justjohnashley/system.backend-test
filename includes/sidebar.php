@@ -84,7 +84,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="circulation.php" class="sidebar-link">
-                            <i class="fas fa-redo pe-2"></i>
+                            <i class="fas fa-sync pe-2"></i>
                             Circulation
                         </a>
                     </li>

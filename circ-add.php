@@ -89,7 +89,7 @@
             <div class="card-body">
                 <?php include 'circ-summary.php'; ?>
 
-                <canvas id="chDonut"></canvas>
+                <canvas id="CircPie"></canvas>
 
             </div>
         </div>
