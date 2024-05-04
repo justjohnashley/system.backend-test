@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 pb-2">
-                                    <div class="card h-100 border-1 border-success">
+                                    <div class="card border-1 border-success">
                                         <a href="circulation.php" class="card-click">
                                             <div class="card-header">
                                                 <div class="row align-items-center">
@@ -161,7 +161,7 @@
 
                                             </div>
                                         </a>
-                                        <div class="card-body pb-0">
+                                        <div class="card-body">
                                             <?php include 'index-summary.php'; ?>
 
                                             <canvas id="CircPie"></canvas>

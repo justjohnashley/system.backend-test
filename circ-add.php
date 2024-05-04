@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-lg-4">
     <div class="collapse" id="librecs" style>
         <div class="card border-0">
             <div class="card-header border-success border-3">

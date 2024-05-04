@@ -80,20 +80,20 @@ $result = mysqli_query($con, $query);
                                                 <div class="tab-pane fade show active" id="borrowed-tab-pane"
                                                     role="tabpanel" aria-labelledby="borrowed-tab" tabindex="0">
 
-                                                    <div class="table-responsive-lg">
+                                                    <div class="table-responsive-lg" id="CircB">
                                                         <div class="card-body">
 
                                                             <table id="libtable" class="table table-striped table-hover"
                                                                 style="width: 100%">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="col-date-time">Date & Time</th>
-                                                                        <th class="col-type">Type</th>
-                                                                        <th class="col-identification">Identification
+                                                                        <th class="col-p">Date & Time</th>
+                                                                        <th class="col-p">Type</th>
+                                                                        <th class="col-p">Identification
                                                                         </th>
-                                                                        <th class="col-name">Name</th>
-                                                                        <th class="col-code">Code</th>
-                                                                        <th class="col-title">Title</th>
+                                                                        <th class="col-p">Name</th>
+                                                                        <th class="col-p">Code</th>
+                                                                        <th class="col-p">Title</th>
                                                                     </tr>
                                                                 </thead>
 
@@ -104,23 +104,29 @@ $result = mysqli_query($con, $query);
 
                                                                 <tfoot class="table-group-divider">
                                                                     <tr>
-                                                                        <th class="col-date-time">Date & Time</th>
-                                                                        <th class="col-type">Type</th>
-                                                                        <th class="col-identification">Identification
+                                                                        <th class="col-p">Date & Time</th>
+                                                                        <th class="col-p">Type</th>
+                                                                        <th class="col-p">Identification
                                                                         </th>
-                                                                        <th class="col-name">Name</th>
-                                                                        <th class="col-code">Code</th>
-                                                                        <th class="col-title">Title</th>
+                                                                        <th class="col-p">Name</th>
+                                                                        <th class="col-p">Code</th>
+                                                                        <th class="col-p">Title</th>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
                                                         </div>
                                                     </div>
+                                                    <button class="btn btn-success" onclick="printDiv('CircB')">
+                                                        <span class="btn-label">
+                                                            <i class="fas fa-print">
+                                                            </i> Print
+                                                        </span>
+                                                    </button>
                                                 </div>
 
                                                 <div class="tab-pane fade" id="returned-tab-pane" role="tabpanel"
                                                     aria-labelledby="returned-tab" tabindex="1">
-                                                    <div class="table-responsive-lg">
+                                                    <div class="table-responsive-lg" id="CircR">
                                                         <div class="card-body">
 
                                                             <table id="libtable2"
@@ -128,13 +134,14 @@ $result = mysqli_query($con, $query);
                                                                 style="width: 100%">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="col-date-time">Date & Time</th>
-                                                                        <th class="col-type">Type</th>
-                                                                        <th class="col-identification">Identification
+                                                                        <th class="col-p">Date & Time</th>
+                                                                        <th class="col-p">Type</th>
+                                                                        <th class="col-p">
+                                                                            Identification
                                                                         </th>
-                                                                        <th class="col-name">Name</th>
-                                                                        <th class="col-code">Code</th>
-                                                                        <th class="col-title">Title</th>
+                                                                        <th class="col-p">Name</th>
+                                                                        <th class="col-p">Code</th>
+                                                                        <th class="col-p">Title</th>
                                                                     </tr>
                                                                 </thead>
 
@@ -145,18 +152,25 @@ $result = mysqli_query($con, $query);
 
                                                                 <tfoot class="table-group-divider">
                                                                     <tr>
-                                                                        <th class="col-date-time">Date & Time</th>
-                                                                        <th class="col-type">Type</th>
-                                                                        <th class="col-identification">Identification
+                                                                        <th class="col-p">Date & Time</th>
+                                                                        <th class="col-p">Type</th>
+                                                                        <th class="col-p">
+                                                                            Identification
                                                                         </th>
-                                                                        <th class="col-name">Name</th>
-                                                                        <th class="col-code">Code</th>
-                                                                        <th class="col-title">Title</th>
+                                                                        <th class="col-p">Name</th>
+                                                                        <th class="col-p">Code</th>
+                                                                        <th class="col-p">Title</th>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
                                                         </div>
                                                     </div>
+                                                    <button class="btn btn-success" onclick="printDiv('CircR')">
+                                                        <span class="btn-label">
+                                                            <i class="fas fa-print">
+                                                            </i> Print
+                                                        </span>
+                                                    </button>
                                                 </div>
 
                                             </div>
@@ -181,6 +195,29 @@ $result = mysqli_query($con, $query);
 
 
     <?php include 'includes/scripts.php'; ?>
+    <script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:none;');
+        document.body.appendChild(iframe);
+
+        var doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.write('<html><head><title>LU -  Inventory > Circulation Records </title>');
+        doc.write('<link rel="stylesheet" href="assets/css/style.css">'); 
+        doc.write('<link rel="stylesheet" href="assets/css/bootstrap.min.css">'); 
+        doc.write('</head><body>');
+        doc.write(printContents);
+        doc.write('</body></html>');
+        doc.close();
+
+        iframe.contentWindow.print();
+
+        document.body.removeChild(iframe);
+
+        window.location.reload();    }
+</script>
 
 </body>
 

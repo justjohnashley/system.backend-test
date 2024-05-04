@@ -13,7 +13,7 @@ while ($row = $query->fetch_assoc()) {
                 if (!empty($row['date_return'])) {
                     echo date('M d, Y h:i A', strtotime($row['date_return']));
                 } else {
-                    echo "<strong>NOT RETURNED</strong>";
+                    echo "<span class='badge text-bg-danger p-1'>NOT RETURNED</span>";
                 }
             ?>        </td>
         <td>

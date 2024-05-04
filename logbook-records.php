@@ -53,9 +53,9 @@ $personnel_users = $stmt_personnel->fetchAll();
                                             <a href="logbook.php" class="btn btn-secondary">
                                                 <span class="btn-label">
                                                     <i class="fas fa-angle-double-right">
-                                                    </i>
+                                                    </i> Sign-in
                                                 </span>
-                                                Sign-in
+
                                             </a>
 
                                         </div>
@@ -77,38 +77,29 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                         type="button" role="tab" aria-controls="college-tab-pane"
                                                         aria-selected="true">College</button>
                                                 </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="shs-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#shs-tab-pane" type="button" role="tab"
-                                                        aria-controls="shs-tab-pane" aria-selected="false">SHS</button>
-                                                </li>
+                                                
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="personnel-tab" data-bs-toggle="tab"
                                                         data-bs-target="#personnel-tab-pane" type="button" role="tab"
                                                         aria-controls="personnel-tab-pane"
                                                         aria-selected="false">Personnel</button>
                                                 </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="visitor-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#visitor-tab-pane" type="button" role="tab"
-                                                        aria-controls="visitor-tab-pane"
-                                                        aria-selected="false">Visitor</button>
-                                                </li>
+                                                
                                             </ul>
 
                                             <div class="tab-content" id="myTabContent">
                                                 <div class="tab-pane fade show active" id="college-tab-pane"
                                                     role="tabpanel" aria-labelledby="college-tab" tabindex="0">
-                                                    <div class="table-responsive-lg">
+                                                    <div class="table-responsive-lg" id="CollegeLog">
                                                         <table id="logtable1" class="table table-hover w-100">
                                                             <thead>
                                                                 <tr>
-                                                                    <th scope="col">Student No.</th>
-                                                                    <th scope="col">Last Name</th>
-                                                                    <th scope="col">First Name</th>
-                                                                    <th scope="col">Program</th>
-                                                                    <th scope="col">Purpose</th>
-                                                                    <th scope="col">Date & Time</th>
+                                                                    <th scope="col" class="col-p">Student No.</th>
+                                                                    <th scope="col" class="col-p">Last Name</th>
+                                                                    <th scope="col" class="col-p">First Name</th>
+                                                                    <th scope="col" class="col-p">Program</th>
+                                                                    <th scope="col" class="col-p">Purpose</th>
+                                                                    <th scope="col" class="col-p">Date & Time</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -131,32 +122,27 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                                 <?php endforeach; ?>
                                                             </tbody>
                                                         </table>
+                                                        <button class="btn btn-success" onclick="printDiv('CollegeLog')">
+                                                        <span class="btn-label">
+                                                            <i class="fas fa-print">
+                                                            </i> Print
+                                                        </span>
+                                                    </button>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="shs-tab-pane" role="tabpanel"
-                                                    aria-labelledby="shs-tab" tabindex="1">
-                                                    <div class="card border-1 border-danger">
-
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
+                                            
                                                 <div class="tab-pane fade" id="personnel-tab-pane" role="tabpanel"
                                                     aria-labelledby="personnel-tab" tabindex="2">
-                                                    <div class="table-responsive-lg">
+                                                    <div class="table-responsive-lg" id="PersonnelLog">
                                                         <table id="logtable2" class="table table-hover w-100">
                                                             <thead>
                                                                 <tr>
-                                                                    <th scope="col">Personnel ID</th>
-                                                                    <th scope="col">Last Name</th>
-                                                                    <th scope="col">First Name</th>
-                                                                    <th scope="col">Department</th>
-                                                                    <th scope="col">Purpose</th>
-                                                                    <th scope="col">Date & Time</th>
+                                                                    <th scope="col" class="col-p">Personnel ID</th>
+                                                                    <th scope="col" class="col-p">Last Name</th>
+                                                                    <th scope="col" class="col-p">First Name</th>
+                                                                    <th scope="col" class="col-p">Department</th>
+                                                                    <th scope="col" class="col-p">Purpose</th>
+                                                                    <th scope="col" class="col-p">Date & Time</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -180,19 +166,14 @@ $personnel_users = $stmt_personnel->fetchAll();
                                                             </tbody>
                                                         </table>
                                                     </div>
-
+                                                    <button class="btn btn-success" onclick="printDiv('PersonnelLog')">
+                                                        <span class="btn-label">
+                                                            <i class="fas fa-print">
+                                                            </i> Print
+                                                        </span>
+                                                    </button>
                                                 </div>
-                                                <div class="tab-pane fade" id="visitor-tab-pane" role="tabpanel"
-                                                    aria-labelledby="visitor-tab" tabindex="3">
-                                                    <div class="card border-1 border-danger">
-
-                                                        <div class="card-body">
-                                                            <h1 class="mt-5 mb-5 text-center">
-                                                                Data Unavailable
-                                                            </h1>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
 
                                         </div>
@@ -216,6 +197,30 @@ $personnel_users = $stmt_personnel->fetchAll();
 
 
     <?php include 'includes/scripts.php'; ?>
+    <script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:none;');
+        document.body.appendChild(iframe);
+
+        var doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.write('<html><head><title>LU - Digital Logbook Records </title>');
+        doc.write('<link rel="stylesheet" href="assets/css/style.css">'); 
+        doc.write('<link rel="stylesheet" href="assets/css/bootstrap.min.css">'); 
+        doc.write('</head><body>');
+        doc.write(printContents);
+        doc.write('</body></html>');
+        doc.close();
+
+        iframe.contentWindow.print();
+
+        document.body.removeChild(iframe);
+
+        window.location.reload();    }
+</script>
+
 
 </body>
 

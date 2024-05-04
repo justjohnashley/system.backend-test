@@ -41,7 +41,9 @@
                 options: {
                     legend: {
                         display: false
-                    }
+                    },
+                    responsive: true, 
+                maintainAspectRatio: false
                 }
             });
         }
@@ -89,7 +91,7 @@
                     display: false
                 },
                 responsive: true, 
-                maintainAspectRatio: false,
+                maintainAspectRatio: false
                 
             }
         });

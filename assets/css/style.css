@@ -132,6 +132,7 @@ a.sidebar-link {
     background-color: rgba(0, 0, 0, 0.075);
     border-left: 3px solid #fff;
 }
+
 /*
 .sidebar-link:active {
     background-color: rgba(255, 255, 255, 0.727);
@@ -238,7 +239,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 
 .password-toggle-icon i:hover {
     color: var(--bs-blue);
-  }
+}
 
 @media only screen and (max-width: 768px) {
 
@@ -346,58 +347,58 @@ a.card-click:hover {
 }
 
 /* logbook button fx */
-.btn-size{
+.btn-size {
     width: 30vw;
     height: 26vh;
     margin: 10px;
 }
 
-.btn-glow-student{
+.btn-glow-student {
     box-shadow: 0 0 5px green,
-    0 0 25px green;
+        0 0 25px green;
 }
 
-.btn-glow-shs{
+.btn-glow-shs {
     box-shadow: 0 0 5px blue,
-    0 0 25px blue;
+        0 0 25px blue;
 }
 
-.btn-glow-personnel{
+.btn-glow-personnel {
     box-shadow: 0 0 5px red,
-    0 0 25px red;
+        0 0 25px red;
 }
 
-.btn-glow-visitor{
+.btn-glow-visitor {
     box-shadow: 0 0 5px purple,
-    0 0 25px purple;
+        0 0 25px purple;
 }
 
-.btn-glow-student:hover{
+.btn-glow-student:hover {
     background-color: green;
     box-shadow: 0 0 5px var(--bs-emphasis-color),
-    0 0 15px var(--bs-emphasis-color), 0 0 30px green,
-    0 0 40px green, 0 0 50px green;
+        0 0 15px var(--bs-emphasis-color), 0 0 30px green,
+        0 0 40px green, 0 0 50px green;
 }
 
-.btn-glow-shs:hover{
+.btn-glow-shs:hover {
     background-color: blue;
     box-shadow: 0 0 5px var(--bs-emphasis-color),
-    0 0 15px var(--bs-emphasis-color), 0 0 30px blue,
-    0 0 40px blue, 0 0 50px blue;
+        0 0 15px var(--bs-emphasis-color), 0 0 30px blue,
+        0 0 40px blue, 0 0 50px blue;
 }
 
-.btn-glow-personnel:hover{
+.btn-glow-personnel:hover {
     background-color: red;
     box-shadow: 0 0 5px var(--bs-emphasis-color),
-    0 0 15px var(--bs-emphasis-color), 0 0 30px red,
-    0 0 40px red, 0 0 50px red;
+        0 0 15px var(--bs-emphasis-color), 0 0 30px red,
+        0 0 40px red, 0 0 50px red;
 }
 
-.btn-glow-visitor:hover{
+.btn-glow-visitor:hover {
     background-color: purple;
     box-shadow: 0 0 5px var(--bs-emphasis-color),
-    0 0 15px var(--bs-emphasis-color), 0 0 30px purple,
-    0 0 40px purple, 0 0 50px purple;
+        0 0 15px var(--bs-emphasis-color), 0 0 30px purple,
+        0 0 40px purple, 0 0 50px purple;
 }
 
 .alert-fixed {
@@ -406,21 +407,16 @@ a.card-click:hover {
     left: 50%;
     transform: translateX(-50%);
     width: 20%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
     text-align: center;
 }
 
 #CircDonut {
-    width: 225px; 
-    height: 225px; 
+    width: 225px;
+    height: 225px;
 }
 
-.col-date-time,
-    .col-type,
-    .col-identification,
-    .col-name,
-    .col-code,
-    .col-title {
-        width: 15%; 
-    }
+.col-p {
+    width: 15%;
+}
