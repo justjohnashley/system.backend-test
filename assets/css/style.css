@@ -420,3 +420,34 @@ a.card-click:hover {
 .col-p {
     width: 15%;
 }
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.file-preview {
+    flex: 1 1 33%; 
+    box-sizing: border-box;
+    position: relative; 
+}
+
+.file-preview img,
+.file-preview embed,
+.file-preview object {
+    width: 100%; 
+    height: auto;
+    object-fit: contain;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bs-red);
+    --bs-tooltip-color: var(--bs-white);
+  }

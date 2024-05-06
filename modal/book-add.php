@@ -2,7 +2,7 @@
 $query = "SELECT MAX(CAST(SUBSTRING(bcode, 5) AS UNSIGNED)) AS max_code FROM book";
 $result = mysqli_query($con, $query);
 $max_code_row = mysqli_fetch_assoc($result);
-$next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1) : 'LUL-2000'; 
+$next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1) : 'LUL-2000';
 ?>
 
 <!-- MODAL FOR ADD BUTTON -->
@@ -39,13 +39,15 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 
                             <div class="col-12">
                                 <label for="bookcode" class="form-label">Accession No.</label>
-                                <input type="text" class="form-control" id="code" name="bcode" required value="<?php echo $next_code; ?>">
+                                <input type="text" class="form-control" id="code" name="bcode" required
+                                    value="<?php echo $next_code; ?>">
                             </div>
-                            
+
                             <div class="col-12">
                                 <label for="yearpub" class="form-label">Year Published</label>
-                                <input type="number" class="form-control" id="yearpub" name="cdate" min="1900" max="2100" required placeholder="YYYY">
-                            </div> 
+                                <input type="number" class="form-control" id="yearpub" name="cdate" min="1900"
+                                    max="2100" required placeholder="YYYY">
+                            </div>
 
                             <div class="col-12">
                                 <label for="booktitle" class="form-label">Book Title</label>
@@ -79,16 +81,44 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 
                             <div class="col-12">
                                 <label for="isbnumber" class="form-label">ISBN</label>
-                                <input type="number" class="form-control" id="isbnumber" name="isbn" maxlength="13" minlength="10" required placeholder="10-13 digits">
+                                <input type="number" class="form-control" id="isbnumber" name="isbn" maxlength="13"
+                                    minlength="10" required placeholder="10-13 digits">
                             </div>
 
-                            <!--<label for="col-12" class="label">Cover</label>
-                            <div class="input-group mb-3">
+                            <div class="col-12">
+                                <label for="imageUpload" class="form-label">Cover</label>
+                                <div>
+                                    <img id="previewCover"
+                                        style="width: auto; height: 200px; padding: 5%; object-fit: cover; display: none;">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control is-invalid" id="imageUpload"
+                                        name="book_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
+                                        data-bs-title="Double check before submitting." data-bs-placement="left"
+                                        data-bs-custom-class="custom-tooltip">
+                                    <div id="imageUpload" class="invalid-feedback">
+                                        This cannot be edited once uploaded.
+                                    </div>
+                                </div>
 
-                                <input type="file" class="form-control border-success" id="cover" name="cover"
-                                    accept=".jpg, .png" value="">
-                                    
-                            </div>-->
+                            </div>
+
+                            <div class="col-12">
+                                <label for="contentUpload" class="label">Content</label>
+                                <div class="mb-2" id="preview" style="width: auto; height: auto;">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control is-invalid" id="contentUpload"
+                                        name="content[]" accept=".jpg, .jpeg, .png, .pdf" multiple
+                                        onchange="showSelectedFile(this)" data-bs-toggle="tooltip"
+                                        data-bs-title="Double check before submitting." data-bs-placement="left"
+                                        data-bs-custom-class="custom-tooltip">
+                                    <div id="contentUpload" class="invalid-feedback">
+                                        This cannot be edited once uploaded.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
