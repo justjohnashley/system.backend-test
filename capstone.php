@@ -46,11 +46,15 @@ if (isset($_GET['category'])) {
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 <h4 class="m-1"><i class="fas fa-exclamation-circle m-2"></i> <strong>Error!</strong></h4>
                                 <ul class="fs-6 mt-2">
-                                    <?php
-                                    foreach ($_SESSION['error'] as $error) {
-                                        echo "
-                                            <li>" . $error . "</li>
-                                        ";
+                                <?php
+                                    if (is_array($_SESSION['error'])) {
+                                        echo "<ul class='fs-6 mt-2'>";
+                                        foreach ($_SESSION['error'] as $error) {
+                                            echo "<li>$error</li>";
+                                        }
+                                        echo "</ul>";
+                                    } else {
+                                        echo "<p class='fs-6 mt-2'>" . $_SESSION['error'] . "</p>";
                                     }
                                     ?>
                                 </ul>
@@ -189,7 +193,96 @@ if (isset($_GET['category'])) {
         }
     </script>
 
-    
+<script>
+        document.getElementById("uploadyr").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 4);
+            this.value = input;
+        });
+
+        document.getElementById("edit_uploadyr").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 4);
+            this.value = input;
+        });
+
+    </script>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const previewCover = document.getElementById('previewCover');
+                previewCover.src = e.target.result;
+                previewCover.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+
+    <script>
+        function showSelectedFile(input) {
+            var preview = document.getElementById('preview');
+
+            Array.from(input.files).forEach(file => {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var fileContent = e.target.result;
+                    var filePreview = document.createElement('div');
+                    filePreview.className = 'file-preview';
+
+                    if (file.type.match('image.*')) {
+                        var img = document.createElement('img');
+                        img.src = fileContent;
+                        img.style.width = '100%';
+                        img.style.height = 'auto';
+                        filePreview.appendChild(img);
+                    } else if (file.type.match('application/pdf')) {
+                        var embed = document.createElement('embed');
+                        embed.src = fileContent;
+                        embed.type = 'application/pdf';
+                        embed.style.width = '100%';
+                        embed.style.height = '300px';
+                        filePreview.appendChild(embed);
+                    } else {
+                        var unsupported = document.createElement('p');
+                        unsupported.textContent = 'File format not supported for preview.';
+                        filePreview.appendChild(unsupported);
+                    }
+
+                    var deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'btn btn-danger btn-sm';
+                    deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
+                    deleteBtn.onclick = function () {
+                        preview.removeChild(filePreview);
+                    };
+                    filePreview.appendChild(deleteBtn);
+
+
+                    preview.appendChild(filePreview);
+                };
+
+                reader.readAsDataURL(file);
+            });
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cpCoverModal = document.getElementById('cpcover');
+            cpCoverModal.addEventListener('show.bs.modal', function (event) {
+                var triggerElement = event.relatedTarget;
+                var capCover = triggerElement.getAttribute('data-cap-cover');
+                var modalImage = document.getElementById('modalCoverImage');
+                modalImage.src = capCover;
+            });
+        });
+    </script>
 
 </body>
 

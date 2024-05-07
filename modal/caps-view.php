@@ -1,40 +1,58 @@
-<!-- MODAL FOR VIEW BUTTON -->
-<div class="modal fade" id="cpview">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+<?php
+include 'db.php';
 
-            <div class="modal-header">
-                <h4 class="modal-title">View</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
+$sql = "SELECT id, content FROM capstone";
+$query = $con->query($sql);
 
-            <form name="view-upload" method="POST" action="c_view.php">
-                <input type="hidden" class="capid" name="id">
+if ($query->num_rows > 0) {
+    while ($row = $query->fetch_assoc()) {
+        $capId = $row['id'];
+        $content_files = json_decode($row['content'], true);
+        ?>
 
-                <div class="modal-body">
-                    <div class="container overflow-hidden text-start">
-                        <div class="row gx-3">
-                            <?php include 'includes/!avail.php' ?>
+        <div class="modal fade" id="cpview<?php echo $capId; ?>" tabindex="-1" role="dialog"
+            aria-labelledby="viewModalLabel<?php echo $capId; ?>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
 
-                            <div class="col-12">
-                                <label for="cover" class="label">Upload abstract as cover:</label>
-                                <div class="input-group mb-3">
-                                    <input type="file" class="form-control border-success" id="cover" name="cover"
-                                        accept=".jpg, .png" value="" required>
-                                </div>
-
-                            </div>
-                        </div>
-
-
+                    <div class="modal-header">
+                        <h4 class="modal-title">View</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
+                    <div class="modal-body">
+                        <?php
+                        if (!empty($content_files) && is_array($content_files)) {
+                            foreach ($content_files as $file) {
+                                if (!empty($file)) {
+                                    $fileExtension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
+                                    switch ($fileExtension) {
+                                        case 'jpg':
+                                        case 'jpeg':
+                                        case 'png':
+                                            echo '<img src="' . htmlspecialchars($file) . '" style="width: 100%; max-height: auto; object-fit: contain; margin-bottom: 10px; padding: 3%;">';
+                                            break;
+
+                                        case 'pdf':
+                                            echo '<embed src="' . htmlspecialchars($file) . '" type="application/pdf" style="width:100%; height:500px; padding: 3%;" />';
+                                            break;
+                                    }
+
+                                }
+                            }
+                        } else {
+                            echo '<p>No content uploaded for this capstone.</p>';
+                        }
+                        ?>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="cover-up">Submit</button>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-</div>
+
+
+        <?php
+    }
+} else {
+    echo '<p>No books found in the database.</p>';
+}
+?>

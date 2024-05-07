@@ -74,11 +74,6 @@
                                 <input type="text" class="form-control" id="edit_isbn" name="isbn" maxlength="13" minlength="10" required>
                             </div>
 
-                            <!--<label for="col-12" class="label">Cover</label>
-                            <div class="input-group mb-3">
-
-                                <input type="file" class="form-control border-success" id="cover" name="cover">
-                            </div>-->
                         </div>
                     </div>
                 </div>

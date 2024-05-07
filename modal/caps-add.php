@@ -50,6 +50,40 @@
                                 <input type="text" class="form-control" id="author" name="cauthor" required>
                             </div>
 
+                            <div class="col-12">
+                                <label for="imageUpload" class="form-label">Cover</label>
+                                <div>
+                                    <img id="previewCover"
+                                        style="width: auto; height: 200px; padding: 5%; object-fit: cover; display: none;">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control is-invalid" id="imageUpload"
+                                        name="cap_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
+                                        data-bs-title="Double check before submitting." data-bs-placement="left"
+                                        data-bs-custom-class="custom-tooltip">
+                                    <div id="imageUpload" class="invalid-feedback">
+                                        This cannot be edited once uploaded.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+                                <label for="contentUpload" class="label">Content</label>
+                                <div class="mb-2" id="preview" style="width: auto; height: auto;">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control is-invalid" id="contentUpload"
+                                        name="content[]" accept=".jpg, .jpeg, .png, .pdf" multiple
+                                        onchange="showSelectedFile(this)" data-bs-toggle="tooltip"
+                                        data-bs-title="Double check before submitting." data-bs-placement="left"
+                                        data-bs-custom-class="custom-tooltip">
+                                    <div id="contentUpload" class="invalid-feedback">
+                                        This cannot be edited once uploaded.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
                 <input type="hidden" class="capid" name="id">
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger" name="cap-delete">Yes</button>
+                    <button type="submit" class="btn btn-danger" name="caps-delete">Yes</button>
                 </div>
             </form>
         </div>

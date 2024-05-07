@@ -9,20 +9,61 @@
 		$code = $_POST['cpcode'];
 		$author = $_POST['cauthor'];
 		$upyear = $_POST['upyr'];
-
-
-		$sql = "INSERT INTO capstone (cap_type, upyear, title, code, author, date_added) VALUES ('$category', '$upyear', '$title', '$code', '$author', NOW())";
-		if($con->query($sql)){
-			$_SESSION['success'] = 'Capstone added successfully';
-		}
-		else{
-			$_SESSION['error'] = $con->error;
-		}
-	}	
-	else{
-		$_SESSION['error'] = 'Fill up add form first';
-	}
-
-	header('location: capstone.php');
-
+		$cap_cover_path = '';
+        $content_files = [];
+    
+        if ($_FILES['cap_cover']['error'] == 0) {
+            $target_directory = "uploads/";
+            $target_file = $target_directory . basename($_FILES['cap_cover']['name']);
+    
+            if (!file_exists($target_file)) {
+                if (move_uploaded_file($_FILES['cap_cover']['tmp_name'], $target_file)) {
+                    $cap_cover_path = $target_file;
+                    $_SESSION['success'] = 'File uploaded successfully';
+                } else {
+                    $_SESSION['error'] = 'Error uploading your file.';
+                }
+            } else {
+                $_SESSION['error'] = 'File already exists.';
+            }
+        } else {
+            $_SESSION['error'] = 'Error in uploading file: ' . $_FILES['cap_cover']['error'];
+        }
+    
+        if (!empty($_FILES['content']['name'][0])) {
+            $target_directory = "contents/";
+    
+            foreach ($_FILES['content']['tmp_name'] as $key => $tmp_name) {
+                $file_name = basename($_FILES['content']['name'][$key]);
+                $target_file = $target_directory . $file_name;
+        
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    $content_files[] = $target_file;
+                } else {
+                    $_SESSION['error'] = "Failed to move file: $file_name";
+                }
+            }
+        }
+    
+        $content_files_json = json_encode($content_files);
+    
+        $sql = "INSERT INTO capstone (cap_type, upyear, title, code, author, cap_cover, content, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+        $stmt = $con->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param("sssssss", $category, $upyear, $title, $code, $author, $cap_cover_path, $content_files_json);
+            if ($stmt->execute()) {
+                $_SESSION['success'] = 'Capstone added successfully';
+            } else {
+                $_SESSION['error'] = 'SQL Error: ' . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $_SESSION['error'] = "Prepare failed: (" . $con->errno . ") " . $con->error;
+        }
+        header('location: capstone.php');
+    }
+    else{
+        $_SESSION['error'] = 'Fill up add form first';
+        header('location: capstone.php');
+    }
 ?>
