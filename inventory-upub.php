@@ -90,7 +90,7 @@
                                                 <div class="tab-pane fade show active" id="Workbooks-tab-pane" role="tabpanel"
                                                     aria-labelledby="Workbooks-tab" tabindex="0">
                                                     <div class="card-body d-flex flex-fill" id="workbook">
-                                                            <?php include 'inv-caps.php' ?>
+                                                            <?php include 'inv-workbook.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('workbook')">
                                                             <span class="btn-label">
@@ -103,7 +103,7 @@
                                                 <div class="tab-pane fade" id="Thesis-tab-pane" role="tabpanel"
                                                     aria-labelledby="Thesis-tab" tabindex="1">
                                                     <div class="card-body d-flex flex-fill" id="thesis">
-                                                            <?php include 'inv-caps.php' ?>
+                                                            <?php include 'inv-thesis.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('thesis')">
                                                             <span class="btn-label">
@@ -129,7 +129,7 @@
                                                 <div class="tab-pane fade" id="Feasiblity-tab-pane" role="tabpanel"
                                                     aria-labelledby="Feasiblity-tab" tabindex="3">
                                                     <div class="card-body d-flex flex-fill" id="feasible">
-                                                            <?php include 'inv-caps.php' ?>
+                                                            <?php include 'inv-fstudy.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('feasible')">
                                                             <span class="btn-label">
@@ -141,7 +141,7 @@
                                                 <div class="tab-pane fade" id="NarrativeRep-tab-pane" role="tabpanel"
                                                     aria-labelledby="NarrativeRep-tab" tabindex="4">
                                                     <div class="card-body d-flex flex-fill" id="narrative">
-                                                            <?php include 'inv-caps.php' ?>
+                                                            <?php include 'inv-nreport.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('narrative')">
                                                             <span class="btn-label">

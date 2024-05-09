@@ -48,6 +48,14 @@
                             </div>
 
                             <div class="col-12">
+                                <label for="capcode" class="form-label">Call Number</label>
+                                <input type="text" class="form-control" id="ebcode" name="code" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid call number.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
                                 <label for="subject" class="form-label">Subject</label>
                                 <input type="text" class="form-control" id="subject" name="subject" required>
                                 <div class="invalid-feedback">

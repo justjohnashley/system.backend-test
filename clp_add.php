@@ -28,7 +28,7 @@
     
         $content_files_json = json_encode($content_files);
     
-        $sql = "INSERT INTO clippings (title, category_id, newspaper, datepub, content) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO clippings (title, category_id, newspaper, datepub, content, date_added) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $con->prepare($sql);
         if ($stmt) {
             $stmt->bind_param("sssss", $title, $category, $newspaper, $datepub, $content_files_json);

@@ -24,54 +24,60 @@
                 <?php echo $row['upyear'] ?>
             </td>
             <td>
-            <?php if (!empty($row['cover'])): ?>
-                <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Book Cover" style="widfs:200px; height:75px; object-fit: cover;"
-                data-bs-toggle="modal" data-bs-target="#fscover" data-feasibility-cover="<?php echo htmlspecialchars($row['cover']); ?>">
+                <?php if (!empty($row['cover'])): ?>
+                    <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Book Cover"
+                        style="widfs:200px; height:75px; object-fit: cover;" data-bs-toggle="modal" data-bs-target="#fscover"
+                        data-feasibility-cover="<?php echo htmlspecialchars($row['cover']); ?>">
 
-                <div class="modal fade" id="fscover" tabindex="-1" aria-labelledby="coverModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-m">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                        <img src="" id="modalCoverImage" alt="Book Cover" style="widfs:100%; height:auto; object-fit: cover;">
+                    <div class="modal fade" id="fscover" tabindex="-1" aria-labelledby="coverModal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-m">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img src="" id="modalCoverImage" alt="Book Cover"
+                                        style="widfs:100%; height:auto; object-fit: cover;">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </div>
-        
-            <?php else: ?>
-                <button class="btn btn-outline-success">
+
+                <?php else: ?>
+                    <button class="btn btn-outline-success">
                         <span class="btn-label">
                             <i class="far fa-file-image"></i>
                         </span><br>
                         No cover uploaded
                     </button>
-            <?php endif; ?>
+                <?php endif; ?>
             </td>
             <td>
                 <div class="row gy-1 w-100 d-flex justify-content-center mx-1">
                     <div class="col text-center p-0">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fsview<?php echo $row['fsid']; ?>">
-                        <span class="btn-label">
-                            <i class="far fa-eye"></i>
-                        </span>
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#fsview<?php echo $row['fsid']; ?>">
+                            <span class="btn-label">
+                                <i class="far fa-eye"></i>
+                            </span>
 
-                    </button></div>
+                        </button>
+                    </div>
                     <div class="col text-center p-0">
-                    <button class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#fsedit"
-                        data-id="<?php echo $row['fsid'] ?>">
-                        <span class="btn-label">
-                            <i class="fas fa-pen"></i>
-                        </span>
+                        <button class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#fsedit"
+                            data-id="<?php echo $row['fsid'] ?>">
+                            <span class="btn-label">
+                                <i class="fas fa-pen"></i>
+                            </span>
 
-                    </button></div>
+                        </button>
+                    </div>
                     <div class="col text-center p-0">
-                    <button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#fsdelete"
-                        data-id="<?php echo $row['fsid'] ?>">
-                        <span class="btn-label">
-                            <i class="far fa-trash-alt"></i>
-                        </span>
+                        <button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#fsdelete"
+                            data-id="<?php echo $row['fsid'] ?>">
+                            <span class="btn-label">
+                                <i class="far fa-trash-alt"></i>
+                            </span>
 
-                    </button></div>
+                        </button>
+                    </div>
                 </div>
             </td>
         </tr>

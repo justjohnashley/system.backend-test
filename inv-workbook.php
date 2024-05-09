@@ -1,8 +1,8 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT DATE(date_added) AS added_date, COUNT(*) AS book_count, GROUP_CONCAT(bcode SEPARATOR '<br>') AS accession_numbers
-        FROM book
+$sql = "SELECT DATE(date_added) AS added_date, COUNT(*) AS th_count, GROUP_CONCAT(title SEPARATOR '<br>') AS title
+        FROM workbook
         GROUP BY DATE(date_added)";
 
 $result = $con->query($sql); ?>
@@ -14,8 +14,8 @@ if ($result->num_rows > 0) {
         <thead>
             <tr>
                 <th>Date Added</th>
-                <th>Number of Books</th>
-                <th>Accession No.</th>
+                <th>Number of Workbook</th>
+                <th>Title</th>
             </tr>
         </thead>
         <tbody>
@@ -25,13 +25,11 @@ if ($result->num_rows > 0) {
                 ?>
                 <tr>
                     <td><?php echo date('M d, Y', strtotime($row["added_date"])); ?></td>
-                    <td><?php echo $row["book_count"]; ?></td>
-                    <td><?php echo $row["accession_numbers"]; ?></td>
+                    <td><?php echo $row["th_count"]; ?></td>
+                    <td><?php echo $row["title"]; ?></td>
                 </tr>
                 <?php
             }
-} else {
-    echo "<p>No items found in the database.</p>";
 }
 ?>
     </tbody>

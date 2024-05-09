@@ -90,7 +90,7 @@
                                                 <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel"
                                                     aria-labelledby="ebooks-tab" tabindex="0">
                                                     <div class="card-body d-flex flex-fill" id="ebooks">
-                                                            <?php include 'inv-book.php' ?>
+                                                            <?php include 'inv-ebook.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('ebooks')">
                                                             <span class="btn-label">
@@ -117,7 +117,7 @@
                                                 <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel"
                                                     aria-labelledby="clippings-tab" tabindex="2">
                                                     <div class="card-body d-flex flex-fill" id="clips">
-                                                            <?php include 'inv-book.php' ?>
+                                                            <?php include 'inv-clips.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('clips')">
                                                             <span class="btn-label">
@@ -129,7 +129,7 @@
                                                 <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel"
                                                     aria-labelledby="eJourn/eMag-tab" tabindex="3">
                                                     <div class="card-body d-flex flex-fill" id="eMagJourn">
-                                                            <?php include 'inv-book.php' ?>
+                                                            <?php include 'inv-ejm.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('eMagJourn')">
                                                             <span class="btn-label">
@@ -141,7 +141,7 @@
                                                 <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel"
                                                     aria-labelledby="fiction-tab" tabindex="4">
                                                     <div class="card-body d-flex flex-fill" id="fiction">
-                                                            <?php include 'inv-book.php' ?>
+                                                            <?php include 'inv-fiction.php' ?>
                                                         </div>
                                                         <button class="btn btn-success" onclick="printDiv('fiction')">
                                                             <span class="btn-label">

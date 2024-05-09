@@ -1,8 +1,8 @@
 <!-- MODAL FOR ADD BUTTON -->
-<div class="modal fade" id="nradd">
+<div class="modal fade" id="fic_add">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form id="validation" name="add" action="n_add.php" method="POST" enctype="multipart/form-data">
+            <form id="validation" name="add" action="fic_add.php" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Add</h4>
@@ -14,11 +14,11 @@
                         <div class="row gy-2">
 
                             <div class="col-12">
-                                <label for="category" class="form-label">Program</label>
-                                <select class="form-select" name="type" required>
+                                <label for="category" class="form-label">Sublocation</label>
+                                <select class="form-select" name="slocation" required>
                                     <option selected></option>
                                     <?php
-                                    $sql = "SELECT * FROM nr_category";
+                                    $sql = "SELECT * FROM fiction_category";
                                     $query = $con->query($sql);
                                     while ($catrow = $query->fetch_assoc()) {
                                         $selected = ($catid == $catrow['id']) ? " selected" : "";
@@ -31,26 +31,19 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="year" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="year" name="upyr" min="1800" max="2100" required>
+                                <label for="year" class="form-label">Year Published</label>
+                                <input type="number" class="form-control" id="year" name="year" min="1500" max="2100"
+                                    required>
                                 <div class="invalid-feedback">
                                     Please enter a valid value.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="captitle" class="form-label">Report Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <label for="fictiontitle" class="form-label">Fiction Title</label>
+                                <input type="text" class="form-control" id="fictiontitle" name="title" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid title.
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="capcode" class="form-label">Call Number</label>
-                                <input type="text" class="form-control" id="nrcode" name="code" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid call number.
+                                    Please enter a valid fiction title.
                                 </div>
                             </div>
 
@@ -58,8 +51,46 @@
                                 <label for="author" class="form-label">Author/s</label>
                                 <input type="text" class="form-control" id="author" name="author" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid author/s.
+                                    Please enter a valid author.
                                 </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="code" class="form-label">Call Number</label>
+                                <input type="text" class="form-control" id="code" name="code" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid call number.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="ppublication" class="form-label">Publication Place</label>
+                                <input type="text" class="form-control" id="ppublication" name="plpub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publication place.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="publisher" class="form-label">Publisher</label>
+                                <input type="text" class="form-control" id="publisher" name="pub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publisher.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="description" class="form-label">Physical Description</label>
+                                <input type="text" class="form-control" id="description" name="descr" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid description.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="isbnumber" class="form-label">ISBN</label>
+                                <input type="number" class="form-control" id="isbnumber" name="isbn" maxlength="13"
+                                    minlength="10" required>
                             </div>
 
                             <div class="col-12">
@@ -70,7 +101,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control is-invalid" id="imageUpload"
-                                        name="nr_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
+                                        name="fiction_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
                                         data-bs-title="Double check before submitting." data-bs-placement="left"
                                         data-bs-custom-class="custom-tooltip">
                                     <div id="imageUpload" class="invalid-feedback">
@@ -100,7 +131,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="nr-add">Submit</button>
+                    <button type="submit" class="btn btn-success" name="fiction-add">Submit</button>
                 </div>
 
             </form>

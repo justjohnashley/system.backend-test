@@ -98,7 +98,7 @@ $result = mysqli_query($con, $query);
                                                                 </thead>
 
                                                                 <tbody class="table-group-divider">
-                                                                    <?php include 'inv-circB.php' ?>
+                                                                    <?php include 'inv_circB.php' ?>
 
                                                                 </tbody>
 
@@ -146,7 +146,7 @@ $result = mysqli_query($con, $query);
                                                                 </thead>
 
                                                                 <tbody class="table-group-divider">
-                                                                    <?php include 'inv-circR.php' ?>
+                                                                    <?php include 'inv_circR.php' ?>
 
                                                                 </tbody>
 

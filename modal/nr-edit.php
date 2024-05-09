@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="edit_title" class="form-label">Study Title</label>
+                                <label for="edit_title" class="form-label">Report Title</label>
                                 <input type="text" class="form-control" id="edit_title" name="title" required>
                             </div>
 

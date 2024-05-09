@@ -46,7 +46,7 @@
                                         <a href="ej_em.php" class="sidebar-link">&emsp;eJournals and eMagazines</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Fiction</a>
+                                        <a href="fiction.php" class="sidebar-link">&emsp;Fiction</a>
                                     </li>
                                 </ul>
                             </li>

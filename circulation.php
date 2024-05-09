@@ -68,21 +68,12 @@ $result = mysqli_query($con, $query);
                             <div class="card border-success flex-fill border-3 illustration">
                                 <div class="card-body text-light p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
-                                        <div class="col-4">
+                                        <div class="col-8">
                                             <div class="p-4 m-1">
                                                 <h4>Circulation Records</h4>
                                             </div>
                                         </div>
-                                        <div class="col-5 align-self-center text-end">
-                                            <form class="d-flex">
-                                                <input class="form-control me-2" type="search" placeholder="Search">
-                                                <button class="btn btn-success" type="submit">
-                                                    <i class="fas fa-search fa-lg"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-
-                                        <div class="col-3 align-self-center text-center p-2">
+                                        <div class="col-4 align-self-center text-center p-2">
                                             <div class="d-grid gap-2 d-md-block">
                                                 <button type="button" class="btn btn-secondary px-5"
                                                     data-bs-toggle="collapse" data-bs-target="#librecs"

@@ -2,8 +2,17 @@
 //include 'includes/sessions.php';
 session_start();
 require_once ('db.php');
-$query = "SELECT * FROM ejournal_emagazine";
+$query = "SELECT * FROM fiction";
 $result = mysqli_query($con, $query);
+
+?>
+<?php
+$catid = 0;
+$where = '';
+if (isset($_GET['category'])) {
+    $catid = $_GET['category'];
+    $where = 'WHERE fiction.category_id = ' . $catid;
+}
 
 ?>
 
@@ -13,7 +22,7 @@ $result = mysqli_query($con, $query);
 <head>
     <?php include 'includes/header.php'; ?>
 
-    <title>Library Holdings | Published Materials - eJournals & eMagazines</title>
+    <title>Library Holdings | Published Materials - Fictions</title>
 
 </head>
 
@@ -74,12 +83,12 @@ $result = mysqli_query($con, $query);
                                 <div class="row g-0 w-100">
                                     <div class="col-8">
                                         <div class="p-4 m-1">
-                                            <h4>List of eJournals & eMagazines</h4>
+                                            <h4>List of Fiction</h4>
                                         </div>
                                     </div>
                                     <div class="col-4 align-self-center text-center">
-                                        <a href="jm_add" class="btn btn-secondary px-5" data-bs-toggle="modal"
-                                            data-bs-target="#jm_add">
+                                        <a href="fic_add" class="btn btn-secondary px-5" data-bs-toggle="modal"
+                                            data-bs-target="#fic_add">
                                             <span class="btn-label">
                                                 <i class="fa fa-plus">
                                                 </i>
@@ -93,7 +102,7 @@ $result = mysqli_query($con, $query);
                         </div>
                     </div>
 
-                    <?php include 'modal/jour_mag-add.php' ?>
+                    <?php include 'modal/fiction-add.php' ?>
 
                     <div class="col-12 col-md-0 d-flex">
                         <div class="card flex-fill border-0">
@@ -106,15 +115,17 @@ $result = mysqli_query($con, $query);
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Item No.</th>
+                                                        <th scope="col">Code</th>
+                                                        <th scope="col">Sublocation</th>
                                                         <th scope="col">Title</th>
-                                                        <th scope="col">Volume No.</th>
-                                                        <th scope="col">Year Published</th>
+                                                        <th scope="col">Author/s</th>
+                                                        <th scope="col">Publication Info.</th>
                                                         <th scope="col">Cover</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
 
-                                                <?php include 'jm-content.php' ?>
+                                                <?php include 'fiction-content.php' ?>
 
                                             </table>
                                         </div>
@@ -144,14 +155,14 @@ $result = mysqli_query($con, $query);
         $(function () {
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault();
-                $('#jm_edit').modal('show');
+                $('#fic_edit').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
 
             $(document).on('click', '.delete', function (e) {
                 e.preventDefault();
-                $('#jm_delete').modal('show');
+                $('#fic_delete').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
@@ -160,15 +171,20 @@ $result = mysqli_query($con, $query);
         function getRow(id) {
             $.ajax({
                 type: 'POST',
-                url: 'jm_row.php',
+                url: 'fic_row.php',
                 data: { id: id },
                 dataType: 'json',
                 success: function (response) {
-                    $('.jmid').val(response.jmid);
+                    $('.ficid').val(response.ficid);
+                    $('#catselect').val(response.category_id).html(response.name);
+                    $('#edit_code').val(response.code);
                     $('#edit_year').val(response.year);
                     $('#edit_title').val(response.title);
-                    $('#edit_volumeno').val(response.volumeno);
-                    $('#edit_link').val(response.link);
+                    $('#edit_author').val(response.author);
+                    $('#edit_publisher').val(response.publisher);
+                    $('#edit_place').val(response.placepub);
+                    $('#edit_descr').val(response.descr);
+                    $('#edit_isbn').val(response.isbn);
 
                 }
             });
@@ -188,20 +204,17 @@ $result = mysqli_query($con, $query);
             this.value = input;
         });
 
-document.getElementById("link").addEventListener("input", function () {
-    let input = this.value.trim();
+        document.getElementById("isbnumber").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 13);
+            this.value = input;
+        });
 
-    if (!input.startsWith('http://') && !input.startsWith('https://')) {
-        if (input.includes('://')) {
-            let indexOfProtocol = input.indexOf('://');
-            input = 'http://' + input.slice(indexOfProtocol + 3);
-        } else {
-            input = 'http://' + input;
-        }
-    }
-    this.value = input;
-});
-
+        document.getElementById("edit_isbn").addEventListener("input", function () {
+            let input = this.value.trim();
+            input = input.slice(0, 13);
+            this.value = input;
+        });
     </script>
 
     <script>
@@ -272,11 +285,11 @@ document.getElementById("link").addEventListener("input", function () {
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
                 item.addEventListener('click', function () {
-                    var jmCover = this.getAttribute('data-jm-cover');
+                    var fictionCover = this.getAttribute('data-fiction-cover');
                     var targetID = this.getAttribute('data-bs-target');
                     var modalImage = document.querySelector(targetID + ' img');
-                    modalImage.src = jmCover;
-                });
+                    modalImage.src = fictionCover;
+                }); 
             });
         });
     </script>

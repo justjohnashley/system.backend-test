@@ -29,7 +29,7 @@
     
        
     
-        $sql = "INSERT INTO ejournal_emagazine (title, volumeno, link, year, jm_cover) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO ejournal_emagazine (title, volumeno, link, year, jm_cover, date_added) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $con->prepare($sql);
         if ($stmt) {
             $stmt->bind_param("sssss",$title, $volumeno, $link, $year, $jm_cover_path);

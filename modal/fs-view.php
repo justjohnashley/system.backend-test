@@ -10,7 +10,7 @@ if ($query->num_rows > 0) {
         $content_files = json_decode($row['content'], true);
         ?>
 
-        <div class="modal fade" id="thview<?php echo $fsId; ?>" tabindex="-1" role="dialog"
+        <div class="modal fade" id="fsview<?php echo $fsId; ?>" tabindex="-1" role="dialog"
             aria-labelledby="viewModalLabel<?php echo $fsId; ?>" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
