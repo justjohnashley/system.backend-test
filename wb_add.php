@@ -1,29 +1,22 @@
 <?php
-    //include 'includes/session.php';
-    session_start();
-    include 'db.php';
+	//include 'includes/session.php';
+	session_start();
+	include 'db.php';
 
-    if(isset($_POST['book-add'])){
-        $isbn = $_POST['isbn'];
-        $title = $_POST['title'];
-        $subj = $_POST['subject'];
-        $category = $_POST['slocation'];
-        $code = $_POST['code'];
-        $author = $_POST['author'];
-        $crdate = $_POST['cdate'];
-        $description = $_POST['desc'];
-        $publisher = $_POST['pub'];
-        $pubplace = $_POST['plpub'];
-        $book_cover_path = '';
+	if(isset($_POST['wb-add'])){
+		$title = $_POST['title'];
+		$category = $_POST['type'];
+		$author = $_POST['author'];
+		$wb_cover_path = '';
         $content_files = [];
     
-        if ($_FILES['book_cover']['error'] == 0) {
+        if ($_FILES['wb_cover']['error'] == 0) {
             $target_directory = "uploads/";
-            $target_file = $target_directory . basename($_FILES['book_cover']['name']);
+            $target_file = $target_directory . basename($_FILES['wb_cover']['name']);
     
             if (!file_exists($target_file)) {
-                if (move_uploaded_file($_FILES['book_cover']['tmp_name'], $target_file)) {
-                    $book_cover_path = $target_file;
+                if (move_uploaded_file($_FILES['wb_cover']['tmp_name'], $target_file)) {
+                    $wb_cover_path = $target_file;
                     $_SESSION['success'] = 'File uploaded successfully';
                 } else {
                     $_SESSION['error'] = 'Error uploading your file.';
@@ -32,7 +25,7 @@
                 $_SESSION['error'] = 'File already exists.';
             }
         } else {
-            $_SESSION['error'] = 'Error in uploading file: ' . $_FILES['book_cover']['error'];
+            $_SESSION['error'] = 'Error in uploading file: ' . $_FILES['wb_cover']['error'];
         }
     
         if (!empty($_FILES['content']['name'][0])) {
@@ -52,12 +45,12 @@
     
         $content_files_json = json_encode($content_files);
     
-        $sql = "INSERT INTO book (isbn, title, subj, category_id, bcode, author, cryear, descr, publisher, placepub, book_cover, content, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO workbook (wb_type, title, author, wb_cover, content, date_added) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $con->prepare($sql);
         if ($stmt) {
-            $stmt->bind_param("ssssssssssss", $isbn, $title, $subj, $category, $code, $author, $crdate, $description, $publisher, $pubplace, $book_cover_path, $content_files_json);
+            $stmt->bind_param("sssss", $category, $title, $author, $wb_cover_path, $content_files_json);
             if ($stmt->execute()) {
-                $_SESSION['success'] = 'Book added successfully';
+                $_SESSION['success'] = 'Workbook added successfully';
             } else {
                 $_SESSION['error'] = 'SQL Error: ' . $stmt->error;
             }
@@ -65,10 +58,10 @@
         } else {
             $_SESSION['error'] = "Prepare failed: (" . $con->errno . ") " . $con->error;
         }
-        header('location: books.php');
+        header('location: workbook.php');
     }
     else{
         $_SESSION['error'] = 'Fill up add form first';
-        header('location: books.php');
+        header('location: workbook.php');
     }
 ?>

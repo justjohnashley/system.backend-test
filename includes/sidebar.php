@@ -58,11 +58,8 @@
                                 </a>
                                 <ul id="notpubmat" class="sidebar-dropdown list-unstyled collapse">
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Workbooks</a>
+                                        <a href="workbook.php" class="sidebar-link">&emsp;Workbooks</a>
                                     </li>
-                                <!--    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;SHS Workbooks</a>
-                                    </li> -->
                                     <li class="sidebar-item">
                                         <a href="#" class="sidebar-link">&emsp;Thesis</a>
                                     </li>
@@ -72,9 +69,6 @@
                                     <li class="sidebar-item">
                                         <a href="#" class="sidebar-link">&emsp;Feasibility Studies</a>
                                     </li>
-                                <!--    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Manuscript</a>
-                                    </li> -->
                                     <li class="sidebar-item">
                                         <a href="#" class="sidebar-link">&emsp;Narrative Reports</a>
                                     </li>

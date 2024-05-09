@@ -47,7 +47,7 @@
                         <div class="card mt-4" style="width: 100%;">
                             <div class="row g-0 m-3">
                                 <div class="col-md-3">
-                                    <img src="image/profile.jpg" class="img-thumbnail mt-3 mb-3" alt="profile" style="width: 100px;">
+                                    <img src="image/profile.jpg" class="img-thumbnail mt-3 mb-3" alt="profile" style="width: 100%; margin-left: 0;">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body mx-3">

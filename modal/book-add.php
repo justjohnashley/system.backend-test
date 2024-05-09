@@ -9,7 +9,7 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 <div class="modal fade" id="bmadd">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form name="add" action="b_add.php" method="POST" enctype="multipart/form-data">
+            <form id="validation" name="add" action="b_add.php" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Add</h4>
@@ -39,7 +39,7 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 
                             <div class="col-12">
                                 <label for="bookcode" class="form-label">Accession No.</label>
-                                <input type="text" class="form-control" id="code" name="bcode" required
+                                <input type="text" class="form-control" id="code" name="code" required
                                     value="<?php echo $next_code; ?>">
                             </div>
 
@@ -51,32 +51,50 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 
                             <div class="col-12">
                                 <label for="booktitle" class="form-label">Book Title</label>
-                                <input type="text" class="form-control" id="booktitle" name="btitle" required>
+                                <input type="text" class="form-control" id="booktitle" name="title" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid book title.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="subject" class="form-label">Subject</label>
                                 <input type="text" class="form-control" id="subject" name="subject" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid subject.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="author" class="form-label">Author/s</label>
-                                <input type="text" class="form-control" id="author" name="bauthor" required>
+                                <input type="text" class="form-control" id="author" name="author" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid author.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="ppublication" class="form-label">Publication Place</label>
                                 <input type="text" class="form-control" id="ppublication" name="plpub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publication place.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="publisher" class="form-label">Publisher</label>
                                 <input type="text" class="form-control" id="publisher" name="pub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publisher.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="description" class="form-label">Physical Description</label>
                                 <input type="text" class="form-control" id="description" name="desc" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid description.
+                                </div>
                             </div>
 
                             <div class="col-12">
@@ -131,3 +149,43 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
         </div>
     </div>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById('validation'); 
+
+    form.setAttribute('novalidate', true);
+
+    form.addEventListener('submit', function(event) {
+        var isValid = true;
+        var inputs = form.querySelectorAll('input[type=text]'); 
+
+        inputs.forEach(function(input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false; 
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault(); 
+            event.stopPropagation(); 
+            alert('Please fill out the following fields correctly.');
+        }
+    });
+    form.querySelectorAll('input').forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            }
+        });
+    });
+});
+</script>

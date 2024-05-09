@@ -85,14 +85,6 @@ if (isset($_GET['category'])) {
                                                 <h4>List of Capstone Projects</h4>
                                             </div>
                                         </div>
-                                    <!--    <div class="col-5 align-self-center text-end">
-                                            <form class="d-flex">
-                                                <input class="form-control me-2" type="search" placeholder="Search">
-                                                <button class="btn btn-success" type="send">
-                                                    <i class="fas fa-search fa-lg"></i>
-                                                </button>
-                                            </form>
-                                        </div> -->
                                         <div class="col-4 align-self-center text-center">
                                             <button type="button" class="btn btn-secondary px-5" data-bs-toggle="modal"
                                                 data-bs-target="#cpadd">
