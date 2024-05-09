@@ -18,7 +18,7 @@
                 <?php echo $row['title'] ?>
             </td>
             <td>
-                <?php echo $row['date_added'] ?>
+                <?php echo date('M d, Y', strtotime($row['date_added'])) ?>
             </td>
             <td>
                 <?php if (!empty($row['cover'])): ?>

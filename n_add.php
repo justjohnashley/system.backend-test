@@ -1,24 +1,23 @@
 <?php
-	//include 'includes/session.php';
 	session_start();
 	include 'db.php';
 
-	if(isset($_POST['cap-add'])){
+	if(isset($_POST['nr-add'])){
 		$title = $_POST['title'];
 		$category = $_POST['type'];
 		$code = $_POST['code'];
 		$author = $_POST['author'];
 		$upyear = $_POST['upyr'];
-		$cap_cover_path = '';
+		$nr_cover_path = '';
         $content_files = [];
     
-        if ($_FILES['cap_cover']['error'] == 0) {
+        if ($_FILES['nr_cover']['error'] == 0) {
             $target_directory = "uploads/";
-            $target_file = $target_directory . basename($_FILES['cap_cover']['name']);
+            $target_file = $target_directory . basename($_FILES['nr_cover']['name']);
     
             if (!file_exists($target_file)) {
-                if (move_uploaded_file($_FILES['cap_cover']['tmp_name'], $target_file)) {
-                    $cap_cover_path = $target_file;
+                if (move_uploaded_file($_FILES['nr_cover']['tmp_name'], $target_file)) {
+                    $nr_cover_path = $target_file;
                     $_SESSION['success'] = 'File uploaded successfully';
                 } else {
                     $_SESSION['error'] = 'Error uploading your file.';
@@ -27,7 +26,7 @@
                 $_SESSION['error'] = 'File already exists.';
             }
         } else {
-            $_SESSION['error'] = 'Error in uploading file: ' . $_FILES['cap_cover']['error'];
+            $_SESSION['error'] = 'Error in uploading file: ' . $_FILES['nr_cover']['error'];
         }
     
         if (!empty($_FILES['content']['name'][0])) {
@@ -47,12 +46,12 @@
     
         $content_files_json = json_encode($content_files);
     
-        $sql = "INSERT INTO capstone (cap_type, upyear, title, code, author, cap_cover, content, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO nreport (nr_type, upyear, title, code, author, nr_cover, content, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $con->prepare($sql);
         if ($stmt) {
-            $stmt->bind_param("sssssss", $category, $upyear, $title, $code, $author, $cap_cover_path, $content_files_json);
+            $stmt->bind_param("sssssss", $category, $upyear, $title, $code, $author, $nr_cover_path, $content_files_json);
             if ($stmt->execute()) {
-                $_SESSION['success'] = 'Capstone added successfully';
+                $_SESSION['success'] = 'Report added successfully';
             } else {
                 $_SESSION['error'] = 'SQL Error: ' . $stmt->error;
             }
@@ -60,10 +59,10 @@
         } else {
             $_SESSION['error'] = "Prepare failed: (" . $con->errno . ") " . $con->error;
         }
-        header('location: capstone.php');
+        header('location: narrative-report.php');
     }
     else{
         $_SESSION['error'] = 'Fill up add form first';
-        header('location: capstone.php');
+        header('location: narrative-report.php');
     }
 ?>

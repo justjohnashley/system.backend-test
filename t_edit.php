@@ -1,10 +1,9 @@
 <?php
-	//include 'includes/session.php';
 	session_start();
 	include 'db.php';
 
 
-	if(isset($_POST['cap-edit'])){
+	if(isset($_POST['th-edit'])){
 		$id = $_POST['id'];
 		$title = $_POST['title'];
 		$category = $_POST['type'];
@@ -12,9 +11,9 @@
 		$author = $_POST['author'];
 		$upyear = $_POST['upyr'];
 
-		$sql = "UPDATE capstone SET code = '$code', title = '$title', cap_type = '$category', author = '$author', upyear = '$upyear' WHERE id = '$id'";
+		$sql = "UPDATE thesis SET code = '$code', title = '$title', th_type = '$category', author = '$author', upyear = '$upyear' WHERE id = '$id'";
 		if($con->query($sql)){
-			$_SESSION['success'] = 'Capstone updated successfully';
+			$_SESSION['success'] = 'Thesis updated successfully';
 		}
 		else{
 			$_SESSION['error'] = $con->error;
@@ -24,6 +23,6 @@
 		$_SESSION['error'] = 'Fill up edit form first';
 	}
 
-	header('location: capstone.php');
+	header('location: thesis.php');
 
 ?>

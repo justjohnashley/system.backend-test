@@ -61,16 +61,16 @@
                                         <a href="workbook.php" class="sidebar-link">&emsp;Workbooks</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Thesis</a>
+                                        <a href="thesis.php" class="sidebar-link">&emsp;Thesis</a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="capstone.php" class="sidebar-link">&emsp;Capstone</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Feasibility Studies</a>
+                                        <a href="feasibility-studies.php" class="sidebar-link">&emsp;Feasibility Studies</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Narrative Reports</a>
+                                        <a href="narrative-report.php" class="sidebar-link">&emsp;Narrative Reports</a>
                                     </li>
                                 </ul>
                             </li>

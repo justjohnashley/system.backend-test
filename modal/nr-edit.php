@@ -1,5 +1,5 @@
 <!-- MODAL FOR EDIT BUTTON -->
-<div class="modal fade" id="cpedit">
+<div class="modal fade" id="nredit">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -7,8 +7,8 @@
                 <h4 class="modal-title">Edit</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form name="edit" action="c_edit.php" method="POST">
-                <input type="hidden" class="capid" name="id">
+            <form name="edit" action="n_edit.php" method="POST">
+                <input type="hidden" class="nrid" name="id">
 
                 <div class="modal-body">
                     <div class="container overflow-hidden">
@@ -18,7 +18,7 @@
                                 <select class="form-select" name="type" required>
                                     <option value="" selected id="catselect"></option>
                                     <?php
-                                    $sql = "SELECT * FROM cap_category";
+                                    $sql = "SELECT * FROM nr_category";
                                     $query = $con->query($sql);
                                     while ($crow = $query->fetch_assoc()) {
                                         echo "
@@ -31,11 +31,11 @@
 
                             <div class="col-12">
                                 <label for="edit_uploadyr" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="edit_uploadyr" name="upyr" min="1900" max="2100" required>
+                                <input type="number" class="form-control" id="edit_uploadyr" name="upyr" min="1800" max="2100" required>
                             </div>
 
                             <div class="col-12">
-                                <label for="edit_title" class="form-label">Capstone Title</label>
+                                <label for="edit_title" class="form-label">Study Title</label>
                                 <input type="text" class="form-control" id="edit_title" name="title" required>
                             </div>
 
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="cap-edit">Submit</button>
+                    <button type="submit" class="btn btn-success" name="nr-edit">Submit</button>
                 </div>
 
             </form>

@@ -2,7 +2,7 @@
 <div class="modal fade" id="cpadd">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form name="add" action="c_add.php" method="POST" enctype="multipart/form-data">
+            <form id="validation" name="add" action="c_add.php" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Add</h4>
@@ -31,23 +31,35 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="uploadyr" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="uploadyr" name="upyr" min="1900" max="2100" required>
+                                <label for="year" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="year" name="upyr" min="1800" max="2100" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid value.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="captitle" class="form-label">Capstone Title</label>
-                                <input type="text" class="form-control" id="captitle" name="cptitle" required>
+                                <input type="text" class="form-control" id="captitle" name="title" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid title.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="capcode" class="form-label">Call Number</label>
-                                <input type="text" class="form-control" id="capcode" name="cpcode" required>
+                                <input type="text" class="form-control" id="capcode" name="code" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid call number.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="author" class="form-label">Author/s</label>
-                                <input type="text" class="form-control" id="author" name="cauthor" required>
+                                <input type="text" class="form-control" id="author" name="author" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid author/s.
+                                </div>
                             </div>
 
                             <div class="col-12">

@@ -163,3 +163,77 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById('validation'); 
+
+    form.setAttribute('novalidate', true);
+
+    form.addEventListener('submit', function(event) {
+        var isValid = true;
+        var inputs = form.querySelectorAll('input[type=text]'); 
+
+        inputs.forEach(function(input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false; 
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault(); 
+            event.stopPropagation(); 
+            alert('Please fill out the following fields correctly.');
+        }
+    });
+    form.querySelectorAll('input').forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            }
+        });
+    });
+    var yearInput = document.getElementById('year');
+
+    yearInput.addEventListener('input', function() {
+        var year = parseInt(this.value);
+        var currentYear = new Date().getFullYear();
+
+        if (isNaN(year) || year < 1800 || year > currentYear) {
+            this.classList.add('is-invalid');
+        } else {
+            this.classList.remove('is-invalid');
+        }
+    });
+
+    var isbnInput = document.getElementById('isbnumber');
+
+    isbnInput.addEventListener('input', function() {
+        var isbn = this.value.trim();
+        var isValid = false;
+
+        if (isbn.length === 10 || isbn.length === 13) {
+            isValid = true;
+            for (var i = 0; i < isbn.length; i++) {
+                if (isNaN(parseInt(isbn[i]))) {
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+
+        if (!isValid) {
+            this.classList.add('is-invalid');
+        } else {
+            this.classList.remove('is-invalid');
+        }
+    });
+});
+</script>

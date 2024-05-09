@@ -152,14 +152,14 @@ if (isset($_GET['category'])) {
         $(function () {
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault();
-                $('#cpedit').modal('show');
+                $('#wbedit').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
 
             $(document).on('click', '.delete', function (e) {
                 e.preventDefault();
-                $('#cpdelete').modal('show');
+                $('#wbdelete').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
@@ -182,21 +182,6 @@ if (isset($_GET['category'])) {
                 }
             });
         }
-    </script>
-
-<script>
-        document.getElementById("uploadyr").addEventListener("input", function () {
-            let input = this.value.trim();
-            input = input.slice(0, 4);
-            this.value = input;
-        });
-
-        document.getElementById("edit_uploadyr").addEventListener("input", function () {
-            let input = this.value.trim();
-            input = input.slice(0, 4);
-            this.value = input;
-        });
-
     </script>
 
     <script>

@@ -1,17 +1,17 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT id, content FROM capstone";
+$sql = "SELECT id, content FROM nreport";
 $query = $con->query($sql);
 
 if ($query->num_rows > 0) {
     while ($row = $query->fetch_assoc()) {
-        $capId = $row['id'];
+        $nrId = $row['id'];
         $content_files = json_decode($row['content'], true);
         ?>
 
-        <div class="modal fade" id="cpview<?php echo $capId; ?>" tabindex="-1" role="dialog"
-            aria-labelledby="viewModalLabel<?php echo $capId; ?>" aria-hidden="true">
+        <div class="modal fade" id="nrview<?php echo $nrId; ?>" tabindex="-1" role="dialog"
+            aria-labelledby="viewModalLabel<?php echo $nrId; ?>" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
@@ -41,7 +41,7 @@ if ($query->num_rows > 0) {
                                 }
                             }
                         } else {
-                            echo '<p>No content uploaded for this capstone.</p>';
+                            echo '<p>No content uploaded for this Narrative Report.</p>';
                         }
                         ?>
                     </div>
@@ -53,6 +53,6 @@ if ($query->num_rows > 0) {
         <?php
     }
 } else {
-    echo '<p>No capstone found in the database.</p>';
+    echo '<p>No Narrative Report found in the database.</p>';
 }
 ?>

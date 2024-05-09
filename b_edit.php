@@ -7,11 +7,11 @@
 	if(isset($_POST['book-edit'])){
         $id = $_POST['id'];
 		$isbn = $_POST['isbn'];
-		$title = $_POST['btitle'];
+		$title = $_POST['title'];
 		$subj = $_POST['subject'];
 		$category = $_POST['slocation'];
-		$code = $_POST['bcode'];
-		$author = $_POST['bauthor'];
+		$code = $_POST['code'];
+		$author = $_POST['author'];
 		$crdate = $_POST['cdate'];
 		$description = $_POST['desc'];
 		$publisher = $_POST['pub'];

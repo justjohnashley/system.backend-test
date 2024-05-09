@@ -41,12 +41,18 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
                                 <label for="bookcode" class="form-label">Accession No.</label>
                                 <input type="text" class="form-control" id="code" name="code" required
                                     value="<?php echo $next_code; ?>">
+                                <div class="invalid-feedback">
+                                    Please enter a valid accession number (e.g. LUL-****).
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="yearpub" class="form-label">Year Published</label>
-                                <input type="number" class="form-control" id="yearpub" name="cdate" min="1900"
-                                    max="2100" required placeholder="YYYY">
+                                <input type="number" class="form-control" id="year" name="cdate" min="1800"
+                                    max="2100" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid value.
+                                </div>
                             </div>
 
                             <div class="col-12">
@@ -69,7 +75,7 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
                                 <label for="author" class="form-label">Author/s</label>
                                 <input type="text" class="form-control" id="author" name="author" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid author.
+                                    Please enter a valid author/s.
                                 </div>
                             </div>
 
@@ -99,8 +105,10 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
 
                             <div class="col-12">
                                 <label for="isbnumber" class="form-label">ISBN</label>
-                                <input type="number" class="form-control" id="isbnumber" name="isbn" maxlength="13"
-                                    minlength="10" required placeholder="10-13 digits">
+                                <input type="number" class="form-control" id="isbnumber" name="isbn" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid value (10-13 digits).
+                                </div>
                             </div>
 
                             <div class="col-12">
@@ -149,43 +157,3 @@ $next_code = $max_code_row['max_code'] ? 'LUL-' . ($max_code_row['max_code'] + 1
         </div>
     </div>
 </div>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById('validation'); 
-
-    form.setAttribute('novalidate', true);
-
-    form.addEventListener('submit', function(event) {
-        var isValid = true;
-        var inputs = form.querySelectorAll('input[type=text]'); 
-
-        inputs.forEach(function(input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false; 
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        if (!isValid) {
-            event.preventDefault(); 
-            event.stopPropagation(); 
-            alert('Please fill out the following fields correctly.');
-        }
-    });
-    form.querySelectorAll('input').forEach(function(input) {
-        input.addEventListener('input', function() {
-            if (this.value.trim() !== '') {
-                this.classList.remove('is-invalid');
-                this.classList.add('is-valid');
-            } else {
-                this.classList.add('is-invalid');
-                this.classList.remove('is-valid');
-            }
-        });
-    });
-});
-</script>

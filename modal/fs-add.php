@@ -1,8 +1,8 @@
 <!-- MODAL FOR ADD BUTTON -->
-<div class="modal fade" id="wbadd">
+<div class="modal fade" id="fsadd">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form id="validation" name="add" action="wb_add.php" method="POST" enctype="multipart/form-data">
+            <form id="validation" name="add" action="f_add.php" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Add</h4>
@@ -18,7 +18,7 @@
                                 <select class="form-select" name="type" required>
                                     <option selected></option>
                                     <?php
-                                    $sql = "SELECT * FROM wb_category";
+                                    $sql = "SELECT * FROM fs_category";
                                     $query = $con->query($sql);
                                     while ($catrow = $query->fetch_assoc()) {
                                         $selected = ($catid == $catrow['id']) ? " selected" : "";
@@ -31,10 +31,26 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="captitle" class="form-label">Worbook Title</label>
+                                <label for="year" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="year" name="upyr" min="1800" max="2100" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid value.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="captitle" class="form-label">Study Title</label>
                                 <input type="text" class="form-control" id="title" name="title" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid workbook title.
+                                    Please enter a valid title.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="capcode" class="form-label">Call Number</label>
+                                <input type="text" class="form-control" id="fscode" name="code" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid call number.
                                 </div>
                             </div>
 
@@ -54,7 +70,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control is-invalid" id="imageUpload"
-                                        name="wb_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
+                                        name="fs_cover" accept=".jpg, .jpeg, .png" data-bs-toggle="tooltip"
                                         data-bs-title="Double check before submitting." data-bs-placement="left"
                                         data-bs-custom-class="custom-tooltip">
                                     <div id="imageUpload" class="invalid-feedback">
@@ -84,7 +100,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="wb-add">Submit</button>
+                    <button type="submit" class="btn btn-success" name="fs-add">Submit</button>
                 </div>
 
             </form>

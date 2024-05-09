@@ -31,7 +31,7 @@
 
                             <div class="col-12">
                                 <label for="edit_code" class="form-label">Accession No.</label>
-                                <input type="text" class="form-control" id="edit_code" name="bcode" required>
+                                <input type="text" class="form-control" id="edit_code" name="code" required>
                             </div>
 
                             <div class="col-12">
@@ -41,37 +41,58 @@
 
                             <div class="col-12">
                                 <label for="edit_title" class="form-label">Book Title</label>
-                                <input type="text" class="form-control" id="edit_title" name="btitle" required>
+                                <input type="text" class="form-control" id="edit_title" name="title" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publication place.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_subj" class="form-label">Subject</label>
                                 <input type="text" class="form-control" id="edit_subj" name="subject" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid subject.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_author" class="form-label">Author/s</label>
-                                <input type="text" class="form-control" id="edit_author" name="bauthor" required>
+                                <input type="text" class="form-control" id="edit_author" name="author" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid author/s.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_place" class="form-label">Publication Place</label>
                                 <input type="text" class="form-control" id="edit_place" name="plpub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publication place.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_publisher" class="form-label">Publisher</label>
                                 <input type="text" class="form-control" id="edit_publisher" name="pub" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid publisher.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_desc" class="form-label">Physical Description</label>
                                 <input type="text" class="form-control" id="edit_desc" name="desc" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid description.
+                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="edit_isbn" class="form-label">ISBN</label>
                                 <input type="text" class="form-control" id="edit_isbn" name="isbn" maxlength="13" minlength="10" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid ISBN.
+                                </div>
                             </div>
 
                         </div>
