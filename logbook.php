@@ -197,22 +197,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                 <?php include 'modal/log-college.php'; ?>
 
-
-                                                <div class="col-md-6 d-flex justify-content-evenly">
-                                                    <div class="p-3 m-1">
-                                                        <button class="btn btn-lg btn-size btn-glow-shs"
-                                                            data-bs-toggle="modal" data-bs-target="#shsModal">
-                                                            <h2 class="ms-3 mt-3 text-start">SHS</h2>
-                                                            <h1 class="text-end display-3 me-2">
-                                                                <i class="fas fa-user-alt-slash"></i>
-                                                            </h1>
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-                                                <?php include 'modal/log-shs.php'; ?>
-
-
                                                 <div class="col-md-6 d-flex justify-content-evenly">
                                                     <div class="p-3 m-1">
                                                         <button class="btn btn-lg btn-size btn-glow-personnel"
@@ -226,20 +210,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 </div>
 
                                                 <?php include 'modal/log-personnel.php'; ?>
-
-                                                <div class="col-md-6 d-flex justify-content-evenly">
-                                                    <div class="p-3 m-1">
-                                                        <button class="btn btn-lg btn-size btn-glow-visitor"
-                                                            data-bs-toggle="modal" data-bs-target="#visitorModal">
-                                                            <h2 class="ms-3 mt-3 text-start">Visitor</h2>
-                                                            <h1 class="text-end display-3 me-2">
-                                                                <i class="fas fa-user-alt-slash"></i>
-                                                            </h1>
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-                                                <?php include 'modal/log-visitor.php'; ?>
 
                                             </div>
 
@@ -271,8 +241,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <?php include 'includes/theme-toggler.php'; ?>
 
-            <?php include 'includes/footer.php'; ?>
-
+            
+<footer class="footer pt-3 border-top">
+    <div class="container-fluid">
+        <div class="row text-muted">
+            <div class="col-6 text-start">
+                <p class="mb-2">
+                    <a href="https://lu.edu.ph" class="text-muted">
+                        <strong>Laguna University 2024</strong>
+                    </a>
+                    | DigiLibMS 1.0.0
+                </p>
+            </div>
+            <div class="col-6 text-end">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://elibrary.lu.edu.ph" class="text-success"><strong>Digital
+                                Library</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
         </div>
     </div>
 

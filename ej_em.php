@@ -2,19 +2,19 @@
 //include 'includes/sessions.php';
 session_start();
 require_once ('db.php');
-$query = "SELECT * FROM book";
+$query = "SELECT * FROM ejournal_emagazine";
 $result = mysqli_query($con, $query);
 
 ?>
-<?php
+<!-- <?php
 $catid = 0;
 $where = '';
 if (isset($_GET['category'])) {
     $catid = $_GET['category'];
-    $where = 'WHERE book.category_id = ' . $catid;
+    $where = 'WHERE ebooks.category_id = ' . $catid;
 }
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
@@ -22,7 +22,7 @@ if (isset($_GET['category'])) {
 <head>
     <?php include 'includes/header.php'; ?>
 
-    <title>Library Holdings | Published Materials - Books</title>
+    <title>Library Holdings | Published Materials - eJournals & eMagazines</title>
 
 </head>
 
@@ -83,12 +83,12 @@ if (isset($_GET['category'])) {
                                 <div class="row g-0 w-100">
                                     <div class="col-8">
                                         <div class="p-4 m-1">
-                                            <h4>List of Books</h4>
+                                            <h4>List of eJournals & eMagazines</h4>
                                         </div>
                                     </div>
                                     <div class="col-4 align-self-center text-center">
-                                        <a href="bmadd" class="btn btn-secondary px-5" data-bs-toggle="modal"
-                                            data-bs-target="#bmadd">
+                                        <a href="jm_add" class="btn btn-secondary px-5" data-bs-toggle="modal"
+                                            data-bs-target="#jm_add">
                                             <span class="btn-label">
                                                 <i class="fa fa-plus">
                                                 </i>
@@ -102,7 +102,7 @@ if (isset($_GET['category'])) {
                         </div>
                     </div>
 
-                    <?php include 'modal/book-add.php' ?>
+                    <?php include 'modal/jour_mag-add.php' ?>
 
                     <div class="col-12 col-md-0 d-flex">
                         <div class="card flex-fill border-0">
@@ -115,17 +115,15 @@ if (isset($_GET['category'])) {
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Item No.</th>
-                                                        <th scope="col">Accession No.</th>
-                                                        <th scope="col">Sublocation</th>
                                                         <th scope="col">Title</th>
-                                                        <th scope="col">Author/s</th>
-                                                        <th scope="col">Publication Info.</th>
+                                                        <th scope="col">Volume No.</th>
+                                                        <th scope="col">Year Published</th>
                                                         <th scope="col">Cover</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
 
-                                                <?php include 'books-content.php' ?>
+                                                <?php include 'jm-content.php' ?>
 
                                             </table>
                                         </div>
@@ -155,14 +153,14 @@ if (isset($_GET['category'])) {
         $(function () {
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault();
-                $('#bmedit').modal('show');
+                $('#jm_edit').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
 
             $(document).on('click', '.delete', function (e) {
                 e.preventDefault();
-                $('#bmdelete').modal('show');
+                $('#jm_delete').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
@@ -171,21 +169,15 @@ if (isset($_GET['category'])) {
         function getRow(id) {
             $.ajax({
                 type: 'POST',
-                url: 'b_row.php',
+                url: 'jm_row.php',
                 data: { id: id },
                 dataType: 'json',
                 success: function (response) {
-                    $('.bookid').val(response.bookid);
-                    $('#catselect').val(response.category_id).html(response.name);
-                    $('#edit_code').val(response.bcode);
-                    $('#edit_year').val(response.cryear);
+                    $('.jmid').val(response.jmid);
+                    $('#edit_year').val(response.year);
                     $('#edit_title').val(response.title);
-                    $('#edit_subj').val(response.subj);
-                    $('#edit_author').val(response.author);
-                    $('#edit_publisher').val(response.publisher);
-                    $('#edit_place').val(response.placepub);
-                    $('#edit_desc').val(response.descr);
-                    $('#edit_isbn').val(response.isbn);
+                    $('#edit_volumeno').val(response.volumeno);
+                    $('#edit_link').val(response.link);
 
                 }
             });
@@ -205,17 +197,27 @@ if (isset($_GET['category'])) {
             this.value = input;
         });
 
-        document.getElementById("isbnumber").addEventListener("input", function () {
-            let input = this.value.trim();
-            input = input.slice(0, 13);
-            this.value = input;
-        });
+document.getElementById("link").addEventListener("input", function () {
+    let input = this.value.trim();
 
-        document.getElementById("edit_isbn").addEventListener("input", function () {
-            let input = this.value.trim();
-            input = input.slice(0, 13);
-            this.value = input;
-        });
+    // Enforcing http:// or https:// at the start if not present
+    if (!input.startsWith('http://') && !input.startsWith('https://')) {
+        if (input.includes('://')) {
+            let indexOfProtocol = input.indexOf('://');
+            input = 'http://' + input.slice(indexOfProtocol + 3);
+        } else {
+            input = 'http://' + input;
+        }
+    }
+    this.value = input;
+});
+
+
+        // document.getElementById("edit_isbn").addEventListener("input", function () {
+        //     let input = this.value.trim();
+        //     input = input.slice(0, 13);
+        //     this.value = input;
+        // });
     </script>
 
     <script>
@@ -286,16 +288,15 @@ if (isset($_GET['category'])) {
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
                 item.addEventListener('click', function () {
-                    var bookCover = this.getAttribute('data-book-cover');
+                    var jmCover = this.getAttribute('data-jm-cover');
                     var targetID = this.getAttribute('data-bs-target');
                     var modalImage = document.querySelector(targetID + ' img');
-                    modalImage.src = bookCover;
+                    modalImage.src = jmCover;
                 });
             });
         });
     </script>
 
-    
 
 
 </body>

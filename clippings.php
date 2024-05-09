@@ -2,7 +2,7 @@
 //include 'includes/sessions.php';
 session_start();
 require_once ('db.php');
-$query = "SELECT * FROM book";
+$query = "SELECT * FROM clippings";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -11,7 +11,7 @@ $catid = 0;
 $where = '';
 if (isset($_GET['category'])) {
     $catid = $_GET['category'];
-    $where = 'WHERE book.category_id = ' . $catid;
+    $where = 'WHERE clippings.category_id = ' . $catid;
 }
 
 ?>
@@ -22,7 +22,7 @@ if (isset($_GET['category'])) {
 <head>
     <?php include 'includes/header.php'; ?>
 
-    <title>Library Holdings | Published Materials - Books</title>
+    <title>Library Holdings | Published Materials - Clippings</title>
 
 </head>
 
@@ -83,12 +83,12 @@ if (isset($_GET['category'])) {
                                 <div class="row g-0 w-100">
                                     <div class="col-8">
                                         <div class="p-4 m-1">
-                                            <h4>List of Books</h4>
+                                            <h4>List of Clippings</h4>
                                         </div>
                                     </div>
                                     <div class="col-4 align-self-center text-center">
-                                        <a href="bmadd" class="btn btn-secondary px-5" data-bs-toggle="modal"
-                                            data-bs-target="#bmadd">
+                                        <a href="clip_add" class="btn btn-secondary px-5" data-bs-toggle="modal"
+                                            data-bs-target="#clip_add">
                                             <span class="btn-label">
                                                 <i class="fa fa-plus">
                                                 </i>
@@ -102,7 +102,7 @@ if (isset($_GET['category'])) {
                         </div>
                     </div>
 
-                    <?php include 'modal/book-add.php' ?>
+                    <?php include 'modal/clip-add.php' ?>
 
                     <div class="col-12 col-md-0 d-flex">
                         <div class="card flex-fill border-0">
@@ -115,17 +115,15 @@ if (isset($_GET['category'])) {
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Item No.</th>
-                                                        <th scope="col">Accession No.</th>
-                                                        <th scope="col">Sublocation</th>
+                                                        <th scope="col">Subject</th>
                                                         <th scope="col">Title</th>
-                                                        <th scope="col">Author/s</th>
-                                                        <th scope="col">Publication Info.</th>
-                                                        <th scope="col">Cover</th>
+                                                        <th scope="col">Newspaper</th>
+                                                        <th scope="col">Date Published</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
 
-                                                <?php include 'books-content.php' ?>
+                                                <?php include 'clippings-content.php' ?>
 
                                             </table>
                                         </div>
@@ -155,14 +153,14 @@ if (isset($_GET['category'])) {
         $(function () {
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault();
-                $('#bmedit').modal('show');
+                $('#clip_edit').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
 
             $(document).on('click', '.delete', function (e) {
                 e.preventDefault();
-                $('#bmdelete').modal('show');
+                $('#clip_delete').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
@@ -171,29 +169,24 @@ if (isset($_GET['category'])) {
         function getRow(id) {
             $.ajax({
                 type: 'POST',
-                url: 'b_row.php',
+                url: 'clp_row.php',
                 data: { id: id },
                 dataType: 'json',
                 success: function (response) {
-                    $('.bookid').val(response.bookid);
+                    $('.clipid').val(response.clipid);
                     $('#catselect').val(response.category_id).html(response.name);
-                    $('#edit_code').val(response.bcode);
-                    $('#edit_year').val(response.cryear);
+                    $('#edit_datepub').val(response.datepub);
                     $('#edit_title').val(response.title);
                     $('#edit_subj').val(response.subj);
-                    $('#edit_author').val(response.author);
-                    $('#edit_publisher').val(response.publisher);
-                    $('#edit_place').val(response.placepub);
-                    $('#edit_desc').val(response.descr);
-                    $('#edit_isbn').val(response.isbn);
+                    $('#edit_newspaper').val(response.newspaper);
 
                 }
             });
         }
     </script>
 
-    <script>
-        document.getElementById("year").addEventListener("input", function () {
+    <!-- <script>
+        document.getElementById("yearpub").addEventListener("input", function () {
             let input = this.value.trim();
             input = input.slice(0, 4);
             this.value = input;
@@ -216,9 +209,9 @@ if (isset($_GET['category'])) {
             input = input.slice(0, 13);
             this.value = input;
         });
-    </script>
+    </script> -->
 
-    <script>
+    <!-- <script>
         document.getElementById('imageUpload').addEventListener('change', function (event) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -231,7 +224,7 @@ if (isset($_GET['category'])) {
 
             reader.readAsDataURL(file);
         });
-    </script>
+    </script> -->
 
     <script>
         function showSelectedFile(input) {
@@ -282,20 +275,6 @@ if (isset($_GET['category'])) {
 
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
-                item.addEventListener('click', function () {
-                    var bookCover = this.getAttribute('data-book-cover');
-                    var targetID = this.getAttribute('data-bs-target');
-                    var modalImage = document.querySelector(targetID + ' img');
-                    modalImage.src = bookCover;
-                });
-            });
-        });
-    </script>
-
-    
 
 
 </body>

@@ -25,36 +25,41 @@
             </td>
 
             <td>
-            <?php if (!empty($row['cover'])): ?>
-                <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Book Cover" style="width:200px; height:75px; object-fit: cover;"
-                data-bs-toggle="modal" data-bs-target="#bmcover" data-book-cover="<?php echo htmlspecialchars($row['cover']); ?>">
+                <?php if (!empty($row['cover'])): ?>
+                    <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Book Cover"
+                        style="width:200px; height:75px; object-fit: cover;" data-bs-toggle="modal"
+                        data-bs-target="#bmcover<?php echo $row['id']; ?>"
+                        data-book-cover="<?php echo htmlspecialchars($row['cover']); ?>">
 
-                <div class="modal fade" id="bmcover" tabindex="-1" aria-labelledby="coverModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-m">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                        <img src="" id="modalCoverImage" alt="Book Cover" style="width:100%; height:auto; object-fit: cover;">
+                    <div class="modal fade" id="bmcover<?php echo $row['id']; ?>" tabindex="-1"
+                        aria-labelledby="coverModal<?php echo $row['id']; ?>" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-m">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img src="" id="modalCoverImage<?php echo $row['id']; ?>" alt="Book Cover"
+                                        style="width:100%; height:auto; object-fit: cover;">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </div>
-        
-            <?php else: ?>
-                <button class="btn btn-outline-success">
+
+                <?php else: ?>
+                    <button class="btn btn-outline-success">
                         <span class="btn-label">
                             <i class="far fa-file-image"></i>
                         </span><br>
                         No cover uploaded
                     </button>
-            <?php endif; ?>
+                <?php endif; ?>
             </td>
             <td>
                 <div class="row w-100 d-flex justify-content-center align-items-center mx-1">
-                <div class="col text-center p-0">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bmview<?php echo $row['bookid']; ?>">
+                    <div class="col text-center p-0">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#bmview<?php echo $row['bookid']; ?>">
                             <span class="btn-label">
                                 <i class="far fa-eye"></i>
-                            </span> 
+                            </span>
                         </button>
                     </div>
                     <div class="col text-center p-0">
@@ -88,4 +93,3 @@
     <?php include 'modal/book-delete.php' ?>
 
 </tbody>
-

@@ -10,7 +10,7 @@ $result = $con->query($sql); ?>
 <?php
 if ($result->num_rows > 0) {
     ?>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Date Added</th>

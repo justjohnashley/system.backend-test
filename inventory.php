@@ -120,39 +120,7 @@
 
 
                     </div>
-                    <!-- Chart Elements -->
-                    <!--    <div class="row my-2">
-                        <div class="col-md-12 py-1">
-                            <div class="card border-0">
-                                <div class="card-header">
-                                    <h5 class="card-title mt-2">
-                                        Books borrowed this year
-                                    </h5>
-                                    <h6 class="card-subtitle text-muted">
-                                        Monthly view of books borrowed. 
-                                    </h6>
-                                </div>   
-                                <div class="card-body d-flex flex-fill">
-                                    <canvas id="chLine"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 py-1">
-                            <div class="card border-0">
-                                <div class="card-header">
-                                    <h5 class="card-title mt-2">
-                                        Student Logs
-                                    </h5>
-                                    <h6 class="card-subtitle text-muted">
-                                        Monthly view of student who logged into the University Library. 
-                                    </h6>
-                                </div>   
-                                <div class="card-body d-flex flex-fill">
-                                    <canvas id="chBar"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+ 
                 </div>
             </main>
 

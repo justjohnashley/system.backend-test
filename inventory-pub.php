@@ -89,32 +89,66 @@
                                             <div class="tab-content" id="myTabContent">
                                                 <div class="tab-pane fade" id="ebooks-tab-pane" role="tabpanel"
                                                     aria-labelledby="ebooks-tab" tabindex="0">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="ebooks">
+                                                            <?php include 'inv-book.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('ebooks')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
 
                                                 <div class="tab-pane fade show active" id="books-tab-pane"
                                                     role="tabpanel" aria-labelledby="books-tab" tabindex="1">
                                                     <div class="table-responsive-lg">
-                                                        <div class="card-body d-flex flex-fill">
+                                                        <div class="card-body d-flex flex-fill" id="books">
                                                             <?php include 'inv-book.php' ?>
                                                         </div>
+                                                        <button class="btn btn-success" onclick="printDiv('books')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="clippings-tab-pane" role="tabpanel"
                                                     aria-labelledby="clippings-tab" tabindex="2">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="clips">
+                                                            <?php include 'inv-book.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('clips')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
                                                 <div class="tab-pane fade" id="eJourn/eMag-tab-pane" role="tabpanel"
                                                     aria-labelledby="eJourn/eMag-tab" tabindex="3">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="eMagJourn">
+                                                            <?php include 'inv-book.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('eMagJourn')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
                                                 <div class="tab-pane fade" id="fiction-tab-pane" role="tabpanel"
                                                     aria-labelledby="fiction-tab" tabindex="4">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="fiction">
+                                                            <?php include 'inv-book.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('fiction')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,6 +172,31 @@
 
 
     <?php include 'includes/scripts.php'; ?>
+
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:none;');
+            document.body.appendChild(iframe);
+
+            var doc = iframe.contentDocument || iframe.contentWindow.document;
+            doc.write('<html><head><title>LU -  Inventory > Published Materials </title>');
+            doc.write('<link rel="stylesheet" href="assets/css/style.css">');
+            doc.write('<link rel="stylesheet" href="assets/css/bootstrap.min.css">');
+            doc.write('</head><body>');
+            doc.write(printContents);
+            doc.write('</body></html>');
+            doc.close();
+
+            iframe.contentWindow.print();
+
+            document.body.removeChild(iframe);
+
+            window.location.reload();
+        }
+    </script>
 
 </body>
 

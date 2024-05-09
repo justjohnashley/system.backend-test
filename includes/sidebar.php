@@ -40,10 +40,10 @@
                                         <a href="books.php" class="sidebar-link">&emsp;Books</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;Clippings</a>
+                                        <a href="clippings.php" class="sidebar-link">&emsp;Clippings</a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;eJournals and eMagazines</a>
+                                        <a href="ej_em.php" class="sidebar-link">&emsp;eJournals and eMagazines</a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="#" class="sidebar-link">&emsp;Fiction</a>

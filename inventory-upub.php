@@ -56,7 +56,7 @@
                                         <div class="row g-0 w-100">
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="Workbooks-tab" data-bs-toggle="tab"
+                                                    <button class="nav-link active" id="Workbooks-tab" data-bs-toggle="tab"
                                                         data-bs-target="#Workbooks-tab-pane" type="button" role="tab"
                                                         aria-controls="Workbooks-tab-pane"
                                                         aria-selected="false">Workbooks</button>
@@ -68,7 +68,7 @@
                                                         aria-selected="true">Thesis</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="Capstone-tab"
+                                                    <button class="nav-link" id="Capstone-tab"
                                                         data-bs-toggle="tab" data-bs-target="#Capstone-tab-pane"
                                                         type="button" role="tab" aria-controls="Capstone-tab-pane"
                                                         aria-selected="false">Capstone</button>
@@ -87,32 +87,68 @@
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade" id="Workbooks-tab-pane" role="tabpanel"
+                                                <div class="tab-pane fade show active" id="Workbooks-tab-pane" role="tabpanel"
                                                     aria-labelledby="Workbooks-tab" tabindex="0">
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="workbook">
+                                                            <?php include 'inv-caps.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('workbook')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
 
                                                 <div class="tab-pane fade" id="Thesis-tab-pane" role="tabpanel"
                                                     aria-labelledby="Thesis-tab" tabindex="1">
-                                                    <?php include 'includes/!avail.php' ?>
-                                                </div>
-                                                <div class="tab-pane fade show active" id="Capstone-tab-pane"
-                                                    role="tabpanel" aria-labelledby="Capstone-tab" tabindex="2">
-                                                    <div class="table-responsive-lg">
-                                                        <div class="card-body d-flex flex-fill">
+                                                    <div class="card-body d-flex flex-fill" id="thesis">
                                                             <?php include 'inv-caps.php' ?>
                                                         </div>
+                                                        <button class="btn btn-success" onclick="printDiv('thesis')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
+                                                </div>
+                                                <div class="tab-pane fade" id="Capstone-tab-pane"
+                                                    role="tabpanel" aria-labelledby="Capstone-tab" tabindex="2">
+                                                    <div class="table-responsive-lg">
+                                                        <div class="card-body d-flex flex-fill" id="capstone">
+                                                            <?php include 'inv-caps.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('capstone')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="Feasiblity-tab-pane" role="tabpanel"
                                                     aria-labelledby="Feasiblity-tab" tabindex="3">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="feasible">
+                                                            <?php include 'inv-caps.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('feasible')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
                                                 <div class="tab-pane fade" id="NarrativeRep-tab-pane" role="tabpanel"
                                                     aria-labelledby="NarrativeRep-tab" tabindex="4">
-
-                                                    <?php include 'includes/!avail.php' ?>
+                                                    <div class="card-body d-flex flex-fill" id="narrative">
+                                                            <?php include 'inv-caps.php' ?>
+                                                        </div>
+                                                        <button class="btn btn-success" onclick="printDiv('narrative')">
+                                                            <span class="btn-label">
+                                                                <i class="fas fa-print">
+                                                                </i> Print
+                                                            </span>
+                                                        </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,6 +172,30 @@
 
 
     <?php include 'includes/scripts.php'; ?>
+
+    <script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:none;');
+        document.body.appendChild(iframe);
+
+        var doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.write('<html><head><title>LU -  Inventory > Unpublished Materials </title>');
+        doc.write('<link rel="stylesheet" href="assets/css/style.css">'); 
+        doc.write('<link rel="stylesheet" href="assets/css/bootstrap.min.css">'); 
+        doc.write('</head><body>');
+        doc.write(printContents);
+        doc.write('</body></html>');
+        doc.close();
+
+        iframe.contentWindow.print();
+
+        document.body.removeChild(iframe);
+
+        window.location.reload();    }
+</script>
 
 </body>
 
