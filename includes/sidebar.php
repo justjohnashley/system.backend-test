@@ -34,7 +34,7 @@
                                 </a>
                                 <ul id="pubmat" class="sidebar-dropdown list-unstyled collapse">
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">&emsp;eBooks</a>
+                                        <a href="eBooks.php" class="sidebar-link">&emsp;eBooks</a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="books.php" class="sidebar-link">&emsp;Books</a>
