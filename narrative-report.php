@@ -1,5 +1,6 @@
 <?php
-session_start();
+include 'includes/sessions.php';
+
 require_once ('db.php');
 $query = "SELECT * FROM nreport";
 $result = mysqli_query($con, $query);

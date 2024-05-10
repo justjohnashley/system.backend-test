@@ -41,7 +41,7 @@ if ($query->num_rows > 0) {
                                 }
                             }
                         } else {
-                            echo '<p>No content uploaded for this thesis.</p>';
+                            echo '<p>No content uploaded for this study.</p>';
                         }
                         ?>
                     </div>

@@ -1,6 +1,6 @@
 <?php
-//include 'includes/sessions.php';
-session_start();
+include 'includes/sessions.php';
+
 require_once ('db.php');
 $query = "SELECT * FROM book";
 $result = mysqli_query($con, $query);

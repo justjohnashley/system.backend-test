@@ -37,9 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link active text-bg-success" aria-current="page" href="profile.php"> Profile </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-success" href="profile-about.php"> About </a>
-                    </li>
+
                 </ul>
 
                 <div class="container">

@@ -1,5 +1,6 @@
 <?php
-session_start();
+include 'includes/sessions.php';
+
 require_once ('db.php');
 $query = "SELECT * FROM feasibility";
 $result = mysqli_query($con, $query);
@@ -153,14 +154,14 @@ if (isset($_GET['category'])) {
         $(function () {
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault();
-                $('#thedit').modal('show');
+                $('#fsedit').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
 
             $(document).on('click', '.delete', function (e) {
                 e.preventDefault();
-                $('#thdelete').modal('show');
+                $('#fsdelete').modal('show');
                 var id = $(this).data('id');
                 getRow(id);
             });
@@ -266,12 +267,12 @@ if (isset($_GET['category'])) {
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var cpCoverModal = document.getElementById('fscover');
-            cpCoverModal.addEventListener('show.bs.modal', function (event) {
+            var fsCoverModal = document.getElementById('fscover');
+            fsCoverModal.addEventListener('show.bs.modal', function (event) {
                 var triggerElement = event.relatedTarget;
-                var capCover = triggerElement.getAttribute('data-feasibility-cover');
+                var fsCover = triggerElement.getAttribute('data-feasibility-cover');
                 var modalImage = document.getElementById('modalCoverImage');
-                modalImage.src = capCover;
+                modalImage.src = fsCover;
             });
         });
     </script>

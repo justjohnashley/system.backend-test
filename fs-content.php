@@ -25,16 +25,16 @@
             </td>
             <td>
                 <?php if (!empty($row['cover'])): ?>
-                    <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Book Cover"
-                        style="widfs:200px; height:75px; object-fit: cover;" data-bs-toggle="modal" data-bs-target="#fscover"
+                    <img src="<?php echo htmlspecialchars($row['cover']); ?>" alt="Exec. Summary"
+                        style="width:200px; height:75px; object-fit: cover;" data-bs-toggle="modal" data-bs-target="#fscover"
                         data-feasibility-cover="<?php echo htmlspecialchars($row['cover']); ?>">
 
                     <div class="modal fade" id="fscover" tabindex="-1" aria-labelledby="coverModal" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-m">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <img src="" id="modalCoverImage" alt="Book Cover"
-                                        style="widfs:100%; height:auto; object-fit: cover;">
+                                    <img src="" id="modalCoverImage" alt="Exec. Summary"
+                                        style="width:100%; height:auto; object-fit: cover;">
                                 </div>
                             </div>
                         </div>

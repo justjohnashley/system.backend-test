@@ -1,4 +1,6 @@
 <?php
+include 'includes/sessions.php';
+
 include 'db2.php';
 
 $sql_college = "SELECT col_studentID, col_lastName, col_firstName, col_program, col_dateTime, col_purpose FROM logbook_college ORDER BY col_dateTime DESC";
